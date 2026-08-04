@@ -62,13 +62,11 @@ class GitHubDocumentation
         $currentDocument = $documents[$currentIndex];
         $markdown = $this->document($currentDocument['source_path'], $currentDocument['sha']);
         [$frontMatter, $body] = $this->extractFrontMatter($markdown);
-
-        $currentDocument['title'] = $frontMatter['title'] ?? $currentDocument['title'];
-        $documents[$currentIndex] = $currentDocument;
+        $pageTitle = $frontMatter['title'] ?? $currentDocument['title'];
 
         return [
             'slug' => $slug,
-            'title' => $currentDocument['title'],
+            'title' => $pageTitle,
             'description' => $frontMatter['description'] ?? '',
             'html' => Str::markdown($this->rewriteRelativeTargets($body, $currentDocument['source_path']), [
                 'html_input' => 'strip',

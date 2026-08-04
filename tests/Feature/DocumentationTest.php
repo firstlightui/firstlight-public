@@ -66,7 +66,7 @@ it('renders safe Markdown and rewrites relative documentation targets', function
         'raw.githubusercontent.com/firstlightui/nativephp/main/docs/index.md' => Http::response(documentationIndex()),
         'raw.githubusercontent.com/firstlightui/nativephp/main/docs/components/segmented.md' => Http::response(<<<'MARKDOWN'
 ---
-title: Segmented
+title: Segmented control for NativePHP
 description: Native segmented controls for Firstlight UI.
 ---
 
@@ -84,6 +84,9 @@ MARKDOWN),
 
     $this->get('/docs/components/segmented')
         ->assertSuccessful()
+        ->assertSee('Segmented control for NativePHP')
+        ->assertSee('<span>Segmented</span>', escape: false)
+        ->assertDontSee('<span>Segmented control for NativePHP</span>', escape: false)
         ->assertSee('Segmented')
         ->assertSee('/docs/reference/compatibility', escape: false)
         ->assertSee('https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/segmented/ios-light.png', escape: false)

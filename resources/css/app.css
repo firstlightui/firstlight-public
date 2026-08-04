@@ -238,35 +238,67 @@
 
 .docs-code-block pre {
     margin-block: 0;
-    padding-top: 4rem;
 }
 
 .docs-code-copy {
     position: absolute;
+    display: grid;
     z-index: 1;
     top: 0.75rem;
     right: 0.75rem;
-    min-width: 4.5rem;
-    min-height: 2.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
     border: 1px solid color-mix(in oklch, var(--site-code-text) 18%, transparent);
-    border-radius: 9999px;
-    background: color-mix(in oklch, var(--site-code-text) 8%, transparent);
+    border-radius: 0.625rem;
+    background: color-mix(in oklch, var(--site-code) 86%, var(--site-code-text));
     color: var(--site-code-text);
     cursor: pointer;
-    font-family: var(--font-sans);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    line-height: 1;
-    padding-inline: 0.9rem;
+    opacity: 0;
+    transform: translateY(-0.2rem);
+    transition:
+        opacity 140ms ease-out,
+        transform 140ms ease-out,
+        background-color 140ms ease-out,
+        border-color 140ms ease-out;
+}
+
+.docs-code-copy svg {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.docs-code-block:hover .docs-code-copy,
+.docs-code-block:focus-within .docs-code-copy,
+.docs-code-copy[data-state] {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .docs-code-copy:hover {
-    background: color-mix(in oklch, var(--site-code-text) 14%, transparent);
+    border-color: color-mix(in oklch, var(--site-code-text) 30%, transparent);
+    background: color-mix(in oklch, var(--site-code) 78%, var(--site-code-text));
+}
+
+.docs-code-copy:active {
+    transform: translateY(1px);
+}
+
+.docs-code-copy[data-state='copied'] {
+    border-color: color-mix(in oklch, var(--color-dawn-400) 58%, transparent);
+    color: var(--color-dawn-300);
 }
 
 .docs-code-copy:focus-visible {
     outline: 2px solid var(--site-focus);
     outline-offset: 0.125rem;
+}
+
+@media (hover: none) {
+    .docs-code-copy {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 .docs-prose pre code {

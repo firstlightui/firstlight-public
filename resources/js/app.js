@@ -44,6 +44,17 @@ copyButtons.forEach((button) => {
 });
 
 const documentationCodeBlocks = document.querySelectorAll('.docs-prose pre');
+const copyIcon = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect width="14" height="14" x="8" y="8" rx="2"></rect>
+        <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
+    </svg>
+`;
+const copiedIcon = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="m5 12 4 4L19 6"></path>
+    </svg>
+`;
 
 documentationCodeBlocks.forEach((pre) => {
     const code = pre.querySelector('code');
@@ -58,8 +69,9 @@ documentationCodeBlocks.forEach((pre) => {
     wrapper.className = 'docs-code-block';
     button.type = 'button';
     button.className = 'docs-code-copy';
-    button.textContent = 'Copy';
-    button.setAttribute('aria-label', 'Copy code block');
+    button.innerHTML = copyIcon;
+    button.title = 'Copy code';
+    button.setAttribute('aria-label', 'Copy code');
     button.setAttribute('aria-live', 'polite');
 
     pre.before(wrapper);
@@ -69,13 +81,21 @@ documentationCodeBlocks.forEach((pre) => {
     button.addEventListener('click', async () => {
         try {
             await copyText(code.textContent.trim());
-            button.textContent = 'Copied';
+            button.innerHTML = copiedIcon;
+            button.dataset.state = 'copied';
+            button.title = 'Copied';
+            button.setAttribute('aria-label', 'Copied to clipboard');
         } catch {
-            button.textContent = 'Copy failed';
+            button.dataset.state = 'error';
+            button.title = 'Copy failed';
+            button.setAttribute('aria-label', 'Copy failed');
         }
 
         window.setTimeout(() => {
-            button.textContent = 'Copy';
+            button.innerHTML = copyIcon;
+            button.removeAttribute('data-state');
+            button.title = 'Copy code';
+            button.setAttribute('aria-label', 'Copy code');
         }, 1800);
     });
 });
