@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sync Component Gallery"
+  short_description: "Keep homepage component cards aligned with GitHub"
+  default_prompt: "Use $sync-component-gallery to sync the homepage cards with the current Firstlight component documentation."

@@ -36,7 +36,7 @@
 
                 <nav aria-label="Primary navigation" class="hidden items-center gap-7 lg:flex">
                     <a href="{{ route('home') }}#why-firstlight" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Why Firstlight</a>
-                    <a href="{{ route('home') }}#components" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Components</a>
+                    <a href="{{ route('components.index') }}" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" @if (request()->routeIs('components.*')) aria-current="page" @endif>Components</a>
                     <a href="{{ route('docs.show') }}" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" @if (request()->routeIs('docs.*')) aria-current="page" @endif>Docs</a>
                     <a href="https://nativephp.com" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">NativePHP</a>
                     <a href="https://github.com/firstlightui/nativephp" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">GitHub</a>
@@ -51,7 +51,7 @@
                         </summary>
                         <nav aria-label="Mobile navigation" class="absolute top-14 right-0 z-40 grid w-64 gap-1 rounded-(--radius-panel) bg-(--site-elevated) p-2 shadow-xl ring-1 ring-(--site-border) dark:shadow-none">
                             <a href="{{ route('home') }}#why-firstlight" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)">Why Firstlight</a>
-                            <a href="{{ route('home') }}#components" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)">Components</a>
+                            <a href="{{ route('components.index') }}" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)" @if (request()->routeIs('components.*')) aria-current="page" @endif>Components</a>
                             <a href="https://nativephp.com" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">NativePHP</a>
                             <a href="https://github.com/firstlightui/nativephp" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">GitHub</a>
                         </nav>
@@ -74,7 +74,7 @@
                 </div>
 
                 <nav aria-label="Footer navigation" class="flex flex-wrap items-start gap-x-7 gap-y-3 sm:justify-end">
-                    <a href="{{ route('home') }}#components" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Components</a>
+                    <a href="{{ route('components.index') }}" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Components</a>
                     <a href="{{ route('docs.show') }}" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Documentation</a>
                     <a href="{{ route('llms') }}" class="font-mono text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">llms.txt</a>
                     <a href="https://nativephp.com" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm" target="_blank" rel="noreferrer">NativePHP</a>

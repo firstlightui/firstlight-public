@@ -143,7 +143,7 @@
                 <div class="flex flex-col gap-5">
                     <p class="font-mono text-base uppercase tracking-wide text-(--site-primary) sm:text-sm">Current components</p>
                     <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-5xl">
-                        Small catalogue. Deep native quality.
+                        A wider native range. Deep native quality.
                     </h2>
                 </div>
                 <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
@@ -151,57 +151,51 @@
                 </p>
             </div>
 
-            <div class="mt-16 overflow-hidden rounded-[min(3vw,var(--radius-panel))] bg-(--site-elevated) ring-1 ring-(--site-border)">
-                <div class="grid lg:grid-cols-[13fr_11fr]">
-                    <div class="flex flex-col gap-10 p-6 sm:p-10 lg:p-12">
-                        <div class="flex flex-wrap items-center justify-between gap-4">
-                            <div class="flex items-baseline gap-3">
-                                <h3 class="text-2xl font-semibold tracking-tight text-(--site-heading)">
-                                    <a href="{{ route('docs.show', ['path' => 'components/segmented']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Segmented</a>
-                                </h3>
-                                <p class="rounded-full bg-dawn-100 px-3 py-1 text-base font-medium text-dawn-800 dark:bg-dawn-900 dark:text-dawn-200 sm:text-sm">Available</p>
-                            </div>
-                            <p class="font-mono text-base text-(--site-muted) sm:text-sm">firstlight:segmented</p>
-                        </div>
-
-                        <div class="flex flex-col gap-3">
-                            <p class="font-medium text-(--site-heading)">Queue</p>
-                            <div class="grid grid-cols-2 overflow-hidden rounded-full bg-(--site-recessed) p-1 ring-1 ring-(--site-border-strong)">
-                                <span class="rounded-full bg-(--site-primary) px-3 py-2.5 text-center font-medium text-(--site-on-primary)">Mine</span>
-                                <span class="px-3 py-2.5 text-center text-(--site-muted)">All</span>
-                            </div>
-                            <p class="text-base text-(--site-muted) sm:text-sm">Choose the active queue.</p>
-                        </div>
-
-                        <dl class="grid gap-6 border-t border-(--site-border) pt-8 sm:grid-cols-2">
-                            <div class="flex flex-col gap-2">
-                                <dt class="font-medium text-(--site-heading)">iOS expression</dt>
-                                <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">SwiftUI field composition backed by UISegmentedControl.</dd>
-                            </div>
-                            <div class="flex flex-col gap-2">
-                                <dt class="font-medium text-(--site-heading)">Android expression</dt>
-                                <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">Material 3 SingleChoiceSegmentedButtonRow.</dd>
-                            </div>
-                        </dl>
+            <div class="mt-16" data-component-catalogue>
+                <div class="mb-4 flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <span class="font-mono text-xs font-medium uppercase tracking-[0.12em] text-(--site-muted)">Component gallery</span>
+                        <span class="font-mono text-xs text-(--site-muted)" aria-live="polite" data-component-catalogue-current>1 / {{ count(config('component-gallery.components', [])) }}</span>
                     </div>
 
-                    <div class="flex flex-col justify-between gap-12 bg-(--site-recessed) p-6 sm:p-10 lg:p-12">
-                        <div class="flex flex-col gap-5">
-                            <div class="flex items-baseline justify-between gap-4">
-                                <h3 class="text-2xl font-semibold tracking-tight text-(--site-heading)">Status Label</h3>
-                                <p class="font-mono text-base text-(--site-muted) sm:text-sm">In alpha</p>
-                            </div>
-                            <p class="max-w-[48ch] text-base text-pretty text-(--site-muted) sm:text-sm">
-                                Display-only semantic metadata with native text scaling and contrast-safe theme tokens.
-                            </p>
-                        </div>
-
-                        <div class="flex flex-wrap items-center gap-3" aria-label="Status Label tone examples">
-                            <span class="rounded-full bg-(--site-elevated) px-3 py-2 font-medium text-(--site-heading) ring-1 ring-(--site-border)">Neutral</span>
-                            <span class="rounded-full bg-[oklch(0.9_0.08_85)] px-3 py-2 font-medium text-[oklch(0.32_0.08_70)] dark:bg-[oklch(0.3_0.07_70)] dark:text-[oklch(0.9_0.08_85)]">Awaiting review</span>
-                            <span class="rounded-full bg-[oklch(0.9_0.08_145)] px-3 py-2 font-medium text-[oklch(0.3_0.09_145)] dark:bg-[oklch(0.3_0.07_145)] dark:text-[oklch(0.9_0.08_145)]">Ready</span>
+                    <div class="flex items-center gap-3">
+                        <a href="{{ route('components.index') }}" class="rounded-sm py-2 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">View all components</a>
+                        <div class="flex items-center gap-1">
+                            <button
+                                type="button"
+                                class="grid size-11 place-items-center rounded-full text-(--site-heading) ring-1 ring-(--site-border-strong) hover:bg-(--site-surface) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--site-focus) disabled:cursor-not-allowed disabled:opacity-30"
+                                aria-label="Previous component"
+                                data-component-catalogue-previous
+                            >
+                                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="m15 18-6-6 6-6"></path>
+                                </svg>
+                            </button>
+                            <button
+                                type="button"
+                                class="grid size-11 place-items-center rounded-full text-(--site-heading) ring-1 ring-(--site-border-strong) hover:bg-(--site-surface) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--site-focus) disabled:cursor-not-allowed disabled:opacity-30"
+                                aria-label="Next component"
+                                data-component-catalogue-next
+                            >
+                                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="m9 18 6-6-6-6"></path>
+                                </svg>
+                            </button>
                         </div>
                     </div>
+                </div>
+
+                <div
+                    class="component-catalogue-track flex snap-x snap-mandatory overflow-x-auto scroll-smooth focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) motion-reduce:scroll-auto"
+                    tabindex="0"
+                    aria-label="Firstlight components"
+                    data-component-catalogue-track
+                >
+                    @foreach (config('component-gallery.components', []) as $component)
+                        <div class="min-w-full snap-start p-px" data-component-catalogue-slide>
+                            <x-component-gallery-card :component="$component" />
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -99,3 +99,57 @@ documentationCodeBlocks.forEach((pre) => {
         }, 1800);
     });
 });
+
+const componentCatalogues = document.querySelectorAll('[data-component-catalogue]');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+componentCatalogues.forEach((catalogue) => {
+    const track = catalogue.querySelector('[data-component-catalogue-track]');
+    const slides = [...catalogue.querySelectorAll('[data-component-catalogue-slide]')];
+    const previous = catalogue.querySelector('[data-component-catalogue-previous]');
+    const next = catalogue.querySelector('[data-component-catalogue-next]');
+    const current = catalogue.querySelector('[data-component-catalogue-current]');
+
+    if (! track || ! previous || ! next || ! current || slides.length === 0) {
+        return;
+    }
+
+    let activeIndex = 0;
+    let scrollFrame;
+
+    const updateState = () => {
+        activeIndex = Math.min(
+            slides.length - 1,
+            Math.max(0, Math.round(track.scrollLeft / track.clientWidth)),
+        );
+        current.textContent = `${activeIndex + 1} / ${slides.length}`;
+        previous.disabled = activeIndex === 0;
+        next.disabled = activeIndex === slides.length - 1;
+    };
+
+    const goTo = (index) => {
+        const nextIndex = Math.min(slides.length - 1, Math.max(0, index));
+
+        track.scrollTo({
+            left: nextIndex * track.clientWidth,
+            behavior: reducedMotion.matches ? 'auto' : 'smooth',
+        });
+    };
+
+    previous.addEventListener('click', () => goTo(activeIndex - 1));
+    next.addEventListener('click', () => goTo(activeIndex + 1));
+    track.addEventListener('scroll', () => {
+        window.cancelAnimationFrame(scrollFrame);
+        scrollFrame = window.requestAnimationFrame(updateState);
+    }, { passive: true });
+    track.addEventListener('keydown', (event) => {
+        if (! ['ArrowLeft', 'ArrowRight'].includes(event.key)) {
+            return;
+        }
+
+        event.preventDefault();
+        goTo(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+
+    updateState();
+});
