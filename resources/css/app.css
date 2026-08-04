@@ -5,4 +5,128 @@
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono: 'SFMono-Regular', 'Cascadia Code', 'Liberation Mono', Consolas, monospace;
+
+    --color-dawn-50: oklch(0.975 0.018 72);
+    --color-dawn-100: oklch(0.94 0.038 69);
+    --color-dawn-200: oklch(0.88 0.075 65);
+    --color-dawn-300: oklch(0.81 0.12 57);
+    --color-dawn-400: oklch(0.72 0.17 47);
+    --color-dawn-500: oklch(0.64 0.205 38);
+    --color-dawn-600: oklch(0.56 0.21 31);
+    --color-dawn-700: oklch(0.48 0.185 28);
+    --color-dawn-800: oklch(0.39 0.14 27);
+    --color-dawn-900: oklch(0.3 0.095 29);
+
+    --color-sun-300: oklch(0.87 0.13 84);
+    --color-sun-400: oklch(0.8 0.16 75);
+
+    --color-ink-50: oklch(0.982 0.006 71);
+    --color-ink-100: oklch(0.955 0.01 67);
+    --color-ink-200: oklch(0.9 0.014 63);
+    --color-ink-300: oklch(0.82 0.018 60);
+    --color-ink-400: oklch(0.67 0.022 57);
+    --color-ink-500: oklch(0.54 0.026 54);
+    --color-ink-600: oklch(0.43 0.028 52);
+    --color-ink-700: oklch(0.34 0.028 50);
+    --color-ink-800: oklch(0.255 0.026 48);
+    --color-ink-900: oklch(0.195 0.022 46);
+    --color-ink-950: oklch(0.145 0.018 43);
+
+    --radius-panel: 1.5rem;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+    color-scheme: light;
+    --site-canvas: var(--color-ink-50);
+    --site-surface: oklch(0.965 0.014 70);
+    --site-recessed: oklch(0.94 0.018 68);
+    --site-elevated: oklch(0.992 0.005 72);
+    --site-text: var(--color-ink-700);
+    --site-muted: var(--color-ink-600);
+    --site-heading: var(--color-ink-950);
+    --site-border: oklch(0.32 0.03 45 / 0.12);
+    --site-border-strong: oklch(0.26 0.03 45 / 0.22);
+    --site-primary: var(--color-dawn-700);
+    --site-primary-hover: var(--color-dawn-800);
+    --site-on-primary: var(--color-dawn-50);
+    --site-focus: var(--color-dawn-500);
+    --site-code: var(--color-ink-950);
+    --site-code-text: var(--color-ink-100);
+    --site-code-muted: var(--color-ink-400);
+    --site-code-keyword: var(--color-dawn-300);
+    --site-code-string: var(--color-sun-300);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --site-canvas: var(--color-ink-950);
+        --site-surface: oklch(0.18 0.02 44);
+        --site-recessed: oklch(0.205 0.022 45);
+        --site-elevated: oklch(0.225 0.024 46);
+        --site-text: var(--color-ink-200);
+        --site-muted: var(--color-ink-300);
+        --site-heading: var(--color-ink-50);
+        --site-border: oklch(0.94 0.02 68 / 0.11);
+        --site-border-strong: oklch(0.94 0.02 68 / 0.2);
+        --site-primary: var(--color-dawn-500);
+        --site-primary-hover: var(--color-dawn-400);
+        --site-on-primary: var(--color-ink-950);
+        --site-focus: var(--color-dawn-300);
+        --site-code: oklch(0.115 0.014 42);
+        --site-code-text: var(--color-ink-100);
+        --site-code-muted: var(--color-ink-400);
+        --site-code-keyword: var(--color-dawn-300);
+        --site-code-string: var(--color-sun-300);
+    }
+}
+
+@utility dawn-field {
+    background-color: var(--site-surface);
+    background-image:
+        radial-gradient(circle at 82% 18%, color-mix(in oklch, var(--color-sun-300) 52%, transparent), transparent 27%),
+        radial-gradient(circle at 68% 58%, color-mix(in oklch, var(--color-dawn-400) 42%, transparent), transparent 36%),
+        linear-gradient(145deg, transparent 38%, color-mix(in oklch, var(--color-dawn-100) 54%, transparent));
+}
+
+@utility technical-grid {
+    background-image:
+        linear-gradient(to right, var(--site-border) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--site-border) 1px, transparent 1px);
+    background-size: 2.5rem 2.5rem;
+    mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+@utility hero-reveal {
+    animation: hero-reveal 700ms var(--ease-out-expo) both;
+}
+
+@utility hero-reveal-late {
+    animation: hero-reveal 700ms 120ms var(--ease-out-expo) both;
+}
+
+@keyframes hero-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-delay: 0ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
