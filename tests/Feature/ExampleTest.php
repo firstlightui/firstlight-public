@@ -21,7 +21,8 @@ test('the homepage presents every configured component with native evidence', fu
 
     $response
         ->assertSee('A wider native range. Deep native quality.')
-        ->assertSee('data-component-catalogue-track', escape: false);
+        ->assertSee('data-component-catalogue-track', escape: false)
+        ->assertSee('component-evidence-image', escape: false);
 
     foreach (config('component-gallery.components') as $component) {
         $marker = 'data-component-card="'.$component['slug'].'"';

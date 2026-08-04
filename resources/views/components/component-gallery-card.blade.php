@@ -58,20 +58,34 @@
                             </span>
                         </figcaption>
 
-                        <div class="flex h-72 items-center justify-center p-6 sm:h-96 sm:p-8 lg:h-[30rem]">
+                        <div @class([
+                            'h-72 sm:h-96 lg:h-[30rem]',
+                            'flex items-center justify-center p-6 sm:p-8' => $component['mocked'] ?? false,
+                            'overflow-hidden' => ! ($component['mocked'] ?? false),
+                        ])>
                             @if ($component['mocked'] ?? false)
                                 <x-button-platform-mock :platform="$platform" />
                             @else
-                                <picture class="flex h-full w-full items-center justify-center">
-                                    <source media="(prefers-color-scheme: dark)" srcset="{{ $component['screenshots'][$platform]['dark'] }}">
+                                <div class="h-full w-full">
                                     <img
                                         src="{{ $component['screenshots'][$platform]['light'] }}"
                                         alt="{{ $component['screenshots'][$platform]['alt'] }}"
-                                        class="h-auto max-h-full w-auto max-w-full object-contain object-center"
+                                        class="component-evidence-image dark:hidden"
                                         loading="lazy"
                                         decoding="async"
+                                        data-component-screenshot="{{ $component['slug'] }}"
+                                        data-platform="{{ $platform }}"
                                     >
-                                </picture>
+                                    <img
+                                        src="{{ $component['screenshots'][$platform]['dark'] }}"
+                                        alt="{{ $component['screenshots'][$platform]['alt'] }} in dark mode"
+                                        class="component-evidence-image hidden dark:block"
+                                        loading="lazy"
+                                        decoding="async"
+                                        data-component-screenshot="{{ $component['slug'] }}"
+                                        data-platform="{{ $platform }}"
+                                    >
+                                </div>
                             @endif
                         </div>
                     </figure>

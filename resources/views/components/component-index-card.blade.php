@@ -26,14 +26,34 @@
             </a>
         </div>
 
-        <div class="flex h-72 items-center justify-center border-t border-(--site-border) bg-(--site-recessed) p-6 sm:h-80 sm:p-8">
+        <div @class([
+            'h-72 border-t border-(--site-border) bg-(--site-recessed) sm:h-80',
+            'flex items-center justify-center p-6 sm:p-8' => $component['mocked'] ?? false,
+            'overflow-hidden' => ! ($component['mocked'] ?? false),
+        ])>
             @if ($component['mocked'] ?? false)
                 <x-button-platform-mock platform="ios" />
             @else
-                <picture class="flex h-full w-full items-center justify-center">
-                    <source media="(prefers-color-scheme: dark)" srcset="{{ $component['screenshots']['ios']['dark'] }}">
-                    <img src="{{ $component['screenshots']['ios']['light'] }}" alt="{{ $component['screenshots']['ios']['alt'] }}" class="h-auto max-h-full w-auto max-w-full object-contain object-center" loading="lazy" decoding="async">
-                </picture>
+                <div class="h-full w-full">
+                    <img
+                        src="{{ $component['screenshots']['ios']['light'] }}"
+                        alt="{{ $component['screenshots']['ios']['alt'] }}"
+                        class="component-evidence-image component-index-evidence-image dark:hidden"
+                        loading="lazy"
+                        decoding="async"
+                        data-component-screenshot="{{ $component['slug'] }}"
+                        data-platform="ios"
+                    >
+                    <img
+                        src="{{ $component['screenshots']['ios']['dark'] }}"
+                        alt="{{ $component['screenshots']['ios']['alt'] }} in dark mode"
+                        class="component-evidence-image component-index-evidence-image hidden dark:block"
+                        loading="lazy"
+                        decoding="async"
+                        data-component-screenshot="{{ $component['slug'] }}"
+                        data-platform="ios"
+                    >
+                </div>
             @endif
         </div>
     </div>

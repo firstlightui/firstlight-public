@@ -35,7 +35,7 @@ Keep the checked-in homepage showcase aligned with the public component docs. Us
 ## Gallery treatment
 
 - Make the landing-page carousel scroll through components, not through screenshots within each component. Provide previous/next controls, a current/total counter, touch scrolling, and Left/Right keyboard navigation. Never auto-advance.
-- Give each landing slide one large, static, art-directed composition. Pair contained iOS and Android evidence without thick device borders, crop-based magnification, or hover zoom.
+- Give each landing slide one large, static, art-directed composition. Pair curated iOS and Android close-up crops that make the component legible without thick device borders or hover zoom.
 - When source evidence is missing, create a faithful purpose-built mock, label it as illustrated evidence in the UI, and do not claim unsupported behaviour.
 - Preserve editorial rhythm on the `/components` index with intentional medium and wide cards. Avoid a uniform dashboard grid and keep hierarchy configurable in checked-in data.
 - Include platform captions, useful alt text, keyboard-visible focus, touch-safe targets, reduced-motion support, and no horizontal page overflow.
@@ -54,6 +54,6 @@ npm run build
 php artisan test --compact
 ```
 
-Visually verify the landing carousel and `/components` index at 375px, 768px, and a desktop width in light and dark modes. Confirm every available screenshot loads, the landing carousel moves exactly one component at a time, controls work by keyboard and touch, contained evidence is not magnified, and the browser has no console errors.
+Visually verify the landing carousel and `/components` index at 375px, 768px, and a desktop width in light and dark modes. Confirm every available screenshot loads, the landing carousel moves exactly one component at a time, controls work by keyboard and touch, close-up crops keep the component itself legible without awkward clipping, and the browser has no console errors.
 
 Report the remote component count, added/updated/removed cards, evidence gaps, checks, and whether the audit is clean.
