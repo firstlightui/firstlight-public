@@ -1,9 +1,27 @@
 <?php
 
+$sourceRevision = '9815040a91df330dcd0f699a03c8f475a0aeddea';
+
+$nativeEvidence = static function (string $slug, string $title) use ($sourceRevision): array {
+    $baseUrl = "https://raw.githubusercontent.com/firstlightui/nativephp/{$sourceRevision}/docs/screenshots/{$slug}";
+
+    return [
+        'ios' => [
+            'light' => "{$baseUrl}/ios-light.png",
+            'dark' => "{$baseUrl}/ios-dark.png",
+            'alt' => "Firstlight {$title} rendered on iOS",
+        ],
+        'android' => [
+            'light' => "{$baseUrl}/android-light.png",
+            'dark' => "{$baseUrl}/android-dark.png",
+            'alt' => "Firstlight {$title} rendered on Android",
+        ],
+    ];
+};
+
 return [
-    'mocked_components' => [
-        'button',
-    ],
+    'source_revision' => $sourceRevision,
+    'mocked_components' => [],
 
     'components' => [
         [
@@ -11,9 +29,72 @@ return [
             'title' => 'Button',
             'tag' => 'firstlight:button',
             'availability' => 'Available',
-            'summary' => 'Perform immediate actions with native variants, states, icons, and accessible labels on each platform.',
+            'summary' => 'Perform one immediate, labelled action with a foundational native control under the Firstlight API.',
             'index_variant' => 'wide',
-            'mocked' => true,
+            'screenshots' => $nativeEvidence('button', 'Button'),
+        ],
+        [
+            'slug' => 'badge',
+            'title' => 'Badge',
+            'tag' => 'firstlight:badge',
+            'availability' => 'Available',
+            'summary' => 'Present a compact, display-only count or short marker with native platform expression.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('badge', 'Badge'),
+        ],
+        [
+            'slug' => 'choice-group',
+            'title' => 'Choice Group',
+            'tag' => 'firstlight:choice-group',
+            'availability' => 'Available',
+            'summary' => 'Show a visible list of labelled options for selecting one value or several values.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('choice-group', 'Choice Group'),
+        ],
+        [
+            'slug' => 'date-picker',
+            'title' => 'Date Picker',
+            'tag' => 'firstlight:date-picker',
+            'availability' => 'Available',
+            'summary' => 'Choose an optional calendar date with each platform’s native, server-authoritative picker.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('date-picker', 'Date Picker'),
+        ],
+        [
+            'slug' => 'time-picker',
+            'title' => 'Time Picker',
+            'tag' => 'firstlight:time-picker',
+            'availability' => 'Available',
+            'summary' => 'Choose an optional wall-clock time while keeping the model value exact and server-authoritative.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('time-picker', 'Time Picker'),
+        ],
+        [
+            'slug' => 'icon-button',
+            'title' => 'Icon Button',
+            'tag' => 'firstlight:icon-button',
+            'availability' => 'Available',
+            'summary' => 'Trigger one compact, accessible action through native SwiftUI and Material icon buttons.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('icon-button', 'Icon Button'),
+        ],
+        [
+            'slug' => 'pill-group',
+            'title' => 'Pill Group',
+            'tag' => 'firstlight:pill-group',
+            'availability' => 'Available',
+            'summary' => 'Offer compact, individually shaped options for single or multiple selection.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('pill-group', 'Pill Group'),
+        ],
+        [
+            'slug' => 'progress',
+            'title' => 'Progress',
+            'tag' => 'firstlight:progress',
+            'availability' => 'Available',
+            'summary' => 'Communicate determinate completion or indeterminate work with the native platform indicator.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('progress', 'Progress'),
         ],
         [
             'slug' => 'segmented',
@@ -21,59 +102,80 @@ return [
             'tag' => 'firstlight:segmented',
             'availability' => 'Available',
             'summary' => 'Present a small set of mutually exclusive choices as a genuine native segmented control.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('segmented', 'Segmented'),
+        ],
+        [
+            'slug' => 'search-field',
+            'title' => 'Search Field',
+            'tag' => 'firstlight:search-field',
+            'availability' => 'Available',
+            'summary' => 'Enter and submit one query with native search, clear, focus, keyboard, and selection behaviour.',
             'index_variant' => 'medium',
-            'screenshots' => [
-                'ios' => [
-                    'light' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/segmented/ios-light.png',
-                    'dark' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/segmented/ios-dark.png',
-                    'alt' => 'Firstlight Segmented rendered on iOS',
-                ],
-                'android' => [
-                    'light' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/segmented/android-light.png',
-                    'dark' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/segmented/android-dark.png',
-                    'alt' => 'Firstlight Segmented rendered on Android',
-                ],
-            ],
+            'screenshots' => $nativeEvidence('search-field', 'Search Field'),
+        ],
+        [
+            'slug' => 'select',
+            'title' => 'Select',
+            'tag' => 'firstlight:select',
+            'availability' => 'Available',
+            'summary' => 'Choose one stable string or integer value from a collapsed native selection field.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('select', 'Select'),
+        ],
+        [
+            'slug' => 'slider',
+            'title' => 'Slider',
+            'tag' => 'firstlight:slider',
+            'availability' => 'Available',
+            'summary' => 'Select one value from an exact numeric grid using each platform’s native slider.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('slider', 'Slider'),
+        ],
+        [
+            'slug' => 'stepper',
+            'title' => 'Stepper',
+            'tag' => 'firstlight:stepper',
+            'availability' => 'Available',
+            'summary' => 'Move an accepted numeric value through a bounded range one exact step at a time.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('stepper', 'Stepper'),
         ],
         [
             'slug' => 'status-label',
             'title' => 'Status Label',
             'tag' => 'firstlight:status-label',
             'availability' => 'Available',
-            'summary' => 'Present short semantic metadata as a native capsule with platform text scaling and contrast-safe tones.',
+            'summary' => 'Present short display-only metadata or status text as a native semantic capsule.',
             'index_variant' => 'medium',
-            'screenshots' => [
-                'ios' => [
-                    'light' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/status-label/ios-light.png',
-                    'dark' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/status-label/ios-dark.png',
-                    'alt' => 'Firstlight Status Label rendered on iOS',
-                ],
-                'android' => [
-                    'light' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/status-label/android-light.png',
-                    'dark' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/status-label/android-dark.png',
-                    'alt' => 'Firstlight Status Label rendered on Android',
-                ],
-            ],
+            'screenshots' => $nativeEvidence('status-label', 'Status Label'),
         ],
         [
             'slug' => 'text-field',
             'title' => 'Text Field',
             'tag' => 'firstlight:text-field',
             'availability' => 'Available',
-            'summary' => 'Edit one line of text with each platform’s native keyboard, autofill, selection, icons, and accessibility behaviour.',
+            'summary' => 'Edit one line of text with each platform’s native keyboard, autofill, selection, and accessibility behaviour.',
             'index_variant' => 'wide',
-            'screenshots' => [
-                'ios' => [
-                    'light' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/text-field/ios-light.png',
-                    'dark' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/text-field/ios-dark.png',
-                    'alt' => 'Firstlight Text Field rendered on iOS',
-                ],
-                'android' => [
-                    'light' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/text-field/android-light.png',
-                    'dark' => 'https://raw.githubusercontent.com/firstlightui/nativephp/main/docs/screenshots/text-field/android-dark.png',
-                    'alt' => 'Firstlight Text Field rendered on Android',
-                ],
-            ],
+            'screenshots' => $nativeEvidence('text-field', 'Text Field'),
+        ],
+        [
+            'slug' => 'text-area',
+            'title' => 'Text Area',
+            'tag' => 'firstlight:text-area',
+            'availability' => 'Available',
+            'summary' => 'Edit multiline text with native selection, composition, focus, scrolling, and correction behaviour.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('text-area', 'Text Area'),
+        ],
+        [
+            'slug' => 'switch',
+            'title' => 'Switch',
+            'tag' => 'firstlight:switch',
+            'availability' => 'Available',
+            'summary' => 'Present one boolean setting through each platform’s familiar native on/off control.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('switch', 'Switch'),
         ],
     ],
 ];

@@ -2,7 +2,7 @@
 
 <article
     data-component-card="{{ $component['slug'] }}"
-    data-component-evidence="{{ ($component['mocked'] ?? false) ? 'mock' : 'screenshots' }}"
+    data-component-evidence="screenshots"
     class="overflow-hidden rounded-[min(3vw,var(--radius-panel))] bg-(--site-surface) ring-1 ring-(--site-border)"
 >
     <div class="grid lg:grid-cols-[5fr_7fr]">
@@ -43,7 +43,7 @@
         <div class="border-t border-(--site-border) bg-(--site-recessed) lg:border-t-0 lg:border-l">
             <div class="flex min-h-14 items-center justify-between gap-4 border-b border-(--site-border) px-4 py-3 sm:px-5">
                 <span class="font-mono text-xs font-medium uppercase tracking-[0.12em] text-(--site-muted)">
-                    {{ ($component['mocked'] ?? false) ? 'Illustrated native states' : 'Native evidence' }}
+                    Native evidence
                 </span>
                 <span class="size-1.5 rounded-full bg-(--site-primary)" aria-hidden="true"></span>
             </div>
@@ -54,39 +54,31 @@
                         <figcaption class="flex items-center justify-between gap-3 bg-(--site-recessed) px-4 py-3 sm:px-5">
                             <span class="font-medium text-(--site-heading)">{{ $platformLabel }}</span>
                             <span class="font-mono text-xs uppercase tracking-[0.12em] text-(--site-muted)">
-                                {{ ($component['mocked'] ?? false) ? 'Illustration' : 'Native' }}
+                                Native
                             </span>
                         </figcaption>
 
-                        <div @class([
-                            'h-72 sm:h-96 lg:h-[30rem]',
-                            'flex items-center justify-center p-6 sm:p-8' => $component['mocked'] ?? false,
-                            'overflow-hidden' => ! ($component['mocked'] ?? false),
-                        ])>
-                            @if ($component['mocked'] ?? false)
-                                <x-button-platform-mock :platform="$platform" />
-                            @else
-                                <div class="h-full w-full">
-                                    <img
-                                        src="{{ $component['screenshots'][$platform]['light'] }}"
-                                        alt="{{ $component['screenshots'][$platform]['alt'] }}"
-                                        class="component-evidence-image dark:hidden"
-                                        loading="lazy"
-                                        decoding="async"
-                                        data-component-screenshot="{{ $component['slug'] }}"
-                                        data-platform="{{ $platform }}"
-                                    >
-                                    <img
-                                        src="{{ $component['screenshots'][$platform]['dark'] }}"
-                                        alt="{{ $component['screenshots'][$platform]['alt'] }} in dark mode"
-                                        class="component-evidence-image hidden dark:block"
-                                        loading="lazy"
-                                        decoding="async"
-                                        data-component-screenshot="{{ $component['slug'] }}"
-                                        data-platform="{{ $platform }}"
-                                    >
-                                </div>
-                            @endif
+                        <div class="h-72 overflow-hidden sm:h-96 lg:h-[30rem]">
+                            <div class="h-full w-full">
+                                <img
+                                    src="{{ $component['screenshots'][$platform]['light'] }}"
+                                    alt="{{ $component['screenshots'][$platform]['alt'] }}"
+                                    class="component-evidence-image dark:hidden"
+                                    loading="lazy"
+                                    decoding="async"
+                                    data-component-screenshot="{{ $component['slug'] }}"
+                                    data-platform="{{ $platform }}"
+                                >
+                                <img
+                                    src="{{ $component['screenshots'][$platform]['dark'] }}"
+                                    alt="{{ $component['screenshots'][$platform]['alt'] }} in dark mode"
+                                    class="component-evidence-image hidden dark:block"
+                                    loading="lazy"
+                                    decoding="async"
+                                    data-component-screenshot="{{ $component['slug'] }}"
+                                    data-platform="{{ $platform }}"
+                                >
+                            </div>
                         </div>
                     </figure>
                 @endforeach

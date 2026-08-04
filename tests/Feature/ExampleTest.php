@@ -5,8 +5,12 @@ test('the homepage introduces Firstlight and its native implementation', functio
         ->assertSuccessful()
         ->assertSee('Native by platform. Familiar in Blade.')
         ->assertSee('NativePHP Mobile UI')
-        ->assertSee('alternative native-first implementations')
+        ->assertSee('curated form and control layer')
+        ->assertSee('Mobile UI’s official SwiftUI and Jetpack Compose foundation')
+        ->assertSee('A focused control layer for the native toolkit.')
+        ->assertSee('Curated controls. Consistent contracts.')
         ->assertSee('SuperNative supplies the bridge.')
+        ->assertSee(route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']), false)
         ->assertSee('Shane Rosenthal')
         ->assertSee('Simon Hamp')
         ->assertSee('https://nativephp.com', false)
@@ -16,6 +20,7 @@ test('the homepage introduces Firstlight and its native implementation', functio
         ->assertSee(route('docs.show', ['path' => 'components/segmented']), false)
         ->assertSee('data-theme-toggle', false)
         ->assertSee(asset('theme.js'), false)
+        ->assertDontSee('alternative native-first implementations')
         ->assertDontSee('Laravel has an incredibly rich ecosystem');
 });
 
@@ -23,7 +28,7 @@ test('the homepage presents every configured component with native evidence', fu
     $response = $this->get(route('home'))->assertSuccessful();
 
     $response
-        ->assertSee('Native-first alternatives. More building blocks to come.')
+        ->assertSee('Curated controls. Consistent contracts.')
         ->assertSee('data-component-catalogue-track', escape: false)
         ->assertSee('component-evidence-image', escape: false);
 
@@ -34,20 +39,16 @@ test('the homepage presents every configured component with native evidence', fu
             ->assertSee($marker, escape: false)
             ->assertSee(route('docs.show', ['path' => 'components/'.$component['slug']]), escape: false);
 
-        if ($component['mocked'] ?? false) {
-            $response
-                ->assertSee('data-component-evidence="mock"', escape: false)
-                ->assertSee('data-component-mock="'.$component['slug'].'"', escape: false);
-        } else {
-            $response
-                ->assertSee($component['screenshots']['ios']['light'], escape: false)
-                ->assertSee($component['screenshots']['ios']['dark'], escape: false)
-                ->assertSee($component['screenshots']['android']['light'], escape: false)
-                ->assertSee($component['screenshots']['android']['dark'], escape: false);
-        }
+        $response
+            ->assertSee($component['screenshots']['ios']['light'], escape: false)
+            ->assertSee($component['screenshots']['ios']['dark'], escape: false)
+            ->assertSee($component['screenshots']['android']['light'], escape: false)
+            ->assertSee($component['screenshots']['android']['dark'], escape: false);
 
         expect(substr_count($response->getContent(), $marker))->toBe(1);
     }
+
+    $response->assertDontSee('data-component-evidence="mock"', escape: false);
 });
 
 test('the component catalogue presents every configured component once', function () {
@@ -58,7 +59,11 @@ test('the component catalogue presents every configured component once', functio
 
         $response
             ->assertSee($marker, escape: false)
-            ->assertSee(route('docs.show', ['path' => 'components/'.$component['slug']]), escape: false);
+            ->assertSee(route('docs.show', ['path' => 'components/'.$component['slug']]), escape: false)
+            ->assertSee($component['screenshots']['ios']['light'], escape: false)
+            ->assertSee($component['screenshots']['ios']['dark'], escape: false)
+            ->assertSee($component['screenshots']['android']['light'], escape: false)
+            ->assertSee($component['screenshots']['android']['dark'], escape: false);
 
         expect(substr_count($response->getContent(), $marker))->toBe(1);
     }
