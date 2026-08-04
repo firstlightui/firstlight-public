@@ -11,6 +11,8 @@ test('the homepage introduces Firstlight and its native implementation', functio
         ->assertSee('Jetpack Compose')
         ->assertSee('composer require firstlightui/nativephp')
         ->assertSee(route('docs.show', ['path' => 'components/segmented']), false)
+        ->assertSee('data-theme-toggle', false)
+        ->assertSee(asset('theme.js'), false)
         ->assertDontSee('Laravel has an incredibly rich ecosystem');
 });
 

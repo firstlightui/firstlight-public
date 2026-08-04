@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
@@ -59,28 +61,26 @@
     --site-code-string: var(--color-sun-300);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-        --site-canvas: var(--color-ink-950);
-        --site-surface: oklch(0.18 0.02 44);
-        --site-recessed: oklch(0.205 0.022 45);
-        --site-elevated: oklch(0.225 0.024 46);
-        --site-text: var(--color-ink-200);
-        --site-muted: var(--color-ink-300);
-        --site-heading: var(--color-ink-50);
-        --site-border: oklch(0.94 0.02 68 / 0.11);
-        --site-border-strong: oklch(0.94 0.02 68 / 0.2);
-        --site-primary: var(--color-dawn-500);
-        --site-primary-hover: var(--color-dawn-400);
-        --site-on-primary: var(--color-ink-950);
-        --site-focus: var(--color-dawn-300);
-        --site-code: oklch(0.115 0.014 42);
-        --site-code-text: var(--color-ink-100);
-        --site-code-muted: var(--color-ink-400);
-        --site-code-keyword: var(--color-dawn-300);
-        --site-code-string: var(--color-sun-300);
-    }
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    --site-canvas: var(--color-ink-950);
+    --site-surface: oklch(0.18 0.02 44);
+    --site-recessed: oklch(0.205 0.022 45);
+    --site-elevated: oklch(0.225 0.024 46);
+    --site-text: var(--color-ink-200);
+    --site-muted: var(--color-ink-300);
+    --site-heading: var(--color-ink-50);
+    --site-border: oklch(0.94 0.02 68 / 0.11);
+    --site-border-strong: oklch(0.94 0.02 68 / 0.2);
+    --site-primary: var(--color-dawn-500);
+    --site-primary-hover: var(--color-dawn-400);
+    --site-on-primary: var(--color-ink-950);
+    --site-focus: var(--color-dawn-300);
+    --site-code: oklch(0.115 0.014 42);
+    --site-code-text: var(--color-ink-100);
+    --site-code-muted: var(--color-ink-400);
+    --site-code-keyword: var(--color-dawn-300);
+    --site-code-string: var(--color-sun-300);
 }
 
 @utility dawn-field {
