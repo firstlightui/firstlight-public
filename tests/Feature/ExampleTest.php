@@ -3,7 +3,10 @@
 test('the homepage introduces Firstlight and its native implementation', function () {
     $this->get(route('home'))
         ->assertSuccessful()
-        ->assertSee('More native UI. Same Blade.')
+        ->assertSee('Native by platform. Familiar in Blade.')
+        ->assertSee('NativePHP Mobile UI')
+        ->assertSee('alternative native-first implementations')
+        ->assertSee('SuperNative supplies the bridge.')
         ->assertSee('Shane Rosenthal')
         ->assertSee('Simon Hamp')
         ->assertSee('https://nativephp.com', false)
@@ -20,7 +23,7 @@ test('the homepage presents every configured component with native evidence', fu
     $response = $this->get(route('home'))->assertSuccessful();
 
     $response
-        ->assertSee('A wider native range. Deep native quality.')
+        ->assertSee('Native-first alternatives. More building blocks to come.')
         ->assertSee('data-component-catalogue-track', escape: false)
         ->assertSee('component-evidence-image', escape: false);
 

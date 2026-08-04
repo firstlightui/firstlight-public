@@ -1,6 +1,6 @@
 @props([
     'title' => 'Firstlight UI',
-    'description' => 'Device-native UI for NativePHP, authored with familiar Blade syntax.',
+    'description' => 'Native-first component implementations and app building blocks for NativePHP, authored with familiar Blade syntax.',
     'mainClass' => 'isolate overflow-hidden',
 ])
 
@@ -88,7 +88,7 @@
                 <div class="flex flex-col items-start gap-3">
                     <a href="{{ route('home') }}" aria-label="Homepage" class="font-semibold tracking-tight text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Firstlight UI</a>
                     <p class="max-w-[44ch] text-base text-pretty text-(--site-muted) sm:text-sm">
-                        Native controls for NativePHP, shaped for each platform.
+                        Native-first wrappers and building blocks for NativePHP.
                     </p>
                 </div>
 

@@ -1,6 +1,6 @@
 <x-layouts.app
-    title="Firstlight UI — Native controls for NativePHP"
-    description="Build device-native interfaces for NativePHP with familiar Blade syntax and genuine SwiftUI and Jetpack Compose controls."
+    title="Firstlight UI — Native-first building blocks for NativePHP"
+    description="Add native-first component implementations and app building blocks to NativePHP with familiar Blade syntax."
 >
     <section class="relative py-16 sm:py-24 lg:py-32">
         <div class="pointer-events-none absolute inset-0 technical-grid" aria-hidden="true"></div>
@@ -12,10 +12,10 @@
                         Built on <a href="https://nativephp.com" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">NativePHP SuperNative</a>
                     </p>
                     <h1 class="max-w-[11ch] text-6xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-7xl lg:text-[5.75rem]">
-                        More native UI. Same Blade.
+                        Native by platform. Familiar in Blade.
                     </h1>
                     <p class="max-w-[48ch] text-xl text-pretty text-(--site-muted)">
-                        Firstlight expands the controls available to NativePHP mobile apps. It builds on the SuperNative foundation created by <a href="https://github.com/shanerbaner82" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Shane Rosenthal</a> and <a href="https://github.com/simonhamp" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Simon Hamp</a> to bring more genuine SwiftUI and Jetpack Compose controls to familiar Blade syntax.
+                        Firstlight complements NativePHP Mobile UI with familiar Blade wrappers, alternative native-first implementations, and a framework for richer app building blocks. It runs on the SuperNative foundation created by <a href="https://github.com/shanerbaner82" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Shane Rosenthal</a> and <a href="https://github.com/simonhamp" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Simon Hamp</a>.
                     </p>
                 </div>
 
@@ -105,12 +105,12 @@
     <section id="why-firstlight" class="border-y border-(--site-border) bg-(--site-surface) py-20 sm:py-24">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="flex flex-col gap-5">
-                <p class="font-mono text-base uppercase tracking-wide text-(--site-primary) sm:text-sm">Stay in your stack</p>
+                <p class="font-mono text-base uppercase tracking-wide text-(--site-primary) sm:text-sm">Built to complement Mobile UI</p>
                 <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-5xl">
-                    Go further with the native stack you already know.
+                    Keep the breadth. Let each platform feel like itself.
                 </h2>
                 <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
-                    SuperNative made device-native UI possible from Blade. Firstlight stays inside that model, widening the component range while each platform keeps its own expression.
+                    <a href="https://nativephp.com" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">NativePHP Mobile UI</a> already provides a broad catalogue of components and layouts. Firstlight complements it with wrappers and alternative implementations that favour each platform’s own conventions, plus a framework for building blocks beyond individual controls.
                 </p>
             </div>
 
@@ -124,7 +124,7 @@
                 <div class="flex flex-col gap-4 border-t border-(--site-border) py-8 md:border-t-0 md:border-r md:px-8 md:py-0">
                     <dt class="text-xl font-semibold text-(--site-heading)">Authentic on the device</dt>
                     <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                        iOS uses genuine SwiftUI and UIKit controls. Android uses genuine Material 3 and Jetpack Compose controls.
+                        Firstlight follows SwiftUI and UIKit conventions on iOS, and Material 3 and Jetpack Compose conventions on Android.
                     </dd>
                 </div>
                 <div class="flex flex-col gap-4 border-y border-(--site-border) py-8 md:border-y-0 md:py-0 md:pl-8">
@@ -143,11 +143,11 @@
                 <div class="flex flex-col gap-5">
                     <p class="font-mono text-base uppercase tracking-wide text-(--site-primary) sm:text-sm">Current components</p>
                     <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-5xl">
-                        A wider native range. Deep native quality.
+                        Native-first alternatives. More building blocks to come.
                     </h2>
                 </div>
                 <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
-                    Firstlight is preparing its public alpha one paired control at a time. Every component must meet the same API, platform, and accessibility standard before it ships.
+                    The public alpha begins with alternative implementations of familiar controls, then grows into native-first building blocks for real app workflows. Every release must meet the same API, platform, and accessibility standard.
                 </p>
             </div>
 
@@ -206,7 +206,7 @@
             <div class="flex flex-col gap-6">
                 <p class="font-mono text-base uppercase tracking-wide text-(--site-code-keyword) sm:text-sm">Firstlight on SuperNative</p>
                 <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-                    NativePHP laid the foundation. Firstlight extends the range.
+                    SuperNative supplies the bridge. Firstlight adds a native-first layer.
                 </h2>
                 <p class="max-w-[56ch] text-lg text-pretty text-(--site-code-muted)">
                     Firstlight participates in the EDGE, Element Tree, shared-memory frame, renderer, and wire-event lifecycle created for SuperNative. Ordinary interaction stays on the native UI thread.
@@ -237,10 +237,10 @@
                     <div class="flex min-w-0 flex-col gap-6">
                         <p class="font-mono text-base uppercase tracking-wide text-(--site-primary) sm:text-sm">Quickstart</p>
                         <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-5xl">
-                            Add native range without leaving Laravel.
+                            Add a native-first layer without leaving Laravel.
                         </h2>
                         <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
-                            Install the package, register its native renderers, and author your first Firstlight component with Blade.
+                            Install the package, register its alternative native renderers, and author your first Firstlight building block with Blade.
                         </p>
                     </div>
 
