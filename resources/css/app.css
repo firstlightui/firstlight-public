@@ -107,6 +107,228 @@
     animation: hero-reveal 700ms 120ms var(--ease-out-expo) both;
 }
 
+.docs-prose {
+    color: var(--site-text);
+    font-size: 1rem;
+    line-height: 1.75;
+    overflow-wrap: break-word;
+}
+
+.docs-prose > :first-child {
+    margin-top: 0;
+}
+
+.docs-prose > :last-child {
+    margin-bottom: 0;
+}
+
+.docs-prose :where(h1, h2, h3, h4) {
+    color: var(--site-heading);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+}
+
+.docs-prose h1 {
+    max-width: 18ch;
+    font-size: clamp(2.75rem, 7vw, 4.75rem);
+    line-height: 0.98;
+    margin-bottom: 2rem;
+}
+
+.docs-prose h2 {
+    border-top: 1px solid var(--site-border);
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-top: 3.5rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+}
+
+.docs-prose h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.docs-prose h4 {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.docs-prose :where(p, ul, ol, pre, table, blockquote) {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.docs-prose :where(ul, ol) {
+    padding-left: 1.5rem;
+}
+
+.docs-prose ul {
+    list-style: disc;
+}
+
+.docs-prose ol {
+    list-style: decimal;
+}
+
+.docs-prose li {
+    padding-left: 0.3rem;
+}
+
+.docs-prose li + li {
+    margin-top: 0.5rem;
+}
+
+.docs-prose li::marker {
+    color: var(--site-primary);
+}
+
+.docs-prose a {
+    border-radius: 0.125rem;
+    color: var(--site-heading);
+    font-weight: 500;
+    text-decoration-color: var(--site-border-strong);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25rem;
+}
+
+.docs-prose a:hover {
+    text-decoration-color: var(--site-primary);
+}
+
+.docs-prose a:focus-visible {
+    outline: 2px solid var(--site-focus);
+    outline-offset: 0.25rem;
+}
+
+.docs-prose :not(pre) > code {
+    border: 1px solid var(--site-border);
+    border-radius: 0.4rem;
+    background: var(--site-recessed);
+    color: var(--site-heading);
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    padding: 0.15em 0.4em;
+}
+
+.docs-prose pre {
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--site-border);
+    border-radius: var(--radius-panel);
+    background: var(--site-code);
+    color: var(--site-code-text);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.65;
+    padding: 1.25rem;
+    tab-size: 4;
+}
+
+.docs-code-block {
+    position: relative;
+    margin-block: 1.25rem;
+}
+
+.docs-code-block pre {
+    margin-block: 0;
+    padding-top: 4rem;
+}
+
+.docs-code-copy {
+    position: absolute;
+    z-index: 1;
+    top: 0.75rem;
+    right: 0.75rem;
+    min-width: 4.5rem;
+    min-height: 2.75rem;
+    border: 1px solid color-mix(in oklch, var(--site-code-text) 18%, transparent);
+    border-radius: 9999px;
+    background: color-mix(in oklch, var(--site-code-text) 8%, transparent);
+    color: var(--site-code-text);
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1;
+    padding-inline: 0.9rem;
+}
+
+.docs-code-copy:hover {
+    background: color-mix(in oklch, var(--site-code-text) 14%, transparent);
+}
+
+.docs-code-copy:focus-visible {
+    outline: 2px solid var(--site-focus);
+    outline-offset: 0.125rem;
+}
+
+.docs-prose pre code {
+    font: inherit;
+}
+
+.docs-prose table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+.docs-prose :where(th, td) {
+    min-width: 9rem;
+    border-bottom: 1px solid var(--site-border);
+    padding: 0.85rem 1rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.docs-prose th {
+    color: var(--site-heading);
+    font-weight: 600;
+}
+
+.docs-prose td:first-child,
+.docs-prose th:first-child {
+    padding-left: 0;
+}
+
+.docs-prose td:last-child,
+.docs-prose th:last-child {
+    padding-right: 0;
+}
+
+.docs-prose blockquote {
+    border-left: 2px solid var(--site-primary);
+    color: var(--site-muted);
+    padding-left: 1.25rem;
+}
+
+.docs-prose img {
+    height: auto;
+    max-width: 100%;
+    border-radius: var(--radius-panel);
+    box-shadow: 0 0 0 1px var(--site-border);
+}
+
+.docs-prose hr {
+    border: 0;
+    border-top: 1px solid var(--site-border);
+    margin-block: 3rem;
+}
+
+.docs-prose strong {
+    color: var(--site-heading);
+    font-weight: 600;
+}
+
 @keyframes hero-reveal {
     from {
         opacity: 0;

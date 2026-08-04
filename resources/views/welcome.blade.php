@@ -157,7 +157,7 @@
                         <div class="flex flex-wrap items-center justify-between gap-4">
                             <div class="flex items-baseline gap-3">
                                 <h3 class="text-2xl font-semibold tracking-tight text-(--site-heading)">
-                                    <a href="https://github.com/firstlightui/nativephp/blob/main/docs/components/segmented.md" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Segmented</a>
+                                    <a href="{{ route('docs.show', ['path' => 'components/segmented']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Segmented</a>
                                 </h3>
                                 <p class="rounded-full bg-dawn-100 px-3 py-1 text-base font-medium text-dawn-800 dark:bg-dawn-900 dark:text-dawn-200 sm:text-sm">Available</p>
                             </div>
@@ -262,7 +262,7 @@
                                 <span aria-live="polite" data-copy-label>Copy</span>
                             </button>
                         </div>
-                        <a href="https://github.com/firstlightui/nativephp/blob/main/docs/getting-started/installation.md" class="self-start rounded-sm py-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm" target="_blank" rel="noreferrer">
+                        <a href="{{ route('docs.show', ['path' => 'getting-started/installation']) }}" class="self-start rounded-sm py-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">
                             Read the getting started guide →
                         </a>
                     </div>

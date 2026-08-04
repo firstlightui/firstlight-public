@@ -42,3 +42,40 @@ copyButtons.forEach((button) => {
         }, 1800);
     });
 });
+
+const documentationCodeBlocks = document.querySelectorAll('.docs-prose pre');
+
+documentationCodeBlocks.forEach((pre) => {
+    const code = pre.querySelector('code');
+
+    if (! code || pre.closest('.docs-code-block')) {
+        return;
+    }
+
+    const wrapper = document.createElement('div');
+    const button = document.createElement('button');
+
+    wrapper.className = 'docs-code-block';
+    button.type = 'button';
+    button.className = 'docs-code-copy';
+    button.textContent = 'Copy';
+    button.setAttribute('aria-label', 'Copy code block');
+    button.setAttribute('aria-live', 'polite');
+
+    pre.before(wrapper);
+    wrapper.append(pre);
+    wrapper.prepend(button);
+
+    button.addEventListener('click', async () => {
+        try {
+            await copyText(code.textContent.trim());
+            button.textContent = 'Copied';
+        } catch {
+            button.textContent = 'Copy failed';
+        }
+
+        window.setTimeout(() => {
+            button.textContent = 'Copy';
+        }, 1800);
+    });
+});

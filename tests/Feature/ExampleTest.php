@@ -10,6 +10,6 @@ test('the homepage introduces Firstlight and its native implementation', functio
         ->assertSee('SwiftUI')
         ->assertSee('Jetpack Compose')
         ->assertSee('composer require firstlightui/nativephp')
-        ->assertSee('https://github.com/firstlightui/nativephp/blob/main/docs/components/segmented.md', false)
+        ->assertSee(route('docs.show', ['path' => 'components/segmented']), false)
         ->assertDontSee('Laravel has an incredibly rich ecosystem');
 });
