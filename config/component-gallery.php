@@ -1,6 +1,6 @@
 <?php
 
-$sourceRevision = 'd3bee41c282c5287c5027c392b98b37ed1dab33a';
+$sourceRevision = '8a0d7c68402bda375f594005bd9a08dc54808af1';
 
 $nativeEvidence = static function (string $slug, string $title) use ($sourceRevision): array {
     $baseUrl = "https://raw.githubusercontent.com/firstlightui/nativephp/{$sourceRevision}/docs/screenshots/{$slug}";
@@ -21,10 +21,7 @@ $nativeEvidence = static function (string $slug, string $title) use ($sourceRevi
 
 return [
     'source_revision' => $sourceRevision,
-    'mocked_components' => [
-        'checkbox',
-        'confirmation-dialog',
-    ],
+    'mocked_components' => [],
 
     'components' => [
         [
@@ -70,7 +67,7 @@ return [
             'availability' => 'Available',
             'summary' => 'Represent one strict Boolean form or checklist value with server-authoritative native state.',
             'index_variant' => 'medium',
-            'mocked' => true,
+            'screenshots' => $nativeEvidence('checkbox', 'Checkbox'),
         ],
         [
             'slug' => 'choice-group',
@@ -88,7 +85,11 @@ return [
             'availability' => 'Available',
             'summary' => 'Ask for one native confirmation with explicit cancellation and destructive action semantics.',
             'index_variant' => 'wide',
-            'mocked' => true,
+            'screenshots' => $nativeEvidence('confirmation-dialog', 'Confirmation Dialog'),
+            'screenshot_positions' => [
+                'ios' => 'bottom',
+                'android' => 'center',
+            ],
         ],
         [
             'slug' => 'date-picker',

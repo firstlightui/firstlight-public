@@ -2,7 +2,7 @@
 
 <article
     data-component-index-card="{{ $galleryComponent['slug'] }}"
-    data-component-evidence="{{ ($galleryComponent['mocked'] ?? false) ? 'mock' : 'screenshots' }}"
+    data-component-evidence="screenshots"
     @class([
         'group overflow-hidden rounded-[min(3vw,var(--radius-panel))] bg-(--site-surface) ring-1 ring-(--site-border)',
         'lg:col-span-7' => $galleryComponent['index_variant'] === 'wide',
@@ -39,37 +39,36 @@
                     <figure class="flex min-w-0 flex-col bg-(--site-canvas)">
                         <figcaption class="flex min-h-11 items-center justify-between gap-2 bg-(--site-recessed) px-3 py-2 sm:px-4">
                             <span class="text-sm font-medium text-(--site-heading)">{{ $platformLabel }}</span>
-                            <span class="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-(--site-muted)">{{ ($galleryComponent['mocked'] ?? false) ? 'Illustration' : 'Native' }}</span>
+                            <span class="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-(--site-muted)">Native</span>
                         </figcaption>
 
-                        <div @class([
-                            'min-h-0 flex-1 overflow-hidden',
-                            'flex items-center justify-center p-3 sm:p-4' => $galleryComponent['mocked'] ?? false,
-                        ])>
-                            @if ($galleryComponent['mocked'] ?? false)
-                                <x-component-evidence-mock :slug="$galleryComponent['slug']" :platform="$platform" />
-                            @else
-                                <img
-                                    src="{{ $galleryComponent['screenshots'][$platform]['light'] }}"
-                                    srcset="{{ $galleryComponent['screenshots'][$platform]['light'] }} 3x"
-                                    alt="{{ $galleryComponent['screenshots'][$platform]['alt'] }}"
-                                    class="component-evidence-image component-index-evidence-image dark:hidden"
-                                    loading="lazy"
-                                    decoding="async"
-                                    data-component-screenshot="{{ $galleryComponent['slug'] }}"
-                                    data-platform="{{ $platform }}"
-                                >
-                                <img
-                                    src="{{ $galleryComponent['screenshots'][$platform]['dark'] }}"
-                                    srcset="{{ $galleryComponent['screenshots'][$platform]['dark'] }} 3x"
-                                    alt="{{ $galleryComponent['screenshots'][$platform]['alt'] }} in dark mode"
-                                    class="component-evidence-image component-index-evidence-image hidden dark:block"
-                                    loading="lazy"
-                                    decoding="async"
-                                    data-component-screenshot="{{ $galleryComponent['slug'] }}"
-                                    data-platform="{{ $platform }}"
-                                >
-                            @endif
+                        <div class="relative min-h-0 flex-1 overflow-hidden">
+                            <img
+                                src="{{ $galleryComponent['screenshots'][$platform]['light'] }}"
+                                srcset="{{ $galleryComponent['screenshots'][$platform]['light'] }} 3x"
+                                alt="{{ $galleryComponent['screenshots'][$platform]['alt'] }}"
+                                class="component-evidence-image component-index-evidence-image dark:hidden"
+                                loading="lazy"
+                                decoding="async"
+                                data-component-screenshot="{{ $galleryComponent['slug'] }}"
+                                data-platform="{{ $platform }}"
+                                @if (isset($galleryComponent['screenshot_positions'][$platform]))
+                                    data-object-position="{{ $galleryComponent['screenshot_positions'][$platform] }}"
+                                @endif
+                            >
+                            <img
+                                src="{{ $galleryComponent['screenshots'][$platform]['dark'] }}"
+                                srcset="{{ $galleryComponent['screenshots'][$platform]['dark'] }} 3x"
+                                alt="{{ $galleryComponent['screenshots'][$platform]['alt'] }} in dark mode"
+                                class="component-evidence-image component-index-evidence-image hidden dark:block"
+                                loading="lazy"
+                                decoding="async"
+                                data-component-screenshot="{{ $galleryComponent['slug'] }}"
+                                data-platform="{{ $platform }}"
+                                @if (isset($galleryComponent['screenshot_positions'][$platform]))
+                                    data-object-position="{{ $galleryComponent['screenshot_positions'][$platform] }}"
+                                @endif
+                            >
                         </div>
                     </figure>
                 @endforeach
