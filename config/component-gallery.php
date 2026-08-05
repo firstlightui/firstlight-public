@@ -1,6 +1,6 @@
 <?php
 
-$sourceRevision = '9815040a91df330dcd0f699a03c8f475a0aeddea';
+$sourceRevision = 'd3bee41c282c5287c5027c392b98b37ed1dab33a';
 
 $nativeEvidence = static function (string $slug, string $title) use ($sourceRevision): array {
     $baseUrl = "https://raw.githubusercontent.com/firstlightui/nativephp/{$sourceRevision}/docs/screenshots/{$slug}";
@@ -21,9 +21,21 @@ $nativeEvidence = static function (string $slug, string $title) use ($sourceRevi
 
 return [
     'source_revision' => $sourceRevision,
-    'mocked_components' => [],
+    'mocked_components' => [
+        'checkbox',
+        'confirmation-dialog',
+    ],
 
     'components' => [
+        [
+            'slug' => 'activity-indicator',
+            'title' => 'Activity Indicator',
+            'tag' => 'firstlight:activity-indicator',
+            'availability' => 'Available',
+            'summary' => 'Communicate active work when no meaningful completion value is available with a native indeterminate indicator.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('activity-indicator', 'Activity Indicator'),
+        ],
         [
             'slug' => 'button',
             'title' => 'Button',
@@ -32,6 +44,15 @@ return [
             'summary' => 'Perform one immediate, labelled action with a foundational native control under the Firstlight API.',
             'index_variant' => 'wide',
             'screenshots' => $nativeEvidence('button', 'Button'),
+        ],
+        [
+            'slug' => 'callout',
+            'title' => 'Callout',
+            'tag' => 'firstlight:callout',
+            'availability' => 'Available',
+            'summary' => 'Keep an important semantic message visible in the page layout with an optional labelled action.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('callout', 'Callout'),
         ],
         [
             'slug' => 'badge',
@@ -43,6 +64,15 @@ return [
             'screenshots' => $nativeEvidence('badge', 'Badge'),
         ],
         [
+            'slug' => 'checkbox',
+            'title' => 'Checkbox',
+            'tag' => 'firstlight:checkbox',
+            'availability' => 'Available',
+            'summary' => 'Represent one strict Boolean form or checklist value with server-authoritative native state.',
+            'index_variant' => 'medium',
+            'mocked' => true,
+        ],
+        [
             'slug' => 'choice-group',
             'title' => 'Choice Group',
             'tag' => 'firstlight:choice-group',
@@ -50,6 +80,15 @@ return [
             'summary' => 'Show a visible list of labelled options for selecting one value or several values.',
             'index_variant' => 'medium',
             'screenshots' => $nativeEvidence('choice-group', 'Choice Group'),
+        ],
+        [
+            'slug' => 'confirmation-dialog',
+            'title' => 'Confirmation Dialog',
+            'tag' => 'firstlight:confirmation-dialog',
+            'availability' => 'Available',
+            'summary' => 'Ask for one native confirmation with explicit cancellation and destructive action semantics.',
+            'index_variant' => 'wide',
+            'mocked' => true,
         ],
         [
             'slug' => 'date-picker',
@@ -77,6 +116,15 @@ return [
             'summary' => 'Trigger one compact, accessible action through native SwiftUI and Material icon buttons.',
             'index_variant' => 'medium',
             'screenshots' => $nativeEvidence('icon-button', 'Icon Button'),
+        ],
+        [
+            'slug' => 'list-item',
+            'title' => 'List Item',
+            'tag' => 'firstlight:list-item',
+            'availability' => 'Available',
+            'summary' => 'Present one tappable application row with supporting text, leading identity, and a trailing affordance.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('list-item', 'List Item'),
         ],
         [
             'slug' => 'pill-group',

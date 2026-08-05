@@ -16,7 +16,7 @@
     <section class="py-16 sm:py-24">
         <div class="mx-auto grid max-w-7xl gap-4 px-6 lg:grid-cols-12 lg:px-8">
             @foreach (config('component-gallery.components', []) as $component)
-                <x-component-index-card :component="$component" />
+                <x-component-index-card :gallery-component="$component" />
             @endforeach
         </div>
     </section>

@@ -26,6 +26,7 @@ test('the homepage introduces Firstlight and its native implementation', functio
 
 test('the homepage presents every configured component with native evidence', function () {
     $response = $this->get(route('home'))->assertSuccessful();
+    $mockedComponents = config('component-gallery.mocked_components');
 
     $response
         ->assertSee('Curated controls. Consistent contracts.')
@@ -34,36 +35,73 @@ test('the homepage presents every configured component with native evidence', fu
 
     foreach (config('component-gallery.components') as $component) {
         $marker = 'data-component-card="'.$component['slug'].'"';
-
-        $response
-            ->assertSee($marker, escape: false)
-            ->assertSee(route('docs.show', ['path' => 'components/'.$component['slug']]), escape: false);
-
-        $response
-            ->assertSee($component['screenshots']['ios']['light'], escape: false)
-            ->assertSee($component['screenshots']['ios']['dark'], escape: false)
-            ->assertSee($component['screenshots']['android']['light'], escape: false)
-            ->assertSee($component['screenshots']['android']['dark'], escape: false);
-
-        expect(substr_count($response->getContent(), $marker))->toBe(1);
-    }
-
-    $response->assertDontSee('data-component-evidence="mock"', escape: false);
-});
-
-test('the component catalogue presents every configured component once', function () {
-    $response = $this->get(route('components.index'))->assertSuccessful();
-
-    foreach (config('component-gallery.components') as $component) {
-        $marker = 'data-component-index-card="'.$component['slug'].'"';
+        $isMocked = in_array($component['slug'], $mockedComponents, true);
 
         $response
             ->assertSee($marker, escape: false)
             ->assertSee(route('docs.show', ['path' => 'components/'.$component['slug']]), escape: false)
-            ->assertSee($component['screenshots']['ios']['light'], escape: false)
-            ->assertSee($component['screenshots']['ios']['dark'], escape: false)
-            ->assertSee($component['screenshots']['android']['light'], escape: false)
-            ->assertSee($component['screenshots']['android']['dark'], escape: false);
+            ->assertSee('data-component-evidence="'.($isMocked ? 'mock' : 'screenshots').'"', escape: false);
+
+        expect($component['mocked'] ?? false)->toBe($isMocked);
+
+        if ($isMocked) {
+            $response->assertSee('data-component-mock="'.$component['slug'].'"', escape: false);
+
+            if ($component['slug'] === 'confirmation-dialog') {
+                $response
+                    ->assertSee('Keep appointment')
+                    ->assertSee('Cancel');
+            }
+        } else {
+            $response
+                ->assertSee($component['screenshots']['ios']['light'], escape: false)
+                ->assertSee($component['screenshots']['ios']['dark'], escape: false)
+                ->assertSee($component['screenshots']['android']['light'], escape: false)
+                ->assertSee($component['screenshots']['android']['dark'], escape: false)
+                ->assertSee($component['screenshots']['ios']['light'].' 3x', escape: false)
+                ->assertSee($component['screenshots']['ios']['dark'].' 3x', escape: false)
+                ->assertSee($component['screenshots']['android']['light'].' 3x', escape: false)
+                ->assertSee($component['screenshots']['android']['dark'].' 3x', escape: false);
+        }
+
+        expect(substr_count($response->getContent(), $marker))->toBe(1);
+    }
+
+    $response->assertSee('Illustrated native states');
+});
+
+test('the component catalogue presents every configured component once', function () {
+    $response = $this->get(route('components.index'))->assertSuccessful();
+    $mockedComponents = config('component-gallery.mocked_components');
+
+    foreach (config('component-gallery.components') as $component) {
+        $marker = 'data-component-index-card="'.$component['slug'].'"';
+        $isMocked = in_array($component['slug'], $mockedComponents, true);
+
+        $response
+            ->assertSee($marker, escape: false)
+            ->assertSee(route('docs.show', ['path' => 'components/'.$component['slug']]), escape: false)
+            ->assertSee('data-component-evidence="'.($isMocked ? 'mock' : 'screenshots').'"', escape: false);
+
+        if ($isMocked) {
+            $response->assertSee('data-component-mock="'.$component['slug'].'"', escape: false);
+
+            if ($component['slug'] === 'confirmation-dialog') {
+                $response
+                    ->assertSee('Keep appointment')
+                    ->assertSee('Cancel');
+            }
+        } else {
+            $response
+                ->assertSee($component['screenshots']['ios']['light'], escape: false)
+                ->assertSee($component['screenshots']['ios']['dark'], escape: false)
+                ->assertSee($component['screenshots']['android']['light'], escape: false)
+                ->assertSee($component['screenshots']['android']['dark'], escape: false)
+                ->assertSee($component['screenshots']['ios']['light'].' 3x', escape: false)
+                ->assertSee($component['screenshots']['ios']['dark'].' 3x', escape: false)
+                ->assertSee($component['screenshots']['android']['light'].' 3x', escape: false)
+                ->assertSee($component['screenshots']['android']['dark'].' 3x', escape: false);
+        }
 
         expect(substr_count($response->getContent(), $marker))->toBe(1);
     }

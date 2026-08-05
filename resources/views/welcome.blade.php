@@ -194,7 +194,7 @@
                 >
                     @foreach (config('component-gallery.components', []) as $component)
                         <div class="min-w-full snap-start p-px" data-component-catalogue-slide>
-                            <x-component-gallery-card :component="$component" />
+                            <x-component-gallery-card :gallery-component="$component" />
                         </div>
                     @endforeach
                 </div>
