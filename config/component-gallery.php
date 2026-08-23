@@ -1,6 +1,6 @@
 <?php
 
-$sourceRevision = '8a0d7c68402bda375f594005bd9a08dc54808af1';
+$sourceRevision = 'c7ab2a79e4f25b03687db966918cca3df596232f';
 
 $nativeEvidence = static function (string $slug, string $title) use ($sourceRevision): array {
     $baseUrl = "https://raw.githubusercontent.com/firstlightui/nativephp/{$sourceRevision}/docs/screenshots/{$slug}";
@@ -52,6 +52,19 @@ return [
             'screenshots' => $nativeEvidence('callout', 'Callout'),
         ],
         [
+            'slug' => 'transient-feedback',
+            'title' => 'Transient Feedback',
+            'tag' => 'Feedback::success()',
+            'availability' => 'Available',
+            'summary' => 'Publish brief app-level outcomes as queued native feedback that persists across normal screen navigation.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('transient-feedback', 'Transient Feedback'),
+            'screenshot_positions' => [
+                'ios' => 'bottom',
+                'android' => 'bottom',
+            ],
+        ],
+        [
             'slug' => 'badge',
             'title' => 'Badge',
             'tag' => 'firstlight:badge',
@@ -92,6 +105,28 @@ return [
             ],
         ],
         [
+            'slug' => 'modal',
+            'title' => 'Modal',
+            'tag' => 'firstlight:modal',
+            'availability' => 'Available',
+            'summary' => 'Present authored content in a full-screen native overlay with server-controlled dismissal.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('modal', 'Modal'),
+        ],
+        [
+            'slug' => 'bottom-sheet',
+            'title' => 'Bottom Sheet',
+            'tag' => 'firstlight:bottom-sheet',
+            'availability' => 'Available',
+            'summary' => 'Present authored content in a native bottom sheet with server-controlled dismissal.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('bottom-sheet', 'Bottom Sheet'),
+            'screenshot_positions' => [
+                'ios' => 'bottom',
+                'android' => 'bottom',
+            ],
+        ],
+        [
             'slug' => 'date-picker',
             'title' => 'Date Picker',
             'tag' => 'firstlight:date-picker',
@@ -126,6 +161,24 @@ return [
             'summary' => 'Present one tappable application row with supporting text, leading identity, and a trailing affordance.',
             'index_variant' => 'medium',
             'screenshots' => $nativeEvidence('list-item', 'List Item'),
+        ],
+        [
+            'slug' => 'list',
+            'title' => 'List',
+            'tag' => 'firstlight:list',
+            'availability' => 'Available',
+            'summary' => 'Compose finite vertical collections of List Item rows with optional grouped sections and refresh or pagination hooks.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('list', 'List'),
+        ],
+        [
+            'slug' => 'list-section',
+            'title' => 'List Section',
+            'tag' => 'firstlight:list-section',
+            'availability' => 'Available',
+            'summary' => 'Group List Item rows with optional headers and footers inside a parent List.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('list-section', 'List Section'),
         ],
         [
             'slug' => 'pill-group',
