@@ -8,8 +8,14 @@
             <div class="flex flex-col gap-2">
                 <p class="font-mono text-xs font-medium uppercase tracking-[0.12em] text-(--site-primary)">Firstlight / Docs</p>
                 <p class="max-w-[54ch] text-base text-pretty text-(--site-muted)">
-                    Native controls, familiar Blade, and the implementation details in between.
+                    Native controls, Laravel validate/submit/authorize on native screens, and how Firstlight complements NativePHP Mobile UI.
                 </p>
+                <div class="flex flex-wrap gap-x-5 gap-y-2 pt-1">
+                    <a href="{{ route('docs.show', ['path' => 'how-to/validate-fields']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Validate</a>
+                    <a href="{{ route('docs.show', ['path' => 'how-to/submit-forms']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Submit</a>
+                    <a href="{{ route('docs.show', ['path' => 'how-to/authorize-actions']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Authorize</a>
+                    <a href="{{ route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Complements NativePHP</a>
+                </div>
             </div>
 
             <a

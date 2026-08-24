@@ -1,6 +1,6 @@
 <x-layouts.app
     title="Firstlight UI — Native-first building blocks for NativePHP"
-    description="Add a curated form and control layer to NativePHP Mobile UI with stable values, consistent field semantics, and familiar Blade syntax."
+    description="Add Laravel validate(), submit(), and Gate-backed authorize() on native screens, plus a curated form layer on NativePHP Mobile UI."
 >
     <section class="relative py-16 sm:py-24 lg:py-32">
         <div class="pointer-events-none absolute inset-0 technical-grid" aria-hidden="true"></div>
@@ -15,7 +15,7 @@
                         Native by platform. Familiar in Blade.
                     </h1>
                     <p class="max-w-[48ch] text-xl text-pretty text-(--site-muted)">
-                        Firstlight is a curated form and control layer for NativePHP Mobile UI. It builds on Mobile UI’s official SwiftUI and Jetpack Compose foundation, adding stable values, consistent field semantics, strict validation, and server-authoritative state through familiar Blade components. It runs on the SuperNative foundation created by <a href="https://github.com/shanerbaner82" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Shane Rosenthal</a> and <a href="https://github.com/simonhamp" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Simon Hamp</a>.
+                        Firstlight is a curated form and control layer for NativePHP Mobile UI. It builds on Mobile UI’s official SwiftUI and Jetpack Compose foundation, adding stable values, consistent field semantics, Laravel <code class="font-mono text-[0.95em]">validate()</code>, <code class="font-mono text-[0.95em]">submit()</code>, and Gate-backed <code class="font-mono text-[0.95em]">authorize()</code> on native screens, and server-authoritative state through familiar Blade components. NativePHP EDGE does not ship those PHP helpers; Firstlight does. It runs on the SuperNative foundation created by <a href="https://github.com/shanerbaner82" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Shane Rosenthal</a> and <a href="https://github.com/simonhamp" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Simon Hamp</a>.
                     </p>
                 </div>
 
@@ -129,12 +129,89 @@
                     </dd>
                 </div>
                 <div class="flex flex-col gap-4 border-y border-(--site-border) py-8 md:border-y-0 md:py-0 md:pl-8">
-                    <dt class="text-xl font-semibold text-(--site-heading)">Consistent product contracts</dt>
+                    <dt class="text-xl font-semibold text-(--site-heading)">Laravel SuperNative extensions</dt>
                     <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                        Stable values, strict validation, field semantics, accessibility evidence, and server-authoritative reconciliation keep behaviour predictable.
+                        NativePHP has no screen-level <code class="font-mono text-[0.95em]">validate()</code>, guarded <code class="font-mono text-[0.95em]">submit()</code>, or Gate-backed <code class="font-mono text-[0.95em]">authorize()</code>. Firstlight adds those PHP contracts on native fields and actions.
                     </dd>
                 </div>
             </dl>
+        </div>
+    </section>
+
+    <section id="extensions" class="py-20 sm:py-24">
+        <span id="validation"></span>
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="flex flex-col gap-5">
+                <p class="font-mono text-base uppercase tracking-wide text-(--site-primary) sm:text-sm">Laravel SuperNative extensions</p>
+                <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-5xl">
+                    NativePHP publishes a tree. Firstlight adds Laravel around it.
+                </h2>
+                <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
+                    NativePHP EDGE has no screen-level <code class="font-mono text-[0.95em]">validate()</code>, no once-run submit helper, and no Gate-backed action guard. Failed rules, double presses, and unauthorized mutations still fall through to sibling text or the generic overlay. Firstlight adds three PHP concerns on <code class="font-mono text-[0.95em]">NativeComponent</code>: <code class="font-mono text-[0.95em]">ValidatesFields</code>, <code class="font-mono text-[0.95em]">SubmitsForms</code>, and <code class="font-mono text-[0.95em]">AuthorizesActions</code>.
+                </p>
+            </div>
+
+            <dl class="mt-16 grid gap-0 lg:grid-cols-3">
+                <div class="flex flex-col gap-4 border-t border-(--site-border) py-8 lg:border-t-0 lg:border-r lg:py-0 lg:pr-8">
+                    <dt class="text-xl font-semibold text-(--site-heading)">Validate</dt>
+                    <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
+                        NativePHP has no <code class="font-mono text-[0.95em]">validate()</code>. <code class="font-mono text-[0.95em]">@@nativeError</code> is sibling text, and a thrown <code class="font-mono text-[0.95em]">ValidationException</code> still hits the overlay. Firstlight binds the first MessageBag message to the field’s native error slot.
+                    </dd>
+                    <dd class="rounded-[calc(var(--radius-panel)-0.5rem)] bg-(--site-code) p-5 ring-1 ring-(--site-border)">
+                        <pre class="overflow-x-auto font-mono text-base text-(--site-code-text) sm:text-sm"><code><span class="text-(--site-code-keyword)">$this</span>->validate();</code></pre>
+                    </dd>
+                </div>
+                <div class="flex flex-col gap-4 border-t border-(--site-border) py-8 lg:border-t-0 lg:border-r lg:px-8 lg:py-0">
+                    <dt class="text-xl font-semibold text-(--site-heading)">Submit</dt>
+                    <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
+                        A NativePHP press is just a PHP method. Firstlight <code class="font-mono text-[0.95em]">submit()</code> validates, runs the callable once, optionally sends success Feedback, and guards re-entry on the same request.
+                    </dd>
+                    <dd class="rounded-[calc(var(--radius-panel)-0.5rem)] bg-(--site-code) p-5 ring-1 ring-(--site-border)">
+                        <pre class="overflow-x-auto font-mono text-base text-(--site-code-text) sm:text-sm"><code><span class="text-(--site-code-keyword)">$this</span>->submit(
+    action: fn () => $profile->save(),
+    successMessage: <span class="text-(--site-code-string)">'Saved'</span>,
+);</code></pre>
+                    </dd>
+                </div>
+                <div class="flex flex-col gap-4 border-y border-(--site-border) py-8 lg:border-y-0 lg:py-0 lg:pl-8">
+                    <dt class="text-xl font-semibold text-(--site-heading)">Authorize</dt>
+                    <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
+                        NativePHP has no Gate helpers on screens. An uncaught authorization exception still opens the overlay. Firstlight <code class="font-mono text-[0.95em]">allows()</code>, <code class="font-mono text-[0.95em]">denies()</code>, and <code class="font-mono text-[0.95em]">authorize()</code> hide, disable, or send danger Feedback instead.
+                    </dd>
+                    <dd class="rounded-[calc(var(--radius-panel)-0.5rem)] bg-(--site-code) p-5 ring-1 ring-(--site-border)">
+                        <pre class="overflow-x-auto font-mono text-base text-(--site-code-text) sm:text-sm"><code><span class="text-(--site-code-keyword)">if</span> (! <span class="text-(--site-code-keyword)">$this</span>->authorize(<span class="text-(--site-code-string)">'update'</span>, $post)) {
+    <span class="text-(--site-code-keyword)">return</span>;
+}</code></pre>
+                    </dd>
+                </div>
+            </dl>
+
+            <div class="mt-12 grid gap-8 sm:grid-cols-2">
+                <a href="{{ route('docs.show', ['path' => 'how-to/validate-fields']) }}" class="group flex flex-col items-start gap-3 rounded-(--radius-panel) bg-(--site-surface) p-6 ring-1 ring-(--site-border) hover:bg-(--site-elevated) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--site-focus)">
+                    <p class="font-mono text-xs font-medium uppercase tracking-[0.12em] text-(--site-primary)">How-to</p>
+                    <p class="text-xl font-semibold text-(--site-heading)">Validate fields</p>
+                    <p class="text-base text-pretty text-(--site-muted) sm:text-sm">Use validate(), validateOnly(), and Form Requests so Laravel messages land on native fields.</p>
+                    <span class="pt-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 group-hover:decoration-(--site-primary) sm:text-sm">Read the validation guide →</span>
+                </a>
+                <a href="{{ route('docs.show', ['path' => 'how-to/submit-forms']) }}" class="group flex flex-col items-start gap-3 rounded-(--radius-panel) bg-(--site-surface) p-6 ring-1 ring-(--site-border) hover:bg-(--site-elevated) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--site-focus)">
+                    <p class="font-mono text-xs font-medium uppercase tracking-[0.12em] text-(--site-primary)">How-to</p>
+                    <p class="text-xl font-semibold text-(--site-heading)">Submit forms</p>
+                    <p class="text-base text-pretty text-(--site-muted) sm:text-sm">Validate, run a PHP action once, and publish success Feedback without a form schema or overlay.</p>
+                    <span class="pt-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 group-hover:decoration-(--site-primary) sm:text-sm">Read the submit guide →</span>
+                </a>
+                <a href="{{ route('docs.show', ['path' => 'how-to/authorize-actions']) }}" class="group flex flex-col items-start gap-3 rounded-(--radius-panel) bg-(--site-surface) p-6 ring-1 ring-(--site-border) hover:bg-(--site-elevated) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--site-focus)">
+                    <p class="font-mono text-xs font-medium uppercase tracking-[0.12em] text-(--site-primary)">How-to</p>
+                    <p class="text-xl font-semibold text-(--site-heading)">Authorize actions</p>
+                    <p class="text-base text-pretty text-(--site-muted) sm:text-sm">Apply Laravel Gate and Policy decisions with hide, disable, and danger Feedback instead of the overlay.</p>
+                    <span class="pt-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 group-hover:decoration-(--site-primary) sm:text-sm">Read the authorization guide →</span>
+                </a>
+                <a href="{{ route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']) }}" class="group flex flex-col items-start gap-3 rounded-(--radius-panel) bg-(--site-surface) p-6 ring-1 ring-(--site-border) hover:bg-(--site-elevated) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--site-focus)">
+                    <p class="font-mono text-xs font-medium uppercase tracking-[0.12em] text-(--site-primary)">Concept</p>
+                    <p class="text-xl font-semibold text-(--site-heading)">How Firstlight complements NativePHP Mobile UI</p>
+                    <p class="text-base text-pretty text-(--site-muted) sm:text-sm">See the focused form layer and Laravel-shaped PHP extensions Firstlight adds on Mobile UI.</p>
+                    <span class="pt-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 group-hover:decoration-(--site-primary) sm:text-sm">Read how the catalogues fit →</span>
+                </a>
+            </div>
         </div>
     </section>
 
