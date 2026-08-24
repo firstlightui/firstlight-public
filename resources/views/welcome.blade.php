@@ -1,6 +1,9 @@
+@inject('structuredData', 'App\\StructuredData')
+
 <x-layouts.app
     title="Firstlight UI — Native-first building blocks for NativePHP"
     description="Add Laravel validate(), submit(), and Gate-backed authorize() on native screens, plus a curated form layer on NativePHP Mobile UI."
+    :schema="$structuredData->home()"
 >
     <section class="relative py-16 sm:py-24 lg:py-32">
         <div class="pointer-events-none absolute inset-0 technical-grid" aria-hidden="true"></div>
@@ -112,7 +115,10 @@
                 <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
                     <a href="https://nativephp.com" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">NativePHP Mobile UI</a> provides the comprehensive native foundation for NativePHP applications. Firstlight builds on it with a smaller, opinionated catalogue for teams that want common form behaviour decided once and reused consistently.
                 </p>
-                <a href="{{ route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']) }}" class="self-start rounded-sm py-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">How Firstlight complements NativePHP Mobile UI →</a>
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+                    <a href="{{ route('comparison') }}" class="rounded-sm py-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Firstlight vs NativePHP Mobile UI →</a>
+                    <a href="{{ route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']) }}" class="rounded-sm py-2 text-base font-normal text-(--site-muted) underline decoration-(--site-border-strong) underline-offset-4 hover:text-(--site-heading) hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Read the concept guide</a>
+                </div>
             </div>
 
             <dl class="mt-16 grid gap-0 md:grid-cols-3">

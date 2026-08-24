@@ -1,7 +1,10 @@
+@inject('structuredData', 'App\\StructuredData')
+
 <x-layouts.app
     title="Firstlight UI components — Native-first alternatives for NativePHP"
     description="Explore Firstlight’s native-first alternative component implementations and app building blocks for NativePHP."
     main-class="isolate"
+    :schema="$structuredData->components(config('component-gallery.components', []))"
 >
     <section class="border-b border-(--site-border) bg-(--site-surface) py-16 sm:py-20">
         <div class="mx-auto grid max-w-7xl items-end gap-8 px-6 lg:grid-cols-[13fr_11fr] lg:px-8">

@@ -1,7 +1,10 @@
+@inject('structuredData', 'App\\StructuredData')
+
 <x-layouts.app
     :title="$documentation['title'].' — Firstlight UI Docs'"
     :description="$documentation['description'] ?: 'Firstlight UI documentation for NativePHP developers.'"
     main-class="isolate"
+    :schema="$structuredData->documentation($documentation['title'], $documentation['description'], $documentation['slug'])"
 >
     <div class="border-b border-(--site-border) bg-(--site-surface)">
         <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-5 px-6 py-8 sm:flex-row sm:items-end lg:px-8">

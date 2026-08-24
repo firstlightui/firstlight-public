@@ -2,6 +2,7 @@
     'title' => 'Firstlight UI',
     'description' => 'Native-first component implementations and app building blocks for NativePHP, authored with familiar Blade syntax.',
     'mainClass' => 'isolate overflow-hidden',
+    'schema' => [],
 ])
 
 <!DOCTYPE html>
@@ -12,8 +13,30 @@
         <meta name="description" content="{{ $description }}">
         <meta name="theme-color" content="#fbf7f2" data-theme-color>
         <link rel="icon" href="data:,">
+        <link rel="canonical" href="{{ url()->current() }}">
 
         <title>{{ $title }}</title>
+
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Firstlight UI">
+        <meta property="og:title" content="{{ $title }}">
+        <meta property="og:description" content="{{ $description }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:image" content="{{ asset('og.png') }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="Firstlight UI — native by platform, familiar in Blade. validate(), submit(), and authorize() on native screens.">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $title }}">
+        <meta name="twitter:description" content="{{ $description }}">
+        <meta name="twitter:image" content="{{ asset('og.png') }}">
+
+        <link rel="alternate" type="text/plain" href="{{ route('llms') }}" title="llms.txt">
+        <link rel="alternate" type="text/plain" href="{{ route('llms.full') }}" title="llms-full.txt">
+
+        @if ($schema !== [])
+            <script type="application/ld+json">@json($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)</script>
+        @endif
 
         <script src="{{ asset('theme.js') }}"></script>
         @fonts
@@ -97,9 +120,10 @@
                 <nav aria-label="Footer navigation" class="flex flex-wrap items-start gap-x-7 gap-y-3 sm:justify-end">
                     <a href="{{ route('components.index') }}" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Components</a>
                     <a href="{{ route('home') }}#extensions" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Extensions</a>
-                    <a href="{{ route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']) }}" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">NativePHP Mobile UI</a>
+                    <a href="{{ route('comparison') }}" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">vs NativePHP Mobile UI</a>
                     <a href="{{ route('docs.show') }}" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Documentation</a>
                     <a href="{{ route('llms') }}" class="font-mono text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">llms.txt</a>
+                    <a href="{{ route('pricing') }}" class="font-mono text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">pricing.md</a>
                     <a href="https://nativephp.com" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm" target="_blank" rel="noreferrer">NativePHP</a>
                     <a href="mailto:team@firstlightui.dev" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Email</a>
                 </nav>

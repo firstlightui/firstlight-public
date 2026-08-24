@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1200px; height:630px; }
+  body {
+    font-family:'Instrument Sans', system-ui, sans-serif;
+    background:#110805; color:#f5efe9;
+    position:relative; overflow:hidden;
+  }
+  /* dawn light breaking over the horizon, from the top-right */
+  .dawn {
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 88% 6%, rgba(253,205,104,0.42), transparent 34%),
+      radial-gradient(circle at 74% 30%, rgba(248,125,56,0.30), transparent 42%),
+      radial-gradient(circle at 60% 70%, rgba(212,38,14,0.16), transparent 52%);
+  }
+  .grid {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(to right, rgba(245,239,233,0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(245,239,233,0.07) 1px, transparent 1px);
+    background-size:60px 60px;
+    -webkit-mask-image:linear-gradient(to bottom, black, transparent 88%);
+            mask-image:linear-gradient(to bottom, black, transparent 88%);
+  }
+  .frame {
+    position:relative; height:100%;
+    display:flex; flex-direction:column; justify-content:space-between;
+    padding:60px 68px;
+  }
+  .eyebrow {
+    font-family:'JetBrains Mono', monospace;
+    font-size:20px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#f87d38;
+  }
+  .wordmark { display:flex; align-items:baseline; gap:14px; }
+  .wordmark b { font-size:52px; font-weight:600; letter-spacing:-0.02em; color:#fcf8f5; }
+  .wordmark span { font-family:'JetBrains Mono', monospace; font-size:26px; color:#a09288; }
+  h1 {
+    font-size:78px; line-height:1.03; font-weight:600; letter-spacing:-0.028em;
+    color:#fcf8f5; max-width:17ch;
+  }
+  h1 em { font-style:normal; color:#fcac71; }
+  .helpers { display:flex; gap:14px; margin-top:34px; }
+  .helper {
+    font-family:'JetBrains Mono', monospace; font-size:26px; font-weight:500;
+    color:#fcd9bd;
+    background:rgba(248,125,56,0.10);
+    border:1px solid rgba(248,125,56,0.34);
+    border-radius:999px; padding:12px 24px;
+  }
+  .foot { display:flex; align-items:center; justify-content:space-between; gap:32px; }
+  .install {
+    font-family:'JetBrains Mono', monospace; font-size:22px; color:#cdc2b9;
+    background:rgba(245,239,233,0.05);
+    border:1px solid rgba(245,239,233,0.14);
+    border-radius:14px; padding:15px 24px; white-space:nowrap;
+  }
+  .install b { color:#fcf8f5; font-weight:500; }
+  .platforms { display:flex; align-items:center; gap:22px; font-size:21px; color:#a09288; white-space:nowrap; }
+  .platforms strong { color:#f5efe9; font-weight:500; }
+  .dot { width:7px; height:7px; border-radius:999px; background:#ed4e0c; }
+</style>
+</head>
+<body>
+  <div class="dawn"></div>
+  <div class="grid"></div>
+  <div class="frame">
+    <div>
+      <div class="eyebrow">Built on NativePHP</div>
+      <div class="wordmark" style="margin-top:18px"><b>Firstlight</b><span>/ UI</span></div>
+    </div>
+
+    <div>
+      <h1>Native by platform.<br><em>Familiar in Blade.</em></h1>
+      <div class="helpers">
+        <div class="helper">validate()</div>
+        <div class="helper">submit()</div>
+        <div class="helper">authorize()</div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="install">composer require <b>firstlightui/nativephp</b></div>
+      <div class="platforms">
+        <span class="dot"></span>
+        <span><strong>SwiftUI</strong> on iOS</span>
+        <span><strong>Compose</strong> on Android</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

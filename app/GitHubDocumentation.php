@@ -30,8 +30,79 @@ class GitHubDocumentation
 
         return Str::of("# Firstlight UI\n\n> {$description}\n\n## Documentation\n\n")
             ->append($this->rewriteRelativeTargets($bodyWithoutHeading, $indexDocument['source_path'], absolute: true))
-            ->append("\n\n## Source\n\n- [GitHub repository]({$this->docsSourceUrl()})\n")
+            ->append("\n\n".$this->keyPagesSection())
+            ->append("\n## Source\n\n- [GitHub repository]({$this->docsSourceUrl()})\n")
             ->toString();
+    }
+
+    public function llmsFullText(): string
+    {
+        $documents = $this->documents();
+        $indexDocument = Arr::first($documents, fn (array $document): bool => $document['slug'] === 'index');
+
+        if ($indexDocument === null) {
+            throw new DocumentationUnavailable('The GitHub documentation index is missing.');
+        }
+
+        [$indexFrontMatter] = $this->extractFrontMatter($this->document($indexDocument['source_path'], $indexDocument['sha']));
+        $description = $indexFrontMatter['description'] ?? 'Firstlight UI documentation for NativePHP developers.';
+        $sections = [];
+
+        foreach ($documents as $document) {
+            $markdown = $this->document($document['source_path'], $document['sha']);
+            [$frontMatter, $body] = $this->extractFrontMatter($markdown);
+            $title = $frontMatter['title'] ?? $document['title'];
+            $url = $document['slug'] === 'index'
+                ? route('docs.show', absolute: true)
+                : route('docs.show', ['path' => $document['slug']], absolute: true);
+            $trimmedBody = Str::of($body)->ltrim()->toString();
+            $bodyWithoutHeading = preg_replace('/\A#\s+.+\R+/u', '', $trimmedBody, 1) ?? $trimmedBody;
+
+            $sections[] = Str::of("# {$title}\n\n")
+                ->append("Source: {$url}\n\n")
+                ->append(Str::of($this->rewriteRelativeTargets($bodyWithoutHeading, $document['source_path'], absolute: true))->rtrim()->toString())
+                ->toString();
+        }
+
+        return Str::of("# Firstlight UI\n\n> {$description}\n\n")
+            ->append("This file contains the full text of every Firstlight UI documentation page.\n\n")
+            ->append("---\n\n")
+            ->append(implode("\n\n---\n\n", $sections))
+            ->append("\n\n---\n\n".$this->keyPagesSection())
+            ->append("\n## Source\n\n- [GitHub repository]({$this->docsSourceUrl()})\n")
+            ->toString();
+    }
+
+    /**
+     * Site pages that are not documentation but that an assistant answering a question
+     * about Firstlight almost always needs: what it costs, and how it relates to NativePHP.
+     */
+    private function keyPagesSection(): string
+    {
+        $home = route('home', absolute: true);
+        $components = route('components.index', absolute: true);
+        $comparison = route('comparison', absolute: true);
+        $pricing = route('pricing', absolute: true);
+
+        return "## Key pages\n\n"
+            ."- [Firstlight UI]({$home}): a curated form and control layer for NativePHP Mobile UI.\n"
+            ."- [Components]({$components}): the component catalogue, with iOS and Android screenshots.\n"
+            ."- [Firstlight vs NativePHP Mobile UI]({$comparison}): what each is responsible for, and why they are installed together.\n"
+            ."- [Pricing]({$pricing}): Firstlight is free and open source under the MIT licence. There is no paid tier.\n\n";
+    }
+
+    /**
+     * @return array<int, array{slug: string, title: string}>
+     */
+    public function slugs(): array
+    {
+        return array_map(
+            fn (array $document): array => [
+                'slug' => $document['slug'],
+                'title' => $document['title'],
+            ],
+            $this->documents(),
+        );
     }
 
     /**

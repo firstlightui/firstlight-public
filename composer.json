@@ -1,11 +1,14 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/blank-livewire-starter-kit",
+    "name": "firstlightui/firstlight-public",
     "type": "project",
-    "description": "The official Laravel starter kit for Livewire.",
+    "description": "The Firstlight UI website: marketing site, documentation, and component gallery for the Firstlight UI package for NativePHP.",
     "keywords": [
+        "firstlight",
+        "nativephp",
         "laravel",
-        "framework"
+        "livewire",
+        "documentation"
     ],
     "license": "MIT",
     "require": {
