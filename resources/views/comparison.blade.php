@@ -8,7 +8,7 @@
         ],
         [
             'question' => 'What does Firstlight add that NativePHP does not have?',
-            'answer' => 'Three Laravel contracts on native screens. NativePHP EDGE has no screen-level validate(), no once-run submit helper, and no Gate-backed action guard. Firstlight adds ValidatesFields, SubmitsForms, and AuthorizesActions, so validation messages bind to the native field error slot, submits run once and publish native Feedback, and Gate decisions hide or disable native controls instead of reaching the generic error overlay.',
+            'answer' => 'Two layers of contract. At the control level, every Firstlight component exposes a stable public value and the same field semantics — label, value, error, disabled, and required behave identically across text fields, selects, pickers, sliders, and choice groups, so a form does not need per-control special cases. At the screen level, NativePHP EDGE has no validate(), no once-run submit helper, and no Gate-backed action guard; Firstlight adds ValidatesFields, SubmitsForms, and AuthorizesActions, so validation messages bind to the native field error slot, submits run once and publish native Feedback, and Gate decisions hide or disable native controls instead of reaching the generic error overlay.',
         ],
         [
             'question' => 'Can I use Firstlight and NativePHP Mobile UI components on the same screen?',
@@ -78,6 +78,7 @@
                             ['Role', 'The native foundation for NativePHP apps', 'A curated form and control layer on top of it'],
                             ['Relationship', 'Required. Firstlight depends on it', 'Installed alongside Mobile UI, never instead of it'],
                             ['Component coverage', 'Comprehensive native catalogue', 'Curated — 27 form, selection, display, and action controls'],
+                            ['Control contracts', 'Each control exposes its own platform-shaped API', 'One contract across every control — stable public value, and the same label, error, disabled, and required semantics'],
                             ['Rendering', 'SwiftUI on iOS, Jetpack Compose on Android', 'The same renderers, via Mobile UI’s extension points'],
                             ['Element tree', 'Publishes the shared EDGE element tree', 'Publishes into that same element tree'],
                             ['Theme', 'Supplies the semantic theme', 'Inherits it — no parallel theme to maintain'],

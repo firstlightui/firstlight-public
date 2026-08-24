@@ -187,6 +187,9 @@ it('answers the comparison question directly and marks it up as an FAQ', functio
     $questions = collect($faq['mainEntity']);
 
     expect($questions)->toHaveCount(6)
+        ->and($questions->firstWhere('name', 'What does Firstlight add that NativePHP does not have?')['acceptedAnswer']['text'])
+        ->toContain('stable public value')
+        ->toContain('ValidatesFields')
         ->and($questions->pluck('name'))->toContain('Does Firstlight UI replace NativePHP Mobile UI?')
         ->and($questions->pluck('name'))->toContain('Is Firstlight UI free?');
 
