@@ -324,7 +324,10 @@
                             Add consistent form contracts without leaving NativePHP.
                         </h2>
                         <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
-                            Install Firstlight alongside Mobile UI, then author focused form and action controls with familiar Blade markup.
+                            Requires NativePHP Mobile <code class="font-mono text-[0.95em]">^4.6</code> and Mobile UI <code class="font-mono text-[0.95em]">^0.8</code>.
+                        </p>
+                        <p class="max-w-[56ch] text-base text-pretty text-(--site-muted)">
+                            Build your screens with <code class="font-mono text-[0.95em]">FirstlightUI\NativeComponent</code> and use Firstlight controls in Blade.
                         </p>
                     </div>
 
@@ -343,6 +346,10 @@
                         <a href="{{ route('docs.show', ['path' => 'getting-started/installation']) }}" class="self-start rounded-sm py-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">
                             Read the getting started guide →
                         </a>
+                        <p class="text-base text-pretty text-(--site-muted) sm:text-sm">
+                            Firstlight is pre-alpha. Use it for evaluation, not production. Testing on real phones, long-running performance tests and use in more apps are still pending. Read the
+                            <a href="{{ route('docs.show', ['path' => 'reference/compatibility']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">compatibility notes</a>.
+                        </p>
                     </div>
                 </div>
             </div>

@@ -186,10 +186,14 @@ it('answers the comparison question directly and marks it up as an FAQ', functio
     $faq = collect($schema['@graph'])->firstWhere('@type', 'FAQPage');
     $questions = collect($faq['mainEntity']);
 
-    expect($questions)->toHaveCount(6)
+    expect($questions)->toHaveCount(7)
         ->and($questions->firstWhere('name', 'What does Firstlight add that NativePHP does not have?')['acceptedAnswer']['text'])
         ->toContain('stable public value')
         ->toContain('ValidatesFields')
+        ->and($questions->firstWhere('name', 'What do I need to install Firstlight UI?')['acceptedAnswer']['text'])
+        ->toContain('NativePHP Mobile ^4.6')
+        ->toContain('Mobile UI ^0.8')
+        ->toContain('FirstlightUI\\NativeComponent')
         ->and($questions->pluck('name'))->toContain('Does Firstlight UI replace NativePHP Mobile UI?')
         ->and($questions->pluck('name'))->toContain('Is Firstlight UI free?');
 
@@ -211,11 +215,13 @@ it('renders every FAQ answer in the page body, not only in the markup', function
     }
 })->note('Structured data must reflect visible content, not hidden claims.');
 
-it('is honest that the package is alpha rather than burying it', function () {
-    $this->get('/firstlight-vs-nativephp-mobile-ui')
-        ->assertSuccessful()
-        ->assertSee('alpha', escape: false);
-});
+it('states the remaining pre-alpha qualification on public adoption pages', function (string $route) {
+    $body = $this->get(route($route))->assertSuccessful()->getContent();
+
+    expect(strtolower($body))
+        ->toContain('pre-alpha', 'real phones', 'long-running performance tests')
+        ->not->toContain('unpatched', 'binary patch', 'streaming', 'response revisions');
+})->with(['home', 'comparison', 'pricing']);
 
 it('publishes machine-readable pricing that says the package is free', function () {
     $response = $this->get('/pricing.md')->assertSuccessful();

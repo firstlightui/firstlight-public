@@ -15,6 +15,10 @@
             'answer' => 'Yes. Firstlight is built on Mobile UI’s ordinary component extension points and publishes into the same element tree, so Firstlight and Mobile UI components compose together and share the same theme and event lifecycle.',
         ],
         [
+            'question' => 'What do I need to install Firstlight UI?',
+            'answer' => 'Use NativePHP Mobile ^4.6 and Mobile UI ^0.8. Install firstlightui/nativephp with Composer, then extend FirstlightUI\\NativeComponent for your screens. The installation guide has the complete setup.',
+        ],
+        [
             'question' => 'Is Firstlight UI free?',
             'answer' => 'Yes. Firstlight UI is open source and free to use, released under the MIT licence. There is no paid tier.',
         ],
@@ -24,7 +28,7 @@
         ],
         [
             'question' => 'Is Firstlight UI production ready?',
-            'answer' => 'Firstlight is alpha. The API may still change between releases. It is a reasonable choice for evaluation, prototypes, and teams comfortable tracking an early package, but pin your version and read the release notes before upgrading.',
+            'answer' => 'No. Firstlight is pre-alpha. It has been tested on an Android emulator and iOS simulator. Testing on real phones, long-running performance tests and use in more apps are still pending. Use it for evaluation, not production; the API may change.',
         ],
     ];
 @endphp
@@ -87,7 +91,7 @@
                             ['Guarded submit', 'A press is an ordinary PHP method; re-entry is yours to handle', 'SubmitsForms — validates, runs the action once, optionally sends success Feedback'],
                             ['Gate-backed authorize()', 'No Gate helpers on screens; an uncaught authorization exception opens the overlay', 'AuthorizesActions — allows(), denies(), authorize() hide, disable, or send danger Feedback'],
                             ['Licence and price', 'See the NativePHP project', 'MIT, free, no paid tier'],
-                            ['Maturity', 'The established foundation', 'Alpha — API may still change'],
+                            ['Maturity', 'The established foundation', 'Pre-alpha — testing on real phones and in more apps is still pending'],
                         ] as $index => [$concern, $mobileUi, $firstlight])
                             <tr class="{{ $index % 2 === 1 ? 'bg-(--site-surface)' : '' }}">
                                 <th scope="row" class="border-b border-(--site-border) px-5 py-4 align-top font-medium text-(--site-heading) sm:px-6">{{ $concern }}</th>
@@ -126,7 +130,7 @@
                     <ul class="flex flex-col gap-3 text-base text-pretty text-(--site-muted)">
                         <li>Your app is mostly display and navigation, with few or no forms.</li>
                         <li>You need a native control outside Firstlight’s curated catalogue — reach for Mobile UI directly, and mix the two freely.</li>
-                        <li>You cannot take an alpha dependency, and would rather wait for the API to settle.</li>
+                        <li>You need a production-ready package and cannot take a pre-alpha dependency.</li>
                     </ul>
                 </div>
             </div>
@@ -154,6 +158,9 @@
                 </a>
                 <a href="{{ route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']) }}" class="rounded-sm py-3 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">
                     Read the concept guide →
+                </a>
+                <a href="{{ route('docs.show', ['path' => 'reference/compatibility']) }}" class="rounded-sm py-3 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">
+                    Compatibility notes →
                 </a>
                 <a href="https://nativephp.com" class="rounded-sm py-3 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm" target="_blank" rel="noreferrer">
                     NativePHP Mobile UI ↗

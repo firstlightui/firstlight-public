@@ -38,16 +38,21 @@ class PricingController extends Controller
         composer require firstlightui/nativephp
         ```
 
-        Firstlight requires NativePHP Mobile UI, which it is installed alongside.
+        Requires NativePHP Mobile ^4.6 and Mobile UI ^0.8.
+        Build your screens with `FirstlightUI\NativeComponent` and use Firstlight
+        controls in Blade.
 
         ## Status
 
-        Firstlight UI is alpha. The API may change between releases.
+        Firstlight UI is pre-alpha. Use it for evaluation, not production. Testing on
+        real phones, long-running performance tests and use in more apps are still
+        pending. The API may change between releases.
 
         ## Links
 
         - Home: {$this->url('home')}
         - Documentation: {$this->url('docs.show')}
+        - Compatibility notes: {$this->url('docs.show')}/reference/compatibility
         - Components: {$this->url('components.index')}
         - Firstlight vs NativePHP Mobile UI: {$this->url('comparison')}
         - Source: https://github.com/firstlightui/nativephp
