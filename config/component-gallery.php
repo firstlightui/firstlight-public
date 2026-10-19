@@ -1,6 +1,6 @@
 <?php
 
-$sourceRevision = 'a1b2e79c653a5a9669f82fceec40a041019b4930';
+$sourceRevision = 'd5f2c2aa0185ed6181e0fdcd2494d7c63c619c2f';
 
 $nativeEvidence = static function (string $slug, string $title) use ($sourceRevision): array {
     $baseUrl = "https://raw.githubusercontent.com/firstlightui/nativephp/{$sourceRevision}/docs/screenshots/{$slug}";
@@ -287,6 +287,15 @@ return [
             'summary' => 'Switch between sections of one object with native tabs, counts, and selection your component controls.',
             'index_variant' => 'medium',
             'screenshots' => $nativeEvidence('tabs', 'Tabs'),
+        ],
+        [
+            'slug' => 'code-editor',
+            'title' => 'Code Editor',
+            'tag' => 'firstlight:code-editor',
+            'availability' => 'Available',
+            'summary' => 'Edit JSON, YAML, env, and plain text with line numbers, native indentation, a key row, and follow mode for live logs.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('code-editor', 'Code Editor'),
         ],
     ],
 ];
