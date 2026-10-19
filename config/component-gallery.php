@@ -1,6 +1,6 @@
 <?php
 
-$sourceRevision = 'c7ab2a79e4f25b03687db966918cca3df596232f';
+$sourceRevision = 'a1b2e79c653a5a9669f82fceec40a041019b4930';
 
 $nativeEvidence = static function (string $slug, string $title) use ($sourceRevision): array {
     $baseUrl = "https://raw.githubusercontent.com/firstlightui/nativephp/{$sourceRevision}/docs/screenshots/{$slug}";
@@ -278,6 +278,15 @@ return [
             'summary' => 'Present one boolean setting through each platform’s familiar native on/off control.',
             'index_variant' => 'wide',
             'screenshots' => $nativeEvidence('switch', 'Switch'),
+        ],
+        [
+            'slug' => 'tabs',
+            'title' => 'Tabs',
+            'tag' => 'firstlight:tabs',
+            'availability' => 'Available',
+            'summary' => 'Switch between sections of one object with native tabs, counts, and selection your component controls.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('tabs', 'Tabs'),
         ],
     ],
 ];
