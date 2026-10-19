@@ -1,12 +1,12 @@
 # Firstlight UI — public website
 
-The marketing site, documentation, and component gallery for [Firstlight UI](https://github.com/firstlightui/nativephp), a curated form and control layer for NativePHP Mobile UI.
+The marketing site, documentation, and component gallery for [Firstlight UI](https://github.com/firstlightui/nativephp), native SwiftUI and Jetpack Compose controls for NativePHP, with the Laravel contracts mobile screens need.
 
-This repository is **the website only**. The Firstlight package itself — the Blade components, the SwiftUI and Jetpack Compose renderers, and the `ValidatesFields`, `SubmitsForms`, and `AuthorizesActions` concerns — lives in [`firstlightui/nativephp`](https://github.com/firstlightui/nativephp).
+This repository is **the website only**. The Firstlight package itself — the Blade components, the SwiftUI and Jetpack Compose renderers, the `ValidatesFields`, `SubmitsForms`, `AuthorizesActions`, `PaginatesLists`, and `DestroysListItems` concerns, and the docs this site renders — lives in [`firstlightui/nativephp`](https://github.com/firstlightui/nativephp).
 
 ## What Firstlight is
 
-Firstlight builds on [NativePHP Mobile UI](https://nativephp.com), which supplies the native foundation. Firstlight adds a smaller, opinionated catalogue on top of it: stable values, consistent field semantics, and the Laravel contracts NativePHP EDGE does not ship — screen-level `validate()`, a once-run `submit()`, and Gate-backed `authorize()` — so validation messages land on native field error slots and permission decisions hide or disable native controls instead of falling through to a generic error overlay.
+Firstlight builds on [NativePHP Mobile UI](https://nativephp.com), which supplies the native foundation. Firstlight adds a smaller, opinionated catalogue on top of it: stable values, consistent field semantics, and the Laravel contracts NativePHP EDGE does not ship — screen-level `validate()`, a once-run `submit()`, Gate-backed `authorize()`, paginator-backed lists, and confirmed list deletion — so validation messages land on native field error slots and permission decisions hide or disable native controls instead of falling through to a generic error overlay. Layout and navigation chrome stay in Mobile UI.
 
 It runs on the SuperNative foundation created by [Shane Rosenthal](https://github.com/shanerbaner82) and [Simon Hamp](https://github.com/simonhamp).
 
@@ -54,7 +54,7 @@ CI runs `composer setup` then `composer ci:check`, which is the same suite as `c
 
 ### Discoverability
 
-The site is built to be read and cited by AI assistants, since that is how much of its audience finds Laravel and NativePHP packages. Four things follow from that and should not be broken casually:
+The site is built to be read and cited by AI assistants, since that is how much of its audience finds Laravel and NativePHP packages. Five things follow from that and should not be broken casually:
 
 - **`robots.txt` is a route, not a file in `public/`.** It is generated so the `Sitemap:` line resolves to whatever host the app runs on, and it explicitly allows the search-and-cite crawlers (GPTBot, PerplexityBot, ClaudeBot, Google-Extended, Bingbot, Applebot). Nothing is disallowed.
 - **`llms-full.txt` inlines every docs page** so an assistant can read the whole library in one request instead of crawling.
