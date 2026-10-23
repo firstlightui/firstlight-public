@@ -1,6 +1,6 @@
 <?php
 
-$sourceRevision = 'd5f2c2aa0185ed6181e0fdcd2494d7c63c619c2f';
+$sourceRevision = 'b063e2eb0b1da1857a9d42e4301e04bb22a5b44a';
 
 $nativeEvidence = static function (string $slug, string $title) use ($sourceRevision): array {
     $baseUrl = "https://raw.githubusercontent.com/firstlightui/nativephp/{$sourceRevision}/docs/screenshots/{$slug}";
@@ -101,6 +101,19 @@ return [
             'screenshots' => $nativeEvidence('confirmation-dialog', 'Confirmation Dialog'),
             'screenshot_positions' => [
                 'ios' => 'bottom',
+                'android' => 'center',
+            ],
+        ],
+        [
+            'slug' => 'alert-dialog',
+            'title' => 'Alert Dialog',
+            'tag' => 'firstlight:alert-dialog',
+            'availability' => 'Available',
+            'summary' => 'Present one native acknowledgement with a single action and server-controlled dismissal.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('alert-dialog', 'Alert Dialog'),
+            'screenshot_positions' => [
+                'ios' => 'center',
                 'android' => 'center',
             ],
         ],
@@ -251,6 +264,24 @@ return [
             'summary' => 'Present short display-only metadata or status text as a native semantic capsule.',
             'index_variant' => 'medium',
             'screenshots' => $nativeEvidence('status-label', 'Status Label'),
+        ],
+        [
+            'slug' => 'metric',
+            'title' => 'Metric',
+            'tag' => 'firstlight:metric',
+            'availability' => 'Available',
+            'summary' => 'Display one labelled value with tabular figures, an optional detail, and a single accessible description.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('metric', 'Metric'),
+        ],
+        [
+            'slug' => 'media',
+            'title' => 'Media',
+            'tag' => 'firstlight:media',
+            'availability' => 'Available',
+            'summary' => 'Capture one image or document into Laravel Storage with camera, library, or file picking and optional crop.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('media', 'Media'),
         ],
         [
             'slug' => 'text-field',

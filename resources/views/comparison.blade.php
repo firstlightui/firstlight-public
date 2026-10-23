@@ -28,7 +28,7 @@
         ],
         [
             'question' => 'Is Firstlight UI production ready?',
-            'answer' => 'No. Firstlight is pre-alpha. It has been tested on an Android emulator and iOS simulator. Testing on real phones, long-running performance tests and use in more apps are still pending. Use it for evaluation, not production; the API may change.',
+            'answer' => 'No. Firstlight 1.0.0 is a release candidate. It has been tested on an Android emulator and iOS simulator. Testing on real phones, long-running performance tests and use in more apps are still pending. Use it for evaluation, not production; the API may change.',
         ],
     ];
 @endphp
@@ -91,7 +91,7 @@
                             ['Guarded submit', 'A press is an ordinary PHP method; re-entry is yours to handle', 'SubmitsForms — validates, runs the action once, optionally sends success Feedback'],
                             ['Gate-backed authorize()', 'No Gate helpers on screens; an uncaught authorization exception opens the overlay', 'AuthorizesActions — allows(), denies(), authorize() hide, disable, or send danger Feedback'],
                             ['Licence and price', 'See the NativePHP project', 'MIT, free, no paid tier'],
-                            ['Maturity', 'The established foundation', 'Pre-alpha — testing on real phones and in more apps is still pending'],
+                            ['Maturity', 'The established foundation', 'Release candidate — testing on real phones and in more apps is still pending'],
                         ] as $index => [$concern, $mobileUi, $firstlight])
                             <tr class="{{ $index % 2 === 1 ? 'bg-(--site-surface)' : '' }}">
                                 <th scope="row" class="border-b border-(--site-border) px-5 py-4 align-top font-medium text-(--site-heading) sm:px-6">{{ $concern }}</th>
@@ -130,7 +130,7 @@
                     <ul class="flex flex-col gap-3 text-base text-pretty text-(--site-muted)">
                         <li>Your app is mostly display and navigation, with few or no forms.</li>
                         <li>You need a native control outside Firstlight’s curated catalogue — reach for Mobile UI directly, and mix the two freely.</li>
-                        <li>You need a production-ready package and cannot take a pre-alpha dependency.</li>
+                        <li>You need a production-ready package and cannot take a release-candidate dependency.</li>
                     </ul>
                 </div>
             </div>

@@ -13,7 +13,7 @@ It runs on the SuperNative foundation created by [Shane Rosenthal](https://githu
 To use Firstlight in an app:
 
 ```bash
-composer require firstlightui/nativephp
+composer require "firstlightui/nativephp:^1.0@RC"
 ```
 
 ## Running this site locally

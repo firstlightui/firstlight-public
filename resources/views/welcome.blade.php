@@ -333,7 +333,7 @@
 
                     <div class="flex min-w-0 flex-col gap-4">
                         <div class="flex min-w-0 items-center gap-3 rounded-xl bg-(--site-code) p-3 ring-1 ring-(--site-border)">
-                            <code class="min-w-0 flex-1 overflow-x-auto px-1 font-mono text-base whitespace-nowrap text-(--site-code-text) sm:text-sm" data-copy-source="install-command">composer require firstlightui/nativephp</code>
+                            <code class="min-w-0 flex-1 overflow-x-auto px-1 font-mono text-base whitespace-nowrap text-(--site-code-text) sm:text-sm" data-copy-source="install-command">composer require "firstlightui/nativephp:^1.0@RC"</code>
                             <button
                                 type="button"
                                 class="relative shrink-0 rounded-lg bg-white/8 px-3 py-2 text-base font-medium text-(--site-code-text) ring-1 ring-white/12 hover:bg-white/12 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--site-focus) sm:text-sm"
@@ -347,7 +347,7 @@
                             Read the getting started guide →
                         </a>
                         <p class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                            Firstlight is pre-alpha. Use it for evaluation, not production. Testing on real phones, long-running performance tests and use in more apps are still pending. Read the
+                            Firstlight 1.0.0 is a release candidate. Use it for evaluation, not production. Testing on real phones, long-running performance tests and use in more apps are still pending. Read the
                             <a href="{{ route('docs.show', ['path' => 'reference/compatibility']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">compatibility notes</a>.
                         </p>
                     </div>

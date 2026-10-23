@@ -215,11 +215,11 @@ it('renders every FAQ answer in the page body, not only in the markup', function
     }
 })->note('Structured data must reflect visible content, not hidden claims.');
 
-it('states the remaining pre-alpha qualification on public adoption pages', function (string $route) {
+it('states the remaining release-candidate qualification on public adoption pages', function (string $route) {
     $body = $this->get(route($route))->assertSuccessful()->getContent();
 
     expect(strtolower($body))
-        ->toContain('pre-alpha', 'real phones', 'long-running performance tests')
+        ->toContain('release candidate', 'real phones', 'long-running performance tests')
         ->not->toContain('unpatched', 'binary patch', 'streaming', 'response revisions');
 })->with(['home', 'comparison', 'pricing']);
 
@@ -234,7 +234,7 @@ it('publishes machine-readable pricing that says the package is free', function 
         ->toContain('# Pricing — Firstlight UI')
         ->toContain('Price: $0')
         ->toContain('Licence: MIT')
-        ->toContain('composer require firstlightui/nativephp')
+        ->toContain('composer require "firstlightui/nativephp:^1.0@RC"')
         ->toContain(route('comparison'))
         ->not->toContain('contact sales');
 });

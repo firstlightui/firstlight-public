@@ -24,7 +24,7 @@ test('the homepage introduces Firstlight and its native implementation', functio
         ->assertSee('https://nativephp.com', false)
         ->assertSee('SwiftUI')
         ->assertSee('Jetpack Compose')
-        ->assertSee('composer require firstlightui/nativephp')
+        ->assertSee('composer require "firstlightui/nativephp:^1.0@RC"', false)
         ->assertSee('FirstlightUI\\NativeComponent')
         ->assertSee('^4.6')
         ->assertSee('^0.8')
