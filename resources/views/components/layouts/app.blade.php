@@ -12,7 +12,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <meta name="description" content="{{ $description }}">
         <meta name="theme-color" content="#fbf7f2" data-theme-color>
-        <link rel="icon" href="data:,">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicon.png') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
         <link rel="canonical" href="{{ url()->current() }}">
 
         <title>{{ $title }}</title>
@@ -52,9 +54,10 @@
 
         <header class="relative z-50 border-b border-(--site-border) bg-(--site-canvas)/92 supports-backdrop-filter:bg-(--site-canvas)/80 supports-backdrop-filter:backdrop-blur-xl">
             <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4 lg:px-8">
-                <a href="{{ route('home') }}" aria-label="Homepage" class="group flex min-w-0 items-baseline gap-2 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">
+                <a href="{{ route('home') }}" aria-label="Homepage" class="group flex min-w-0 items-center gap-2 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">
+                    <img src="{{ asset('firstlight-icon.png') }}" alt="" width="36" height="36" class="size-9 shrink-0 rounded-lg">
                     <span class="font-semibold tracking-tight text-(--site-heading)">Firstlight</span>
-                    <span class="truncate font-mono text-base text-(--site-muted) sm:text-sm">/ NativePHP</span>
+                    <span class="hidden truncate font-mono text-base text-(--site-muted) sm:inline sm:text-sm">/ NativePHP</span>
                 </a>
 
                 <div class="flex items-center gap-3">
@@ -111,7 +114,10 @@
         <footer class="border-t border-(--site-border)">
             <div class="mx-auto grid max-w-7xl gap-10 px-6 py-12 sm:grid-cols-2 lg:px-8">
                 <div class="flex flex-col items-start gap-3">
-                    <a href="{{ route('home') }}" aria-label="Homepage" class="font-semibold tracking-tight text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Firstlight UI</a>
+                    <a href="{{ route('home') }}" aria-label="Homepage" class="flex items-center gap-3 rounded-sm font-semibold tracking-tight text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">
+                        <img src="{{ asset('firstlight-icon.png') }}" alt="" width="36" height="36" class="size-9 shrink-0 rounded-lg" loading="lazy">
+                        <span>Firstlight UI</span>
+                    </a>
                     <p class="max-w-[44ch] text-base text-pretty text-(--site-muted) sm:text-sm">
                         Native form controls for NativePHP Mobile UI.
                     </p>

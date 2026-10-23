@@ -65,13 +65,18 @@ The site is built to be read and cited by AI assistants, since that is how much 
 
 ### Open Graph image
 
-`public/og.png` (1200×630) is generated from `resources/og-image.html`. To regenerate it after a brand or message change, serve that file over HTTP and screenshot it:
+`public/og.png` (1200×630) uses the showcase app's sunrise icon. The current
+image was edited with built-in imagegen using the previous social card and app
+icon as references, with the instruction to add the icon beside the wordmark
+and preserve the existing copy and layout. `resources/og-image.html` keeps an
+editable layout for future regeneration. To render it after a brand or message
+change, serve the repository root over HTTP so the shared icon resolves:
 
 ```bash
-npx --yes http-server resources -p 8899 &
+npx --yes http-server . -p 8899 &
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu \
   --window-size=1200,630 --force-device-scale-factor=2 --virtual-time-budget=8000 \
-  --screenshot=/tmp/og@2x.png http://127.0.0.1:8899/og-image.html
+  --screenshot=/tmp/og@2x.png http://127.0.0.1:8899/resources/og-image.html
 magick /tmp/og@2x.png -resize 1200x630 -strip public/og.png
 ```
 
