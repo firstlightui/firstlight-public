@@ -1,7 +1,7 @@
 @inject('structuredData', 'App\\StructuredData')
 
 <x-layouts.app
-    title="Firstlight UI — Native-first building blocks for NativePHP"
+    title="Firstlight UI — Native form controls for NativePHP"
     description="Add Laravel validate(), submit(), and Gate-backed authorize() on native screens, plus a curated form layer on NativePHP Mobile UI."
     :schema="$structuredData->home()"
 >
@@ -15,10 +15,10 @@
                         Built on <a href="https://nativephp.com" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">NativePHP SuperNative</a>
                     </p>
                     <h1 class="max-w-[11ch] text-6xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-7xl lg:text-[5.75rem]">
-                        Native by platform. Familiar in Blade.
+                        Native form controls for NativePHP.
                     </h1>
                     <p class="max-w-[48ch] text-xl text-pretty text-(--site-muted)">
-                        Firstlight is a curated form and control layer for NativePHP Mobile UI. It builds on Mobile UI’s official SwiftUI and Jetpack Compose foundation, adding stable values, consistent field semantics, Laravel <code class="font-mono text-[0.95em]">validate()</code>, <code class="font-mono text-[0.95em]">submit()</code>, and Gate-backed <code class="font-mono text-[0.95em]">authorize()</code> on native screens, and server-authoritative state through familiar Blade components. NativePHP EDGE does not ship those PHP helpers; Firstlight does. It runs on the SuperNative foundation created by <a href="https://github.com/shanerbaner82" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Shane Rosenthal</a> and <a href="https://github.com/simonhamp" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Simon Hamp</a>.
+                        Firstlight is a curated form and control layer for NativePHP Mobile UI. Controls render with SwiftUI on iOS and Jetpack Compose on Android, keep their state in your PHP component, and come with Laravel-style <code class="font-mono text-[0.95em]">validate()</code>, <code class="font-mono text-[0.95em]">submit()</code>, and Gate-backed <code class="font-mono text-[0.95em]">authorize()</code> for native screens. It runs on the SuperNative foundation created by <a href="https://github.com/shanerbaner82" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Shane Rosenthal</a> and <a href="https://github.com/simonhamp" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">Simon Hamp</a>.
                     </p>
                 </div>
 
@@ -110,10 +110,10 @@
             <div class="flex flex-col gap-5">
                 <p class="font-mono text-base uppercase tracking-wide text-(--site-primary) sm:text-sm">Built on NativePHP Mobile UI</p>
                 <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-5xl">
-                    A focused control layer for the native toolkit.
+                    A smaller catalogue on top of Mobile UI.
                 </h2>
                 <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
-                    <a href="https://nativephp.com" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">NativePHP Mobile UI</a> provides the comprehensive native foundation for NativePHP applications. Firstlight builds on it with a smaller, opinionated catalogue for teams that want common form behaviour decided once and reused consistently.
+                    <a href="https://nativephp.com" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">NativePHP Mobile UI</a> provides the native foundation for NativePHP apps. Firstlight adds a smaller, opinionated set of controls for apps that want the same form behaviour on every screen.
                 </p>
                 <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
                     <a href="{{ route('comparison') }}" class="rounded-sm py-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Firstlight vs NativePHP Mobile UI →</a>
@@ -123,19 +123,19 @@
 
             <dl class="mt-16 grid gap-0 md:grid-cols-3">
                 <div class="flex flex-col gap-4 border-t border-(--site-border) py-8 md:border-t-0 md:border-r md:py-0 md:pr-8">
-                    <dt class="text-xl font-semibold text-(--site-heading)">Familiar at the source</dt>
+                    <dt class="text-xl font-semibold text-(--site-heading)">Plain Blade and PHP</dt>
                     <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                        Compose controls with Blade tags, Laravel properties, and NativePHP events. No parallel state model to learn.
+                        Use controls as Blade tags bound to properties on your component, with ordinary NativePHP events. There is no separate state model to learn.
                     </dd>
                 </div>
                 <div class="flex flex-col gap-4 border-t border-(--site-border) py-8 md:border-t-0 md:border-r md:px-8 md:py-0">
-                    <dt class="text-xl font-semibold text-(--site-heading)">NativePHP all the way down</dt>
+                    <dt class="text-xl font-semibold text-(--site-heading)">Built with Mobile UI’s extension points</dt>
                     <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                        Firstlight uses Mobile UI’s ordinary component extension points, inherits its semantic theme, and follows the same SwiftUI and Material 3 approach.
+                        Firstlight registers its controls through Mobile UI’s ordinary component extension points, inherits its theme, and renders with SwiftUI and Material 3.
                     </dd>
                 </div>
                 <div class="flex flex-col gap-4 border-y border-(--site-border) py-8 md:border-y-0 md:py-0 md:pl-8">
-                    <dt class="text-xl font-semibold text-(--site-heading)">Laravel SuperNative extensions</dt>
+                    <dt class="text-xl font-semibold text-(--site-heading)">Validation, submit, and authorization</dt>
                     <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
                         NativePHP has no screen-level <code class="font-mono text-[0.95em]">validate()</code>, guarded <code class="font-mono text-[0.95em]">submit()</code>, or Gate-backed <code class="font-mono text-[0.95em]">authorize()</code>. Firstlight adds those PHP contracts on native fields and actions.
                     </dd>
@@ -150,10 +150,10 @@
             <div class="flex flex-col gap-5">
                 <p class="font-mono text-base uppercase tracking-wide text-(--site-primary) sm:text-sm">Laravel SuperNative extensions</p>
                 <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-5xl">
-                    NativePHP publishes a tree. Firstlight adds Laravel around it.
+                    Laravel helpers for native screens.
                 </h2>
                 <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
-                    NativePHP EDGE has no screen-level <code class="font-mono text-[0.95em]">validate()</code>, no once-run submit helper, and no Gate-backed action guard. Failed rules, double presses, and unauthorized mutations still fall through to sibling text or the generic overlay. Firstlight adds three PHP concerns on <code class="font-mono text-[0.95em]">NativeComponent</code>: <code class="font-mono text-[0.95em]">ValidatesFields</code>, <code class="font-mono text-[0.95em]">SubmitsForms</code>, and <code class="font-mono text-[0.95em]">AuthorizesActions</code>.
+                    NativePHP EDGE has no screen-level <code class="font-mono text-[0.95em]">validate()</code>, no once-run submit helper, and no Gate-backed action guard. Without them, validation errors appear as sibling text or the generic error overlay, a double tap can run an action twice, and an authorization failure opens the overlay. Firstlight adds three PHP concerns on <code class="font-mono text-[0.95em]">NativeComponent</code>: <code class="font-mono text-[0.95em]">ValidatesFields</code>, <code class="font-mono text-[0.95em]">SubmitsForms</code>, and <code class="font-mono text-[0.95em]">AuthorizesActions</code>.
                 </p>
             </div>
 
@@ -170,7 +170,7 @@
                 <div class="flex flex-col gap-4 border-t border-(--site-border) py-8 lg:border-t-0 lg:border-r lg:px-8 lg:py-0">
                     <dt class="text-xl font-semibold text-(--site-heading)">Submit</dt>
                     <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                        A NativePHP press is just a PHP method. Firstlight <code class="font-mono text-[0.95em]">submit()</code> validates, runs the callable once, optionally sends success Feedback, and guards re-entry on the same request.
+                        In NativePHP, a button press calls a plain PHP method. Firstlight <code class="font-mono text-[0.95em]">submit()</code> validates, runs the callable once, optionally sends success Feedback, and guards re-entry on the same request.
                     </dd>
                     <dd class="rounded-[calc(var(--radius-panel)-0.5rem)] bg-(--site-code) p-5 ring-1 ring-(--site-border)">
                         <pre class="overflow-x-auto font-mono text-base text-(--site-code-text) sm:text-sm"><code><span class="text-(--site-code-keyword)">$this</span>->submit(
@@ -214,7 +214,7 @@
                 <a href="{{ route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']) }}" class="group flex flex-col items-start gap-3 rounded-(--radius-panel) bg-(--site-surface) p-6 ring-1 ring-(--site-border) hover:bg-(--site-elevated) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--site-focus)">
                     <p class="font-mono text-xs font-medium uppercase tracking-[0.12em] text-(--site-primary)">Concept</p>
                     <p class="text-xl font-semibold text-(--site-heading)">How Firstlight complements NativePHP Mobile UI</p>
-                    <p class="text-base text-pretty text-(--site-muted) sm:text-sm">See the focused form layer and Laravel-shaped PHP extensions Firstlight adds on Mobile UI.</p>
+                    <p class="text-base text-pretty text-(--site-muted) sm:text-sm">See which controls and PHP helpers Firstlight adds, and what stays in Mobile UI.</p>
                     <span class="pt-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 group-hover:decoration-(--site-primary) sm:text-sm">Read how the catalogues fit →</span>
                 </a>
             </div>
@@ -227,11 +227,11 @@
                 <div class="flex flex-col gap-5">
                     <p class="font-mono text-base uppercase tracking-wide text-(--site-primary) sm:text-sm">Current components</p>
                     <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-5xl">
-                        Curated controls. Consistent contracts.
+                        Form, selection, display, and action controls.
                     </h2>
                 </div>
                 <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
-                    Firstlight focuses on form, selection, display, and action controls with stable values, strict validation, and consistent field semantics. The catalogue grows where a reusable product-level contract saves every app from solving the same problem again.
+                    Every field shares the same value, label, error, disabled, and required behaviour, so a form needs no per-control special cases. New controls are added only when many apps would otherwise build the same thing themselves.
                 </p>
             </div>
 
@@ -288,27 +288,27 @@
     <section class="border-y border-(--site-border) bg-(--site-code) py-20 text-(--site-code-text) sm:py-28">
         <div class="mx-auto grid max-w-7xl items-start gap-12 px-6 lg:grid-cols-[13fr_11fr] lg:px-8">
             <div class="flex flex-col gap-6">
-                <p class="font-mono text-base uppercase tracking-wide text-(--site-code-keyword) sm:text-sm">Firstlight in the NativePHP ecosystem</p>
+                <p class="font-mono text-base uppercase tracking-wide text-(--site-code-keyword) sm:text-sm">How it renders</p>
                 <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-                    SuperNative supplies the bridge. Firstlight adds consistent product contracts.
+                    The same rendering pipeline as Mobile UI.
                 </h2>
                 <p class="max-w-[56ch] text-lg text-pretty text-(--site-code-muted)">
-                    Firstlight uses the same EDGE, Element Tree, shared-memory frame, renderer, theme, and event lifecycle as NativePHP Mobile UI. Ordinary interaction stays on the native UI thread.
+                    Firstlight uses the same EDGE element tree, renderers, theme, and event lifecycle as NativePHP Mobile UI. Ordinary interaction, such as typing and scrolling, stays on the native UI thread.
                 </p>
             </div>
 
             <dl class="divide-y divide-white/10 border-y border-white/10">
                 <div class="grid grid-cols-[auto_1fr] gap-x-5 py-5">
                     <dt class="font-mono text-base text-(--site-code-keyword) sm:text-sm">01</dt>
-                    <dd class="text-base text-pretty text-(--site-code-text) sm:text-sm">Blade compiles to a Firstlight element with stable public values.</dd>
+                    <dd class="text-base text-pretty text-(--site-code-text) sm:text-sm">Your Blade view compiles to Firstlight elements.</dd>
                 </div>
                 <div class="grid grid-cols-[auto_1fr] gap-x-5 py-5">
                     <dt class="font-mono text-base text-(--site-code-keyword) sm:text-sm">02</dt>
-                    <dd class="text-base text-pretty text-(--site-code-text) sm:text-sm">The shared element tree publishes primitive, platform-neutral intent.</dd>
+                    <dd class="text-base text-pretty text-(--site-code-text) sm:text-sm">The shared element tree describes each control in platform-neutral terms.</dd>
                 </div>
                 <div class="grid grid-cols-[auto_1fr] gap-x-5 py-5">
                     <dt class="font-mono text-base text-(--site-code-keyword) sm:text-sm">03</dt>
-                    <dd class="text-base text-pretty text-(--site-code-text) sm:text-sm">SwiftUI and Compose renderers express that intent natively.</dd>
+                    <dd class="text-base text-pretty text-(--site-code-text) sm:text-sm">SwiftUI on iOS and Jetpack Compose on Android draw the native control.</dd>
                 </div>
             </dl>
         </div>
@@ -321,7 +321,7 @@
                     <div class="flex min-w-0 flex-col gap-6">
                         <p class="font-mono text-base uppercase tracking-wide text-(--site-primary) sm:text-sm">Quickstart</p>
                         <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-5xl">
-                            Add consistent form contracts without leaving NativePHP.
+                            Add Firstlight to a NativePHP app.
                         </h2>
                         <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
                             Requires NativePHP Mobile <code class="font-mono text-[0.95em]">^4.6</code> and Mobile UI <code class="font-mono text-[0.95em]">^0.8</code>.

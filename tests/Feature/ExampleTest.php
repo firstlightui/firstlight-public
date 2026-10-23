@@ -3,18 +3,18 @@
 test('the homepage introduces Firstlight and its native implementation', function () {
     $this->get(route('home'))
         ->assertSuccessful()
-        ->assertSee('Native by platform. Familiar in Blade.')
+        ->assertSee('Native form controls for NativePHP.')
         ->assertSee('NativePHP Mobile UI')
         ->assertSee('curated form and control layer')
-        ->assertSee('Mobile UI’s official SwiftUI and Jetpack Compose foundation')
-        ->assertSee('A focused control layer for the native toolkit.')
-        ->assertSee('Curated controls. Consistent contracts.')
-        ->assertSee('SuperNative supplies the bridge.')
+        ->assertSee('Controls render with SwiftUI on iOS and Jetpack Compose on Android')
+        ->assertSee('A smaller catalogue on top of Mobile UI.')
+        ->assertSee('Form, selection, display, and action controls.')
+        ->assertSee('The same rendering pipeline as Mobile UI.')
         ->assertSee(route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']), false)
         ->assertSee(route('docs.show', ['path' => 'how-to/validate-fields']), false)
         ->assertSee(route('docs.show', ['path' => 'how-to/submit-forms']), false)
         ->assertSee(route('docs.show', ['path' => 'how-to/authorize-actions']), false)
-        ->assertSee('NativePHP publishes a tree. Firstlight adds Laravel around it.')
+        ->assertSee('Laravel helpers for native screens.')
         ->assertSee('@nativeError')
         ->assertSee('Laravel SuperNative extensions')
         ->assertSee('->submit(', escape: false)
@@ -40,7 +40,7 @@ test('the homepage presents every configured component with native evidence', fu
     $response = $this->get(route('home'))->assertSuccessful();
 
     $response
-        ->assertSee('Curated controls. Consistent contracts.')
+        ->assertSee('Form, selection, display, and action controls.')
         ->assertSee('data-component-catalogue-track', escape: false)
         ->assertSee('component-evidence-image', escape: false)
         ->assertDontSee('data-component-evidence="mock"', escape: false);

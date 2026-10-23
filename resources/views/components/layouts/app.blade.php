@@ -1,6 +1,6 @@
 @props([
     'title' => 'Firstlight UI',
-    'description' => 'Native-first component implementations and app building blocks for NativePHP, authored with familiar Blade syntax.',
+    'description' => 'Native form controls for NativePHP Mobile UI, written in Blade.',
     'mainClass' => 'isolate overflow-hidden',
     'schema' => [],
 ])
@@ -25,7 +25,7 @@
         <meta property="og:image" content="{{ asset('og.png') }}">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
-        <meta property="og:image:alt" content="Firstlight UI — native by platform, familiar in Blade. validate(), submit(), and authorize() on native screens.">
+        <meta property="og:image:alt" content="Firstlight UI — native form controls for NativePHP. validate(), submit(), and authorize() on native screens.">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ $title }}">
         <meta name="twitter:description" content="{{ $description }}">
@@ -113,7 +113,7 @@
                 <div class="flex flex-col items-start gap-3">
                     <a href="{{ route('home') }}" aria-label="Homepage" class="font-semibold tracking-tight text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Firstlight UI</a>
                     <p class="max-w-[44ch] text-base text-pretty text-(--site-muted) sm:text-sm">
-                        Native-first wrappers and building blocks for NativePHP.
+                        Native form controls for NativePHP Mobile UI.
                     </p>
                 </div>
 

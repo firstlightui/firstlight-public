@@ -17,7 +17,7 @@
                     <a href="{{ route('docs.show', ['path' => 'how-to/validate-fields']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Validate</a>
                     <a href="{{ route('docs.show', ['path' => 'how-to/submit-forms']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Submit</a>
                     <a href="{{ route('docs.show', ['path' => 'how-to/authorize-actions']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Authorize</a>
-                    <a href="{{ route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Complements NativePHP</a>
+                    <a href="{{ route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Firstlight and Mobile UI</a>
                 </div>
             </div>
 
@@ -83,7 +83,7 @@
                 <span class="size-1.5 rounded-full bg-(--site-primary)" aria-hidden="true"></span>
                 Served from
                 <a href="https://github.com/firstlightui/nativephp/tree/main/docs" class="font-medium text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">firstlightui/nativephp</a>
-                and cached for a fast first read.
+                on GitHub.
             </p>
         </div>
     </div>

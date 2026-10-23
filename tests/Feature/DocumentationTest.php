@@ -128,7 +128,7 @@ it('shows a themed unavailable page when GitHub has no cached response', functio
 
     $this->get('/docs')
         ->assertStatus(503)
-        ->assertSee('The source is taking a moment.')
+        ->assertSee('The docs could not be loaded.')
         ->assertSee('Open GitHub docs');
 });
 

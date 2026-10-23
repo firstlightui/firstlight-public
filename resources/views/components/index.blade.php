@@ -1,8 +1,8 @@
 @inject('structuredData', 'App\\StructuredData')
 
 <x-layouts.app
-    title="Firstlight UI components — Native-first alternatives for NativePHP"
-    description="Explore Firstlight’s native-first alternative component implementations and app building blocks for NativePHP."
+    title="Firstlight UI components — Native controls for NativePHP"
+    description="Browse Firstlight’s native form, selection, display, and action controls for NativePHP, with iOS and Android screenshots."
     main-class="isolate"
     :schema="$structuredData->components(config('component-gallery.components', []))"
 >
@@ -10,9 +10,9 @@
         <div class="mx-auto grid max-w-7xl items-end gap-8 px-6 lg:grid-cols-[13fr_11fr] lg:px-8">
             <div class="flex flex-col gap-5">
                 <p class="font-mono text-xs font-medium uppercase tracking-[0.12em] text-(--site-primary)">Component catalogue</p>
-                <h1 class="max-w-[16ch] text-5xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-6xl">Native-first alternatives, in familiar Blade.</h1>
+                <h1 class="max-w-[16ch] text-5xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-6xl">Every Firstlight control.</h1>
             </div>
-            <p class="max-w-[54ch] text-lg text-pretty text-(--site-muted)">Firstlight wraps familiar NativePHP patterns, offers alternative implementations where platform-native expression matters, and provides a base for richer app building blocks.</p>
+            <p class="max-w-[54ch] text-lg text-pretty text-(--site-muted)">Each control renders with SwiftUI on iOS and Jetpack Compose on Android. The screenshots show both platforms in light and dark mode.</p>
         </div>
     </section>
 

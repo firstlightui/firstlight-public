@@ -8,7 +8,7 @@
         ],
         [
             'question' => 'What does Firstlight add that NativePHP does not have?',
-            'answer' => 'Two layers of contract. At the control level, every Firstlight component exposes a stable public value and the same field semantics — label, value, error, disabled, and required behave identically across text fields, selects, pickers, sliders, and choice groups, so a form does not need per-control special cases. At the screen level, NativePHP EDGE has no validate(), no once-run submit helper, and no Gate-backed action guard; Firstlight adds ValidatesFields, SubmitsForms, and AuthorizesActions, so validation messages bind to the native field error slot, submits run once and publish native Feedback, and Gate decisions hide or disable native controls instead of reaching the generic error overlay.',
+            'answer' => 'Consistent controls and screen-level PHP helpers. At the control level, every Firstlight component exposes a stable public value and the same field semantics — label, value, error, disabled, and required behave identically across text fields, selects, pickers, sliders, and choice groups, so a form does not need per-control special cases. At the screen level, NativePHP EDGE has no validate(), no once-run submit helper, and no Gate-backed action guard; Firstlight adds ValidatesFields, SubmitsForms, and AuthorizesActions, so validation messages bind to the native field error slot, submits run once and publish native Feedback, and Gate decisions hide or disable native controls instead of reaching the generic error overlay.',
         ],
         [
             'question' => 'Can I use Firstlight and NativePHP Mobile UI components on the same screen?',
@@ -24,7 +24,7 @@
         ],
         [
             'question' => 'Why is the Firstlight component catalogue smaller than Mobile UI’s?',
-            'answer' => 'By design. Mobile UI aims for comprehensive native coverage. Firstlight is a curated catalogue of 27 form, selection, display, and action controls, and grows only where a reusable product-level contract saves every app from solving the same problem again.',
+            'answer' => 'By design. Mobile UI aims for comprehensive native coverage. Firstlight is a curated catalogue of 27 form, selection, display, and action controls, and adds a control only when many apps would otherwise build it themselves.',
         ],
         [
             'question' => 'Is Firstlight UI production ready?',
@@ -56,7 +56,7 @@
             </p>
 
             <p class="mt-6 max-w-[62ch] text-base text-pretty text-(--site-muted)">
-                If you are choosing between them, you are asking the wrong question — Firstlight depends on Mobile UI and cannot be used without it. The useful question is whether you want the form, validation, and authorization semantics decided once for you, or written per screen in your own app.
+                You cannot use Firstlight without Mobile UI. The real decision is whether you want form, validation, and authorization behaviour from a package, or written per screen in your own app.
             </p>
         </div>
     </section>
@@ -102,10 +102,6 @@
                     </tbody>
                 </table>
             </div>
-
-            <p class="mt-6 max-w-[62ch] text-base text-pretty text-(--site-muted)">
-                Every row above describes a difference in responsibility, not in quality. Firstlight exists because these three PHP concerns are the ones every NativePHP app ends up rebuilding, not because the foundation is lacking.
-            </p>
         </div>
     </section>
 
