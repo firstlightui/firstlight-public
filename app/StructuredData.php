@@ -36,8 +36,8 @@ class StructuredData
                 'license' => 'https://opensource.org/licenses/MIT',
                 'isAccessibleForFree' => true,
                 'programmingLanguage' => ['PHP', 'Swift', 'Kotlin'],
-                'softwareRequirements' => 'PHP, Laravel, NativePHP Mobile UI',
-                'description' => 'A curated form and control layer for NativePHP Mobile UI. Firstlight adds Laravel validate(), submit(), and Gate-backed authorize() to native mobile screens, rendering as SwiftUI on iOS and Jetpack Compose on Android from familiar Blade markup.',
+                'softwareRequirements' => 'PHP, Laravel, NativePHP Mobile, NativePHP Mobile UI',
+                'description' => 'The app-shell layer for NativePHP. Firstlight gives a standard forms app its lists, search, forms, settings, sheets, dialogs, and feedback as genuine SwiftUI controls on iOS and Jetpack Compose controls on Android, with Laravel validation, Gate-backed authorization, tested recipes, and a Laravel Boost guideline for coding agents.',
                 'offers' => [
                     '@type' => 'Offer',
                     'price' => '0',

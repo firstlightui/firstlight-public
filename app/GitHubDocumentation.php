@@ -28,7 +28,10 @@ class GitHubDocumentation
         $bodyWithoutHeading = preg_replace('/\A#\s+.+\R+/u', '', $trimmedBody, 1) ?? $trimmedBody;
         $description = $frontMatter['description'] ?? 'Firstlight UI documentation for NativePHP developers.';
 
-        return Str::of("# Firstlight UI\n\n> {$description}\n\n## Documentation\n\n")
+        // An index that groups its pages under its own headings needs no generic one.
+        $documentationHeading = preg_match('/^##\s/m', $bodyWithoutHeading) === 1 ? '' : "## Documentation\n\n";
+
+        return Str::of("# Firstlight UI\n\n> {$description}\n\n{$documentationHeading}")
             ->append($this->rewriteRelativeTargets($bodyWithoutHeading, $indexDocument['source_path'], absolute: true))
             ->append("\n\n".$this->keyPagesSection())
             ->append("\n## Source\n\n- [GitHub repository]({$this->docsSourceUrl()})\n")
@@ -85,7 +88,7 @@ class GitHubDocumentation
         $pricing = route('pricing', absolute: true);
 
         return "## Key pages\n\n"
-            ."- [Firstlight UI]({$home}): a curated form and control layer for NativePHP Mobile UI.\n"
+            ."- [Firstlight UI]({$home}): the app-shell layer for NativePHP, with genuine SwiftUI and Jetpack Compose controls, Laravel validation, recipes, and a Laravel Boost guideline for coding agents.\n"
             ."- [Components]({$components}): the component catalogue, with iOS and Android screenshots.\n"
             ."- [Firstlight vs NativePHP Mobile UI]({$comparison}): what each is responsible for, and why they are installed together.\n"
             ."- [Pricing]({$pricing}): Firstlight is free and open source under the MIT licence. There is no paid tier.\n\n";
@@ -156,7 +159,7 @@ class GitHubDocumentation
     private function documents(): array
     {
         return Cache::flexible(
-            $this->cacheKey('navigation'),
+            $this->cacheKey('navigation:v2'),
             $this->cacheTimes(),
             fn (): array => $this->fetchDocuments(),
         );
@@ -220,6 +223,7 @@ class GitHubDocumentation
             }
 
             $documentsByPath[$link['source_path']]['title'] = $link['title'];
+            $documentsByPath[$link['source_path']]['section'] = $link['section'] ?? $documentsByPath[$link['source_path']]['section'];
             $orderedDocuments[] = $documentsByPath[$link['source_path']];
             unset($documentsByPath[$link['source_path']]);
         }
@@ -245,7 +249,7 @@ class GitHubDocumentation
     private function documentDescriptor(string $sourcePath, string $sha): array
     {
         $slug = $this->slugForSourcePath($sourcePath);
-        $section = Str::contains($slug, '/') ? Str::before($slug, '/') : null;
+        $section = Str::contains($slug, '/') ? Str::headline(Str::before($slug, '/')) : null;
 
         return [
             'slug' => $slug,
@@ -275,11 +279,11 @@ class GitHubDocumentation
                 continue;
             }
 
-            $section = $document['section'] ?? 'documentation';
+            $section = $document['section'] ?? 'Documentation';
 
             if (! isset($sections[$section])) {
                 $sections[$section] = [
-                    'title' => Str::headline($section),
+                    'title' => $section,
                     'documents' => [],
                 ];
             }
@@ -294,30 +298,42 @@ class GitHubDocumentation
     }
 
     /**
-     * @return array<int, array{title: string, source_path: string}>
+     * Links in the documentation index, each with the second-level heading it is listed under.
+     *
+     * @return array<int, array{title: string, source_path: string, section: string|null}>
      */
     private function indexLinks(string $markdown, string $indexPath): array
     {
-        preg_match_all(
-            '/\[(?<title>[^\]]+)]\((?<target>[^)\s]+\.md(?:#[^)]*)?)\)/',
-            $markdown,
-            $matches,
-            PREG_SET_ORDER,
-        );
-
         $links = [];
+        $section = null;
 
-        foreach ($matches as $match) {
-            $sourcePath = $this->resolveSourcePath($indexPath, Str::before($match['target'], '#'));
+        foreach (preg_split('/\R/', $markdown) ?: [] as $line) {
+            if (preg_match('/^##\s+(?<heading>.+?)\s*#*\s*$/', $line, $heading) === 1) {
+                $section = $heading['heading'];
 
-            if ($sourcePath === null) {
                 continue;
             }
 
-            $links[] = [
-                'title' => $match['title'],
-                'source_path' => $sourcePath,
-            ];
+            preg_match_all(
+                '/\[(?<title>[^\]]+)]\((?<target>[^)\s]+\.md(?:#[^)]*)?)\)/',
+                $line,
+                $matches,
+                PREG_SET_ORDER,
+            );
+
+            foreach ($matches as $match) {
+                $sourcePath = $this->resolveSourcePath($indexPath, Str::before($match['target'], '#'));
+
+                if ($sourcePath === null) {
+                    continue;
+                }
+
+                $links[] = [
+                    'title' => $match['title'],
+                    'source_path' => $sourcePath,
+                    'section' => $section,
+                ];
+            }
         }
 
         return $links;

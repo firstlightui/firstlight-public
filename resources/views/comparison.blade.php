@@ -1,10 +1,12 @@
 @inject('structuredData', 'App\\StructuredData')
 
 @php
+    $componentCount = count(config('component-gallery.components', []));
+
     $faqs = [
         [
             'question' => 'Does Firstlight UI replace NativePHP Mobile UI?',
-            'answer' => 'No. Firstlight is installed alongside NativePHP Mobile UI and depends on it. Mobile UI supplies the native foundation — the EDGE element tree, the SwiftUI and Jetpack Compose renderers, the semantic theme, and the event lifecycle. Firstlight adds a curated form and control layer on top of it.',
+            'answer' => 'No. Firstlight is installed alongside NativePHP Mobile UI and depends on it. Mobile UI supplies the native foundation — the EDGE element tree, the SwiftUI and Jetpack Compose renderers, the semantic theme, and the event lifecycle. Firstlight adds the app-shell layer on top of it: form, list, dialog, and feedback controls, Laravel validation and authorization on screens, and tested recipes. Navigation chrome comes from NativePHP’s own native chrome, not from Firstlight.',
         ],
         [
             'question' => 'What does Firstlight add that NativePHP does not have?',
@@ -24,7 +26,11 @@
         ],
         [
             'question' => 'Why is the Firstlight component catalogue smaller than Mobile UI’s?',
-            'answer' => 'By design. Mobile UI aims for comprehensive native coverage. Firstlight is a curated catalogue of 27 form, selection, display, and action controls, and adds a control only when many apps would otherwise build it themselves.',
+            'answer' => 'By design. Mobile UI aims for comprehensive native coverage. Firstlight covers what a standard forms app needs with '.$componentCount.' controls, and adds a control only when it has an equal native contract on iOS and Android. It has no charts, carousels, or custom-drawn controls, and it is not a design system.',
+        ],
+        [
+            'question' => 'Does Firstlight work with AI coding agents?',
+            'answer' => 'Yes, that is its main audience. Firstlight ships a Laravel Boost guideline and two skills, firstlight-init and building-firstlight-screens, that steer an agent to the tested recipes, and publishes its documentation as llms.txt and llms-full.txt.',
         ],
         [
             'question' => 'Is Firstlight UI production ready?',
@@ -35,7 +41,7 @@
 
 <x-layouts.app
     title="Firstlight UI vs NativePHP Mobile UI — how the two catalogues fit together"
-    description="Firstlight UI does not replace NativePHP Mobile UI — it installs alongside it and adds Laravel validate(), submit(), and Gate-backed authorize() on native screens. A side-by-side comparison of what each one is responsible for."
+    description="Firstlight UI does not replace NativePHP Mobile UI — it is the app-shell layer installed alongside it, adding native form and list controls and Laravel validate(), submit(), and Gate-backed authorize() on native screens. A side-by-side comparison of what each one is responsible for."
     main-class="isolate"
     :schema="$structuredData->comparison(
         'Firstlight UI vs NativePHP Mobile UI',
@@ -52,7 +58,7 @@
 
             {{-- The direct answer, kept short and self-contained so it stands on its own out of context. --}}
             <p class="mt-8 max-w-[62ch] text-xl text-pretty text-(--site-heading)">
-                They are not alternatives. NativePHP Mobile UI is the native foundation; Firstlight UI is a curated form and control layer installed alongside it. Mobile UI renders native controls from Blade. Firstlight adds the Laravel contracts NativePHP does not ship — screen-level <code class="font-mono text-[0.95em]">validate()</code>, a once-run <code class="font-mono text-[0.95em]">submit()</code>, and Gate-backed <code class="font-mono text-[0.95em]">authorize()</code>.
+                They are not alternatives. NativePHP Mobile UI is the native foundation; Firstlight UI is the app-shell layer installed alongside it. Mobile UI renders native controls from Blade. Firstlight adds the Laravel contracts NativePHP does not ship — screen-level <code class="font-mono text-[0.95em]">validate()</code>, a once-run <code class="font-mono text-[0.95em]">submit()</code>, and Gate-backed <code class="font-mono text-[0.95em]">authorize()</code>.
             </p>
 
             <p class="mt-6 max-w-[62ch] text-base text-pretty text-(--site-muted)">
@@ -79,9 +85,10 @@
                     </thead>
                     <tbody class="text-base sm:text-sm">
                         @foreach ([
-                            ['Role', 'The native foundation for NativePHP apps', 'A curated form and control layer on top of it'],
+                            ['Role', 'The native foundation for NativePHP apps', 'The app-shell layer on top of it: controls, Laravel contracts, and recipes for a standard forms app'],
                             ['Relationship', 'Required. Firstlight depends on it', 'Installed alongside Mobile UI, never instead of it'],
-                            ['Component coverage', 'Comprehensive native catalogue', 'Curated — 27 form, selection, display, and action controls'],
+                            ['Component coverage', 'Comprehensive native catalogue', $componentCount.' form, list, selection, overlay, status, and feedback controls — no charts or carousels'],
+                            ['Navigation chrome', 'Native stacks, title bars, and tab bars come from NativePHP Mobile’s usesNativeChrome() layouts', 'Uses that same chrome and draws none of its own'],
                             ['Control contracts', 'Each control exposes its own platform-shaped API', 'One contract across every control — stable public value, and the same label, error, disabled, and required semantics'],
                             ['Rendering', 'SwiftUI on iOS, Jetpack Compose on Android', 'The same renderers, via Mobile UI’s extension points'],
                             ['Element tree', 'Publishes the shared EDGE element tree', 'Publishes into that same element tree'],
@@ -125,7 +132,7 @@
                     <h3 class="text-xl font-semibold text-(--site-heading)">Stay on Mobile UI alone when</h3>
                     <ul class="flex flex-col gap-3 text-base text-pretty text-(--site-muted)">
                         <li>Your app is mostly display and navigation, with few or no forms.</li>
-                        <li>You need a native control outside Firstlight’s curated catalogue — reach for Mobile UI directly, and mix the two freely.</li>
+                        <li>You need a native control outside Firstlight’s catalogue — reach for Mobile UI directly, and mix the two freely.</li>
                         <li>You need a production-ready package and cannot take a release-candidate dependency.</li>
                     </ul>
                 </div>

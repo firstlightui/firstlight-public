@@ -11,13 +11,13 @@
             <div class="flex flex-col gap-2">
                 <p class="font-mono text-xs font-medium uppercase tracking-[0.12em] text-(--site-primary)">Firstlight / Docs</p>
                 <p class="max-w-[54ch] text-base text-pretty text-(--site-muted)">
-                    Native controls, Laravel validate/submit/authorize on native screens, and how Firstlight complements NativePHP Mobile UI.
+                    Recipes for the screens a forms app needs, setup for your coding agent, Laravel on native screens, and accessibility.
                 </p>
                 <div class="flex flex-wrap gap-x-5 gap-y-2 pt-1">
-                    <a href="{{ route('docs.show', ['path' => 'how-to/validate-fields']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Validate</a>
-                    <a href="{{ route('docs.show', ['path' => 'how-to/submit-forms']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Submit</a>
-                    <a href="{{ route('docs.show', ['path' => 'how-to/authorize-actions']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Authorize</a>
-                    <a href="{{ route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Firstlight and Mobile UI</a>
+                    <a href="{{ route('docs.show', ['path' => 'how-to/build-a-list-detail-flow']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Recipes</a>
+                    <a href="{{ route('docs.show', ['path' => 'getting-started/build-with-a-coding-agent']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Coding agents</a>
+                    <a href="{{ route('docs.show', ['path' => 'concepts/accessibility']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Accessibility</a>
+                    <a href="{{ route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']) }}" class="rounded-sm py-1 text-sm font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">What Firstlight is</a>
                 </div>
             </div>
 

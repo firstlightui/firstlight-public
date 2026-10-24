@@ -36,6 +36,50 @@ it('builds and caches the documentation page and navigation from GitHub', functi
     Http::assertSentCount(2);
 });
 
+it('groups the documentation navigation under the index headings in index order', function () {
+    Http::fake([
+        'api.github.com/repos/firstlightui/nativephp/git/trees/main*' => Http::response(documentationTree()),
+        'raw.githubusercontent.com/firstlightui/nativephp/main/docs/index.md' => Http::response(<<<'MARKDOWN'
+---
+title: Firstlight UI Documentation
+description: Recipes first.
+---
+
+# Firstlight UI Documentation
+
+## Start with a recipe
+
+- [Build a first screen](getting-started/first-component.md)
+
+## Get started
+
+- [Installation](getting-started/installation.md)
+MARKDOWN),
+    ]);
+
+    $html = $this->get('/docs')->assertSuccessful()->getContent();
+    $navigation = substr($html, strpos($html, 'aria-label="Documentation navigation"'));
+
+    expect($navigation)
+        ->toContain('Start with a recipe')
+        ->toContain('Get started')
+        ->not->toContain('Getting Started')
+        ->and(strpos($navigation, 'Start with a recipe'))->toBeLessThan(strpos($navigation, 'Build a first screen'))
+        ->and(strpos($navigation, 'Build a first screen'))->toBeLessThan(strpos($navigation, 'Get started'))
+        ->and(strpos($navigation, 'Get started'))->toBeLessThan(strpos($navigation, 'Installation'))
+        ->and(strpos($navigation, 'Installation'))->toBeLessThan(strpos($navigation, 'Components'));
+});
+
+it('redirects documentation paths without the docs prefix to the documentation', function (string $path) {
+    $this->get('/'.$path)->assertRedirect(route('docs.show', ['path' => $path]))->assertStatus(301);
+})->with([
+    'how-to/build-a-form-screen',
+    'getting-started/theming',
+    'concepts/accessibility',
+    'reference/compatibility',
+    'components/button',
+]);
+
 it('selects a fresh document cache entry when the GitHub blob SHA changes', function () {
     Http::fake([
         'api.github.com/repos/firstlightui/nativephp/git/trees/main*' => Http::sequence()
@@ -50,7 +94,7 @@ it('selects a fresh document cache entry when the GitHub blob SHA changes', func
         ->assertSuccessful()
         ->assertSee('Version one.');
 
-    Cache::forget('documentation:'.sha1('firstlightui/nativephp@main:navigation'));
+    Cache::forget('documentation:'.sha1('firstlightui/nativephp@main:navigation:v2'));
 
     $this->get('/docs')
         ->assertSuccessful()

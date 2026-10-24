@@ -1,7 +1,7 @@
 @inject('structuredData', 'App\\StructuredData')
 
 <x-layouts.app
-    title="Firstlight UI components — Native controls for NativePHP"
+    title="Firstlight UI components — Genuine SwiftUI and Jetpack Compose controls for NativePHP"
     description="Browse Firstlight’s native form, selection, display, and action controls for NativePHP, with iOS and Android screenshots."
     main-class="isolate"
     :schema="$structuredData->components(config('component-gallery.components', []))"

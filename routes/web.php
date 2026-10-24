@@ -17,6 +17,11 @@ Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 Route::get('/robots.txt', RobotsController::class)->name('robots');
 Route::get('/pricing.md', PricingController::class)->name('pricing');
 
+// Earlier Boost guidelines and llms.txt files linked documentation pages without the /docs prefix.
+Route::get('/{section}/{path}', fn (string $section, string $path) => redirect()->route('docs.show', ['path' => $section.'/'.$path], 301))
+    ->where(['section' => 'getting-started|how-to|concepts|reference|components', 'path' => '[A-Za-z0-9\-]+'])
+    ->name('docs.legacy');
+
 Route::get('/docs/{path?}', DocumentationController::class)
     ->where('path', '.*')
     ->name('docs.show');

@@ -1,6 +1,6 @@
 @props([
     'title' => 'Firstlight UI',
-    'description' => 'Native form controls for NativePHP Mobile UI, written in Blade.',
+    'description' => 'The app-shell layer for NativePHP: genuine SwiftUI and Jetpack Compose controls, Laravel validation, and recipes your coding agent can follow.',
     'mainClass' => 'isolate overflow-hidden',
     'schema' => [],
 ])
@@ -27,7 +27,7 @@
         <meta property="og:image" content="{{ asset('og.png') }}">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
-        <meta property="og:image:alt" content="Firstlight UI — native form controls for NativePHP. validate(), submit(), and authorize() on native screens.">
+        <meta property="og:image:alt" content="Firstlight UI — the app-shell layer for NativePHP. Genuine SwiftUI and Jetpack Compose controls with Laravel validation.">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ $title }}">
         <meta name="twitter:description" content="{{ $description }}">
@@ -62,8 +62,9 @@
 
                 <div class="flex items-center gap-3">
                     <nav aria-label="Primary navigation" class="hidden items-center gap-7 lg:flex">
-                        <a href="{{ route('home') }}#why-firstlight" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Why Firstlight</a>
-                        <a href="{{ route('home') }}#extensions" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Extensions</a>
+                        <a href="{{ route('home') }}#recipes" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Recipes</a>
+                        <a href="{{ route('home') }}#agents" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Agents</a>
+                        <a href="{{ route('home') }}#accessibility" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">Accessibility</a>
                         <a href="{{ route('components.index') }}" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" @if (request()->routeIs('components.*')) aria-current="page" @endif>Components</a>
                         <a href="{{ route('docs.show') }}" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" @if (request()->routeIs('docs.*')) aria-current="page" @endif>Docs</a>
                         <a href="https://nativephp.com" class="text-sm font-medium text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">NativePHP</a>
@@ -95,8 +96,9 @@
                                 Menu
                             </summary>
                             <nav aria-label="Mobile navigation" class="absolute top-14 right-0 z-40 grid w-64 gap-1 rounded-(--radius-panel) bg-(--site-elevated) p-2 shadow-xl ring-1 ring-(--site-border) dark:shadow-none">
-                                <a href="{{ route('home') }}#why-firstlight" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)">Why Firstlight</a>
-                                <a href="{{ route('home') }}#extensions" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)">Extensions</a>
+                                <a href="{{ route('home') }}#recipes" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)">Recipes</a>
+                                <a href="{{ route('home') }}#agents" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)">Agents</a>
+                                <a href="{{ route('home') }}#accessibility" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)">Accessibility</a>
                                 <a href="{{ route('components.index') }}" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)" @if (request()->routeIs('components.*')) aria-current="page" @endif>Components</a>
                                 <a href="https://nativephp.com" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">NativePHP</a>
                                 <a href="https://github.com/firstlightui/nativephp" class="rounded-lg px-3 py-3 text-base font-medium text-(--site-muted) hover:bg-(--site-recessed) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">GitHub</a>
@@ -119,13 +121,13 @@
                         <span>Firstlight UI</span>
                     </a>
                     <p class="max-w-[44ch] text-base text-pretty text-(--site-muted) sm:text-sm">
-                        Native form controls for NativePHP Mobile UI.
+                        The app-shell layer for NativePHP.
                     </p>
                 </div>
 
                 <nav aria-label="Footer navigation" class="flex flex-wrap items-start gap-x-7 gap-y-3 sm:justify-end">
                     <a href="{{ route('components.index') }}" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Components</a>
-                    <a href="{{ route('home') }}#extensions" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Extensions</a>
+                    <a href="{{ route('home') }}#recipes" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Recipes</a>
                     <a href="{{ route('comparison') }}" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">vs NativePHP Mobile UI</a>
                     <a href="{{ route('docs.show') }}" class="text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">Documentation</a>
                     <a href="{{ route('llms') }}" class="font-mono text-base font-normal text-(--site-muted) hover:text-(--site-heading) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">llms.txt</a>

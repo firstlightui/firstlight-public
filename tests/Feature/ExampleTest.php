@@ -1,24 +1,38 @@
 <?php
 
-test('the homepage introduces Firstlight and its native implementation', function () {
+test('the homepage introduces Firstlight as the app-shell layer for NativePHP', function () {
     $this->get(route('home'))
         ->assertSuccessful()
-        ->assertSee('Native form controls for NativePHP.')
-        ->assertSee('NativePHP Mobile UI')
-        ->assertSee('curated form and control layer')
-        ->assertSee('Controls render with SwiftUI on iOS and Jetpack Compose on Android')
-        ->assertSee('A smaller catalogue on top of Mobile UI.')
-        ->assertSee('Form, selection, display, and action controls.')
-        ->assertSee('The same rendering pipeline as Mobile UI.')
+        ->assertSeeText('The app-shell layer for NativePHP.')
+        ->assertSee('lists and detail, search, forms with Laravel validation, settings, sheets and dialogs, and feedback')
+        ->assertSee('Four screens cover most forms apps.')
+        ->assertSee(route('docs.show', ['path' => 'how-to/build-a-list-detail-flow']), false)
+        ->assertSee(route('docs.show', ['path' => 'how-to/build-a-searchable-list-screen']), false)
+        ->assertSee(route('docs.show', ['path' => 'how-to/build-a-form-screen']), false)
+        ->assertSee(route('docs.show', ['path' => 'how-to/build-a-settings-screen']), false)
+        ->assertSee('https://github.com/firstlightui/showcase', false)
+        ->assertSee('Your agent already knows the recipes.')
+        ->assertSee('php artisan boost:install')
+        ->assertSee('firstlight-init')
+        ->assertSee('building-firstlight-screens')
+        ->assertSee(route('llms'), false)
+        ->assertSee(route('llms.full'), false)
+        ->assertSee(route('docs.show', ['path' => 'getting-started/build-with-a-coding-agent']), false)
+        ->assertSee('One API, the right pattern on each platform.')
+        ->assertSee('What Firstlight is not')
+        ->assertSee('usesNativeChrome()')
+        ->assertSee('Not a design system')
+        ->assertSee('No charts, no carousels')
         ->assertSee(route('docs.show', ['path' => 'concepts/firstlight-and-mobile-ui']), false)
+        ->assertSee('Form Requests, Gates, and Pest on native screens.')
+        ->assertSee('@nativeError')
+        ->assertSee('->submit(', escape: false)
+        ->assertSee('assertFieldError')
+        ->assertSee('make:firstlight-screen')
         ->assertSee(route('docs.show', ['path' => 'how-to/validate-fields']), false)
         ->assertSee(route('docs.show', ['path' => 'how-to/submit-forms']), false)
         ->assertSee(route('docs.show', ['path' => 'how-to/authorize-actions']), false)
-        ->assertSee('Laravel helpers for native screens.')
-        ->assertSee('@nativeError')
-        ->assertSee('Laravel SuperNative extensions')
-        ->assertSee('->submit(', escape: false)
-        ->assertSee('->authorize(', escape: false)
+        ->assertSee(route('docs.show', ['path' => 'how-to/test-screens']), false)
         ->assertSee('Shane Rosenthal')
         ->assertSee('Simon Hamp')
         ->assertSee('https://nativephp.com', false)
@@ -32,15 +46,29 @@ test('the homepage introduces Firstlight and its native implementation', functio
         ->assertSee(route('docs.show', ['path' => 'components/segmented']), false)
         ->assertSee('data-theme-toggle', false)
         ->assertSee(asset('theme.js'), false)
-        ->assertDontSee('alternative native-first implementations')
-        ->assertDontSee('Laravel has an incredibly rich ecosystem');
+        ->assertDontSee('curated form and control layer')
+        ->assertDontSee('Native form controls for NativePHP');
+});
+
+test('the homepage makes accessibility a headline and states its verification status', function () {
+    $this->get(route('home'))
+        ->assertSuccessful()
+        ->assertSee('id="accessibility"', false)
+        ->assertSee(route('home').'#accessibility', false)
+        ->assertSee('Labels and actions for VoiceOver and TalkBack')
+        ->assertSee('Validation errors are spoken')
+        ->assertSee('Dynamic Type')
+        ->assertSee('Right-to-left')
+        ->assertSee('Reduce Motion')
+        ->assertSee('has not yet been checked on physical devices')
+        ->assertSee(route('docs.show', ['path' => 'concepts/accessibility']), false);
 });
 
 test('the homepage presents every configured component with native evidence', function () {
     $response = $this->get(route('home'))->assertSuccessful();
 
     $response
-        ->assertSee('Form, selection, display, and action controls.')
+        ->assertSee('Every control, on both platforms.')
         ->assertSee('data-component-catalogue-track', escape: false)
         ->assertSee('component-evidence-image', escape: false)
         ->assertDontSee('data-component-evidence="mock"', escape: false);

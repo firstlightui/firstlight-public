@@ -28,8 +28,10 @@ class PricingController extends Controller
         - Users: Unlimited
         - Applications: Unlimited
         - Commercial use: Permitted
-        - Features: The complete component catalogue and all PHP extensions
-          (ValidatesFields, SubmitsForms, AuthorizesActions)
+        - Features: The complete component catalogue, all PHP extensions
+          (ValidatesFields, SubmitsForms, AuthorizesActions, PaginatesLists,
+          DestroysListItems), the app recipes, and the Laravel Boost
+          guideline and skills
         - Support: Community, via GitHub issues
 
         ## Install
@@ -45,8 +47,8 @@ class PricingController extends Controller
         ## Status
 
         Firstlight UI 1.0.0 is a release candidate. Use it for evaluation, not
-        production. Testing on real phones, long-running performance tests and
-        use in more apps are still pending. The API may change between releases.
+        production. Testing on real phones, spoken screen-reader checks,
+        long-running performance tests and use in more apps are still pending. The API may change between releases.
 
         ## Links
 
