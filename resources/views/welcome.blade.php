@@ -221,6 +221,44 @@
         </div>
     </section>
 
+    <section id="accessibility" class="border-y border-(--site-border) bg-(--site-surface) py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="flex flex-col gap-5">
+                <p class="font-mono text-base uppercase tracking-wide text-(--site-primary) sm:text-sm">Accessible by default</p>
+                <h2 class="max-w-[18ch] text-4xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-5xl">
+                    Real native controls, so assistive technology just works.
+                </h2>
+                <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
+                    Firstlight never draws its own controls. VoiceOver, TalkBack, Dynamic Type, font scaling, dark mode, Increased Contrast, Reduce Motion, and right-to-left layout reach every control the way they reach the platform’s own apps. Firstlight adds the decisions a native control can’t make on its own.
+                </p>
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+                    <a href="{{ route('docs.show', ['path' => 'concepts/accessibility']) }}" class="rounded-sm py-2 text-base font-semibold text-(--site-heading) underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus) sm:text-sm">What’s covered and what’s tested →</a>
+                </div>
+            </div>
+
+            <dl class="mt-16 grid gap-0 md:grid-cols-3">
+                <div class="flex flex-col gap-4 border-t border-(--site-border) py-8 md:border-t-0 md:border-r md:py-0 md:pr-8">
+                    <dt class="text-xl font-semibold text-(--site-heading)">Every control has a name</dt>
+                    <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
+                        Icon-only controls refuse to render without an accessible label, and fields warn in development when they have none. Rows and fields are one focus stop, with decorative icons hidden.
+                    </dd>
+                </div>
+                <div class="flex flex-col gap-4 border-t border-(--site-border) py-8 md:border-t-0 md:border-r md:px-8 md:py-0">
+                    <dt class="text-xl font-semibold text-(--site-heading)">No gesture is required</dt>
+                    <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
+                        Swipe actions and context-menu items are also VoiceOver and TalkBack actions. Targets Firstlight owns are at least 44 points on iOS and 48 dp on Android.
+                    </dd>
+                </div>
+                <div class="flex flex-col gap-4 border-y border-(--site-border) py-8 md:border-y-0 md:py-0 md:pl-8">
+                    <dt class="text-xl font-semibold text-(--site-heading)">Errors are spoken</dt>
+                    <dd class="text-base text-pretty text-(--site-muted) sm:text-sm">
+                        A failed submit reads its validation errors aloud and moves focus to the first invalid field. Feedback waits longer while a screen reader is on.
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
     <section id="components" class="py-20 sm:py-28">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="grid items-end gap-8 lg:grid-cols-[13fr_11fr] lg:gap-12">
