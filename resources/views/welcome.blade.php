@@ -130,7 +130,7 @@
                 </dl>
             </div>
 
-            <div class="hero-reveal-late relative min-h-[36rem] overflow-hidden rounded-[min(4vw,var(--radius-panel))] p-4 ring-1 ring-(--site-border) dawn-field sm:p-6 lg:min-h-[42rem]" role="img" aria-label="A Firstlight form field in Blade, shown with its validation error on iOS and Android">
+            <div class="hero-reveal-late relative overflow-hidden rounded-[min(4vw,var(--radius-panel))] p-4 ring-1 ring-(--site-border) dawn-field sm:min-h-[36rem] sm:p-6 lg:min-h-[42rem]" role="img" aria-label="A Firstlight form field in Blade, shown with its validation error on iOS and Android">
                 <div class="absolute inset-0 technical-grid opacity-45" aria-hidden="true"></div>
 
                 <div class="relative rounded-[calc(var(--radius-panel)-0.5rem)] bg-(--site-code) p-5 shadow-2xl ring-1 ring-(--site-border) dark:shadow-none sm:p-6" aria-hidden="true">
@@ -150,8 +150,8 @@
 );</code></pre>
                 </div>
 
-                <div class="absolute right-4 bottom-5 left-4 grid grid-cols-2 gap-3 sm:right-6 sm:bottom-6 sm:left-6 sm:gap-5" aria-hidden="true">
-                    <div class="-rotate-2 rounded-[min(4vw,2rem)] bg-[oklch(0.98_0.006_255)] p-4 text-[oklch(0.22_0.03_255)] shadow-2xl ring-1 ring-black/10 dark:shadow-none sm:p-5">
+                <div class="relative mt-5 grid grid-cols-1 gap-4 sm:absolute sm:right-6 sm:bottom-6 sm:left-6 sm:mt-0 sm:grid-cols-2 sm:gap-5" aria-hidden="true">
+                    <div class="rounded-[min(4vw,2rem)] sm:-rotate-2 bg-[oklch(0.98_0.006_255)] p-4 text-[oklch(0.22_0.03_255)] shadow-2xl ring-1 ring-black/10 dark:shadow-none sm:p-5">
                         <div class="flex items-center justify-between gap-3 border-b border-black/8 pb-3">
                             <p class="font-medium">iOS</p>
                             <p class="font-mono text-sm text-[oklch(0.46_0.025_255)]">SwiftUI</p>
@@ -163,7 +163,7 @@
                         </div>
                     </div>
 
-                    <div class="rotate-2 translate-y-6 rounded-[min(4vw,2rem)] bg-[oklch(0.97_0.008_85)] p-4 text-[oklch(0.21_0.03_58)] shadow-2xl ring-1 ring-black/10 dark:shadow-none sm:p-5">
+                    <div class="rounded-[min(4vw,2rem)] sm:translate-y-6 sm:rotate-2 bg-[oklch(0.97_0.008_85)] p-4 text-[oklch(0.21_0.03_58)] shadow-2xl ring-1 ring-black/10 dark:shadow-none sm:p-5">
                         <div class="flex items-center justify-between gap-3 border-b border-black/8 pb-3">
                             <p class="font-medium">Android</p>
                             <p class="font-mono text-sm text-[oklch(0.45_0.03_58)]">Compose</p>
@@ -565,8 +565,8 @@
                     </div>
 
                     <div class="flex min-w-0 flex-col gap-4">
-                        <div class="flex min-w-0 items-center gap-3 rounded-xl bg-(--site-code) p-3 ring-1 ring-(--site-border)">
-                            <code class="min-w-0 flex-1 overflow-x-auto px-1 font-mono text-base whitespace-nowrap text-(--site-code-text) sm:text-sm" data-copy-source="install-command">composer require "firstlightui/nativephp:^1.0@RC"</code>
+                        <div class="flex min-w-0 items-start gap-3 rounded-xl bg-(--site-code) p-3 ring-1 ring-(--site-border)">
+                            <code class="min-w-0 flex-1 px-1 py-2 font-mono text-sm/6 text-(--site-code-text) [overflow-wrap:anywhere]" data-copy-source="install-command">composer require "firstlightui/<wbr>nativephp:^1.0@RC"</code>
                             <button
                                 type="button"
                                 class="relative shrink-0 rounded-lg bg-white/8 px-3 py-2 text-base font-medium text-(--site-code-text) ring-1 ring-white/12 hover:bg-white/12 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--site-focus) sm:text-sm"
