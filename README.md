@@ -4,6 +4,13 @@ The marketing site, documentation, and component gallery for [Firstlight UI](htt
 
 This repository is **the website only**. The Firstlight package itself — the Blade components, the SwiftUI and Jetpack Compose renderers, the `ValidatesFields`, `SubmitsForms`, `AuthorizesActions`, `PaginatesLists`, and `DestroysListItems` concerns, and the docs this site renders — lives in [`firstlightui/nativephp`](https://github.com/firstlightui/nativephp).
 
+## Try the showcase
+
+Explore the native controls and recipes in the [showcase app](https://github.com/firstlightui/showcase).
+
+- **iOS:** [Join the showcase beta on TestFlight](https://testflight.apple.com/join/4CCrA7JB).
+- **Android:** Coming soon.
+
 ## What Firstlight is
 
 Firstlight is the app-shell layer for [NativePHP](https://nativephp.com). `composer require firstlightui/nativephp` plus Laravel Boost gives a developer, or their coding agent, what a standard forms app needs: lists and detail, search, forms with Laravel validation, settings, sheets and dialogs, and feedback. Every control is a genuine SwiftUI or Jetpack Compose control. Navigation chrome comes from NativePHP's native chrome (`usesNativeChrome()`) and layout from Mobile UI; Firstlight does not replace either. It is not a design system and has no charts or carousels.

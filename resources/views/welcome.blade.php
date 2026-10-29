@@ -110,6 +110,13 @@
                     </a>
                 </div>
 
+                <div class="flex flex-col items-start gap-1">
+                    <a href="https://testflight.apple.com/join/4CCrA7JB" class="{{ $textLink }}" target="_blank" rel="noreferrer">
+                        Try the iOS showcase on TestFlight →
+                    </a>
+                    <p class="text-base text-(--site-muted) sm:text-sm">Android showcase: coming soon.</p>
+                </div>
+
                 <dl class="grid w-full grid-cols-2 gap-x-6 gap-y-4 border-t border-(--site-border) pt-6 sm:grid-cols-4">
                     <div class="flex flex-col gap-1">
                         <dt class="text-base text-(--site-muted) sm:text-sm">iOS</dt>
