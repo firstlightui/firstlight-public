@@ -1,5 +1,23 @@
 <?php
 
+test('the showcase privacy policy is public and linked from the website', function () {
+    $this->get('/privacy/showcase')
+        ->assertSuccessful()
+        ->assertSeeText('Firstlight Showcase Privacy Policy')
+        ->assertSeeText('Data collection')
+        ->assertSeeText('On-device data')
+        ->assertSeeText('Camera, photos and files')
+        ->assertSeeText('Sample content')
+        ->assertSeeText('Apple and Google services')
+        ->assertSeeText('Privacy and support contact')
+        ->assertSeeText('The app does not upload them.')
+        ->assertSee('mailto:team@firstlightui.dev', false);
+
+    $this->get(route('home'))
+        ->assertSuccessful()
+        ->assertSee('href="'.route('privacy.showcase').'"', false);
+});
+
 test('the homepage introduces Firstlight as the app-shell layer for NativePHP', function () {
     $this->get(route('home'))
         ->assertSuccessful()
