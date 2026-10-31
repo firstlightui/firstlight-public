@@ -191,8 +191,8 @@ it('answers the comparison question directly and marks it up as an FAQ', functio
         ->toContain('stable public value')
         ->toContain('ValidatesFields')
         ->and($questions->firstWhere('name', 'What do I need to install Firstlight UI?')['acceptedAnswer']['text'])
-        ->toContain('NativePHP Mobile ^4.6')
-        ->toContain('Mobile UI ^0.8')
+        ->toContain('NativePHP Mobile ^4.7')
+        ->toContain('Mobile UI ^0.9')
         ->toContain('FirstlightUI\\NativeComponent')
         ->and($questions->pluck('name'))->toContain('Does Firstlight UI replace NativePHP Mobile UI?')
         ->and($questions->pluck('name'))->toContain('Is Firstlight UI free?')
@@ -218,11 +218,12 @@ it('renders every FAQ answer in the page body, not only in the markup', function
     }
 })->note('Structured data must reflect visible content, not hidden claims.');
 
-it('states the remaining release-candidate qualification on public adoption pages', function (string $route) {
+it('states what 1.0.0 was and was not tested on on public adoption pages', function (string $route) {
     $body = $this->get(route($route))->assertSuccessful()->getContent();
 
     expect(strtolower($body))
-        ->toContain('release candidate', 'real phones', 'long-running performance tests')
+        ->toContain('first stable release', 'physical ios and android devices', 'long-running performance tests')
+        ->not->toContain('release candidate')
         ->not->toContain('unpatched', 'binary patch', 'streaming', 'response revisions');
 })->with(['home', 'comparison', 'pricing']);
 
@@ -237,7 +238,7 @@ it('publishes machine-readable pricing that says the package is free', function 
         ->toContain('# Pricing — Firstlight UI')
         ->toContain('Price: $0')
         ->toContain('Licence: MIT')
-        ->toContain('composer require "firstlightui/nativephp:^1.0@RC"')
+        ->toContain('composer require firstlightui/nativephp')
         ->toContain(route('comparison'))
         ->not->toContain('contact sales');
 });

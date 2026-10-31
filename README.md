@@ -15,14 +15,14 @@ Explore the native controls and recipes in the [showcase app](https://github.com
 
 Firstlight is the app-shell layer for [NativePHP](https://nativephp.com). `composer require firstlightui/nativephp` plus Laravel Boost gives a developer, or their coding agent, what a standard forms app needs: lists and detail, search, forms with Laravel validation, settings, sheets and dialogs, and feedback. Every control is a genuine SwiftUI or Jetpack Compose control. Navigation chrome comes from NativePHP's native chrome (`usesNativeChrome()`) and layout from Mobile UI; Firstlight does not replace either. It is not a design system and has no charts or carousels.
 
-The site leads with the four recipes, the Boost guideline and skills, and accessibility. Keep its claims to what the package's code and CHANGELOG support; Firstlight is a release candidate and physical-device screen-reader checks are still outstanding.
+The site leads with the four recipes, the Boost guideline and skills, and accessibility. Keep its claims to what the package's code and CHANGELOG support; Firstlight 1.0.0 is stable and was tested on physical devices, including VoiceOver on iOS; spoken TalkBack and long-running performance tests are not recorded.
 
 It runs on the SuperNative foundation created by [Shane Rosenthal](https://github.com/shanerbaner82) and [Simon Hamp](https://github.com/simonhamp).
 
 To use Firstlight in an app:
 
 ```bash
-composer require "firstlightui/nativephp:^1.0@RC"
+composer require firstlightui/nativephp
 ```
 
 ## Running this site locally

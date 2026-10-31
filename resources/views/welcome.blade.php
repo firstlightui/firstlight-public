@@ -132,7 +132,7 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <dt class="text-base text-(--site-muted) sm:text-sm">Status</dt>
-                        <dd class="font-medium text-(--site-heading)">1.0.0-RC6</dd>
+                        <dd class="font-medium text-(--site-heading)">1.0.0</dd>
                     </div>
                 </dl>
             </div>
@@ -251,7 +251,7 @@
             <div class="flex min-w-0 flex-col gap-5">
                 <div class="min-w-0 rounded-(--radius-panel) bg-(--site-code) p-5 ring-1 ring-(--site-border) sm:p-6">
                     <p class="border-b border-white/10 pb-4 font-mono text-base text-(--site-code-muted) sm:text-sm">Terminal</p>
-                    <pre class="overflow-x-auto pt-5 font-mono text-base text-(--site-code-text) sm:text-sm"><code><span class="text-(--site-code-muted)">$</span> composer require <span class="text-(--site-code-string)">"firstlightui/nativephp:^1.0@RC"</span>
+                    <pre class="overflow-x-auto pt-5 font-mono text-base text-(--site-code-text) sm:text-sm"><code><span class="text-(--site-code-muted)">$</span> composer require firstlightui/nativephp
 <span class="text-(--site-code-muted)">$</span> composer require laravel/boost --dev
 <span class="text-(--site-code-muted)">$</span> php artisan boost:install</code></pre>
                 </div>
@@ -453,7 +453,7 @@
                 <div class="flex flex-col gap-2">
                     <p class="{{ $cardEyebrow }}">Where verification stands</p>
                     <p class="max-w-[70ch] text-base text-pretty text-(--site-muted) sm:text-sm">
-                        This behaviour is covered by contract, XCTest, and Robolectric tests, and TalkBack moving to the first invalid field was observed on the Android emulator. Spoken VoiceOver and TalkBack output has not yet been checked on physical devices; that is part of the remaining 1.0.0 qualification.
+                        This behaviour is covered by contract, XCTest, and Robolectric tests, and VoiceOver was checked on a physical iPhone. Spoken TalkBack output has not yet been recorded on a physical Android device.
                     </p>
                 </div>
                 <a href="{{ route('docs.show', ['path' => 'concepts/accessibility']) }}" class="{{ $textLink }} shrink-0">What’s covered and what’s tested →</a>
@@ -564,7 +564,7 @@
                             Add Firstlight to a NativePHP app.
                         </h2>
                         <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
-                            Requires NativePHP Mobile <code class="{{ $code }}">^4.6</code> and Mobile UI <code class="{{ $code }}">^0.8</code>.
+                            Requires NativePHP Mobile <code class="{{ $code }}">^4.7</code> and Mobile UI <code class="{{ $code }}">^0.9</code>.
                         </p>
                         <p class="max-w-[56ch] text-base text-pretty text-(--site-muted)">
                             Build your screens with <code class="{{ $code }}">FirstlightUI\NativeComponent</code>, starting from the <a href="{{ route('docs.show', ['path' => 'how-to/build-a-list-detail-flow']) }}" class="{{ $inlineLink }}">list and detail recipe</a>. Add Laravel Boost so your coding agent does the same.
@@ -573,7 +573,7 @@
 
                     <div class="flex min-w-0 flex-col gap-4">
                         <div class="flex min-w-0 items-start gap-3 rounded-xl bg-(--site-code) p-3 ring-1 ring-(--site-border)">
-                            <code class="min-w-0 flex-1 px-1 py-2 font-mono text-sm/6 text-(--site-code-text) [overflow-wrap:anywhere]" data-copy-source="install-command">composer require "firstlightui/<wbr>nativephp:^1.0@RC"</code>
+                            <code class="min-w-0 flex-1 px-1 py-2 font-mono text-sm/6 text-(--site-code-text) [overflow-wrap:anywhere]" data-copy-source="install-command">composer require firstlightui/<wbr>nativephp</code>
                             <button
                                 type="button"
                                 class="relative shrink-0 rounded-lg bg-white/8 px-3 py-2 text-base font-medium text-(--site-code-text) ring-1 ring-white/12 hover:bg-white/12 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--site-focus) sm:text-sm"
@@ -587,7 +587,7 @@
                             Read the installation guide →
                         </a>
                         <p class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                            Firstlight 1.0.0 is a release candidate. Use it for evaluation, not production. Testing on real phones, spoken screen-reader checks, long-running performance tests, and use in more apps are still pending. Read the
+                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. Read the
                             <a href="{{ route('docs.show', ['path' => 'reference/compatibility']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">compatibility notes</a>.
                         </p>
                     </div>

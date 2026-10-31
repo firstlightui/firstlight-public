@@ -59,10 +59,10 @@ test('the homepage introduces Firstlight as the app-shell layer for NativePHP', 
         ->assertSee('https://nativephp.com', false)
         ->assertSee('SwiftUI')
         ->assertSee('Jetpack Compose')
-        ->assertSeeText('composer require "firstlightui/nativephp:^1.0@RC"', false)
+        ->assertSeeText('composer require firstlightui/nativephp', false)
         ->assertSee('FirstlightUI\\NativeComponent')
-        ->assertSee('^4.6')
-        ->assertSee('^0.8')
+        ->assertSee('^4.7')
+        ->assertSee('^0.9')
         ->assertSee(route('docs.show', ['path' => 'reference/compatibility']), false)
         ->assertSee(route('docs.show', ['path' => 'components/segmented']), false)
         ->assertSee('data-theme-toggle', false)
@@ -81,7 +81,7 @@ test('the homepage makes accessibility a headline and states its verification st
         ->assertSee('Dynamic Type')
         ->assertSee('Right-to-left')
         ->assertSee('Reduce Motion')
-        ->assertSee('has not yet been checked on physical devices')
+        ->assertSee('VoiceOver was checked on a physical iPhone')
         ->assertSee(route('docs.show', ['path' => 'concepts/accessibility']), false);
 });
 
