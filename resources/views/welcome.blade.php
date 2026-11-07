@@ -111,8 +111,8 @@
                 </div>
 
                 <div class="flex flex-col items-start gap-1">
-                    <a href="https://testflight.apple.com/join/4CCrA7JB" class="{{ $textLink }}" target="_blank" rel="noreferrer">
-                        Try the iOS showcase on TestFlight →
+                    <a href="https://apps.apple.com/au/app/firstlight-showcase/id6826403090" class="{{ $textLink }}" target="_blank" rel="noreferrer">
+                        Download the iOS showcase on the App Store →
                     </a>
                     <p class="text-base text-(--site-muted) sm:text-sm">Android showcase: coming soon.</p>
                 </div>
