@@ -132,7 +132,7 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <dt class="text-base text-(--site-muted) sm:text-sm">Status</dt>
-                        <dd class="font-medium text-(--site-heading)">1.0.0</dd>
+                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta1</span></dd>
                     </div>
                 </dl>
             </div>
@@ -313,6 +313,27 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+
+            <div class="mt-16 grid min-w-0 items-start gap-8 lg:grid-cols-[10fr_12fr] lg:gap-12">
+                <div class="flex flex-col gap-4">
+                    <p class="{{ $cardEyebrow }}">New in 1.1.0-beta1</p>
+                    <h3 class="text-2xl font-semibold tracking-tight text-(--site-heading)">Your own icons, drawn natively</h3>
+                    <p class="text-base text-pretty text-(--site-muted)">
+                        When no SF Symbol or Material icon fits, install an SVG from Lucide, Heroicons, Tabler, Material Symbols or any other Iconify set, or from Font Awesome Pro with your API token. Firstlight checks it with NativePHP’s converter, and every Firstlight icon attribute draws it as a native icon in the control’s colour.
+                    </p>
+                    <a href="{{ route('docs.show', ['path' => 'how-to/use-custom-icons']) }}" class="{{ $textLink }} self-start">Use custom icons →</a>
+                </div>
+                <div class="min-w-0 rounded-(--radius-panel) bg-(--site-code) p-5 ring-1 ring-(--site-border) sm:p-6">
+                    <p class="border-b border-white/10 pb-4 font-mono text-base text-(--site-code-muted) sm:text-sm">Terminal</p>
+                    <pre class="overflow-x-auto pt-5 font-mono text-base text-(--site-code-text) sm:text-sm"><code><span class="text-(--site-code-muted)">$</span> php artisan firstlight:icon lucide:git-commit-vertical
+<span class="text-(--site-code-muted)">$</span> php artisan firstlight:icon fontawesome:light/rocket-launch
+
+<span class="text-(--site-code-keyword)">&lt;firstlight:icon-button</span>
+    icon=<span class="text-(--site-code-string)">"custom:rocket-launch"</span>
+    a11y-label=<span class="text-(--site-code-string)">"Launch"</span>
+<span class="text-(--site-code-keyword)">/&gt;</span></code></pre>
+                </div>
             </div>
 
             <div class="mt-16 flex flex-col gap-5">
@@ -587,7 +608,7 @@
                             Read the installation guide →
                         </a>
                         <p class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. Read the
+                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta1 adds custom icons; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
                             <a href="{{ route('docs.show', ['path' => 'reference/compatibility']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">compatibility notes</a>.
                         </p>
                     </div>
