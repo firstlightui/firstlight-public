@@ -8,8 +8,8 @@ This repository is **the website only**. The Firstlight package itself — the B
 
 Explore the native controls and recipes in the [showcase app](https://github.com/firstlightui/showcase).
 
-- **iOS:** [Download the showcase on the App Store](https://apps.apple.com/au/app/firstlight-showcase/id6826403090).
-- **Android:** [Download the showcase on Google Play](https://play.google.com/store/apps/details?id=dev.firstlightui.showcase).
+<a href="https://apps.apple.com/au/app/firstlight-showcase/id6826403090"><img src="public/badges/app-store.svg" alt="Download on the App Store" height="40"></a>
+<a href="https://play.google.com/store/apps/details?id=dev.firstlightui.showcase"><img src="public/badges/google-play.png" alt="Get it on Google Play" height="40"></a>
 
 ## What Firstlight is
 

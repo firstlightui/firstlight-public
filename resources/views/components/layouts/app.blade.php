@@ -123,6 +123,9 @@
                     <p class="max-w-[44ch] text-base text-pretty text-(--site-muted) sm:text-sm">
                         The app-shell layer for NativePHP.
                     </p>
+                    <p class="max-w-[60ch] text-xs text-pretty text-(--site-muted)">
+                        Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.
+                    </p>
                 </div>
 
                 <nav aria-label="Footer navigation" class="flex flex-wrap items-start gap-x-7 gap-y-3 sm:justify-end">

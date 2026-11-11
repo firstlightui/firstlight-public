@@ -110,12 +110,12 @@
                     </a>
                 </div>
 
-                <div class="flex flex-col items-start gap-1">
-                    <a href="https://apps.apple.com/au/app/firstlight-showcase/id6826403090" class="{{ $textLink }}" target="_blank" rel="noreferrer">
-                        Download the iOS showcase on the App Store →
+                <div class="flex flex-wrap items-center gap-3">
+                    <a href="https://apps.apple.com/au/app/firstlight-showcase/id6826403090" class="rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">
+                        <img src="{{ asset('badges/app-store.svg') }}" alt="Download the showcase on the App Store" width="120" height="40" class="h-10 w-auto">
                     </a>
-                    <a href="https://play.google.com/store/apps/details?id=dev.firstlightui.showcase" class="{{ $textLink }}" target="_blank" rel="noreferrer">
-                        Download the Android showcase on Google Play →
+                    <a href="https://play.google.com/store/apps/details?id=dev.firstlightui.showcase" class="rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)" target="_blank" rel="noreferrer">
+                        <img src="{{ asset('badges/google-play.png') }}" alt="Get the showcase on Google Play" width="134" height="40" class="h-10 w-auto">
                     </a>
                 </div>
 
