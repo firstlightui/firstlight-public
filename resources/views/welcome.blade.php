@@ -114,7 +114,9 @@
                     <a href="https://apps.apple.com/au/app/firstlight-showcase/id6826403090" class="{{ $textLink }}" target="_blank" rel="noreferrer">
                         Download the iOS showcase on the App Store →
                     </a>
-                    <p class="text-base text-(--site-muted) sm:text-sm">Android showcase: coming soon.</p>
+                    <a href="https://play.google.com/store/apps/details?id=dev.firstlightui.showcase" class="{{ $textLink }}" target="_blank" rel="noreferrer">
+                        Download the Android showcase on Google Play →
+                    </a>
                 </div>
 
                 <dl class="grid w-full grid-cols-2 gap-x-6 gap-y-4 border-t border-(--site-border) pt-6 sm:grid-cols-4">
