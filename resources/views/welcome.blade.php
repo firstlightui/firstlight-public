@@ -134,7 +134,7 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <dt class="text-base text-(--site-muted) sm:text-sm">Status</dt>
-                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta1</span></dd>
+                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta4</span></dd>
                     </div>
                 </dl>
             </div>
@@ -319,7 +319,7 @@
 
             <div class="mt-16 grid min-w-0 items-start gap-8 lg:grid-cols-[10fr_12fr] lg:gap-12">
                 <div class="flex flex-col gap-4">
-                    <p class="{{ $cardEyebrow }}">New in 1.1.0-beta1</p>
+                    <p class="{{ $cardEyebrow }}">New in 1.1</p>
                     <h3 class="text-2xl font-semibold tracking-tight text-(--site-heading)">Your own icons, drawn natively</h3>
                     <p class="text-base text-pretty text-(--site-muted)">
                         When no SF Symbol or Material icon fits, install an SVG from Lucide, Heroicons, Tabler, Material Symbols or any other Iconify set, or from Font Awesome Pro with your API token. Firstlight checks it with NativePHP’s converter, and every Firstlight icon attribute draws it as a native icon in the control’s colour.
@@ -610,7 +610,7 @@
                             Read the installation guide →
                         </a>
                         <p class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta1 adds custom icons; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
+                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta4 adds custom icons and a large size for Segmented and Pill Group; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
                             <a href="{{ route('docs.show', ['path' => 'reference/compatibility']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">compatibility notes</a>.
                         </p>
                     </div>
