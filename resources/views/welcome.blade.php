@@ -134,7 +134,7 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <dt class="text-base text-(--site-muted) sm:text-sm">Status</dt>
-                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta4</span></dd>
+                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta6</span></dd>
                     </div>
                 </dl>
             </div>
@@ -335,6 +335,35 @@
     icon=<span class="text-(--site-code-string)">"custom:rocket-launch"</span>
     a11y-label=<span class="text-(--site-code-string)">"Launch"</span>
 <span class="text-(--site-code-keyword)">/&gt;</span></code></pre>
+                </div>
+            </div>
+
+            <div class="mt-16 grid min-w-0 items-start gap-8 lg:grid-cols-[10fr_12fr] lg:gap-12">
+                <div class="flex flex-col gap-4">
+                    <p class="{{ $cardEyebrow }}">New in 1.1</p>
+                    <h3 class="text-2xl font-semibold tracking-tight text-(--site-heading)">Cached data that says how old it is</h3>
+                    <p class="text-base text-pretty text-(--site-muted)">
+                        Your screen keeps fetching its own data and tells Firstlight what it shows. A Callout above the data says “Updated 12 minutes ago”, “Showing data from 2:05 PM” while the phone is offline, or “Couldn’t refresh.” with a Try again action. Edit screens keep unsaved changes when the user goes back, and offer them again on return.
+                    </p>
+                    <div class="flex flex-wrap gap-x-6 gap-y-2">
+                        <a href="{{ route('docs.show', ['path' => 'how-to/show-data-freshness']) }}" class="{{ $textLink }}">Show data freshness →</a>
+                        <a href="{{ route('docs.show', ['path' => 'how-to/keep-drafts']) }}" class="{{ $textLink }}">Keep drafts →</a>
+                    </div>
+                </div>
+                <div class="min-w-0 rounded-(--radius-panel) bg-(--site-code) p-5 ring-1 ring-(--site-border) sm:p-6">
+                    <p class="border-b border-white/10 pb-4 font-mono text-base text-(--site-code-muted) sm:text-sm">ServersScreen.php and its view</p>
+                    <pre class="overflow-x-auto pt-5 font-mono text-base text-(--site-code-text) sm:text-sm"><code><span class="text-(--site-code-keyword)">use</span> TracksFreshness;
+
+<span class="text-(--site-code-muted)">// After loading from the cache or the API</span>
+$this->freshness(<span class="text-(--site-code-string)">'servers'</span>, freshFor: 60)->showing($fetchedAt);
+
+<span class="text-(--site-code-muted)">// When a refresh fails</span>
+$this->freshness(<span class="text-(--site-code-string)">'servers'</span>)->failed(retry: <span class="text-(--site-code-string)">'reload'</span>);
+
+<span class="text-(--site-code-muted)">// In the view</span>
+<span class="text-(--site-code-keyword)">@@include</span>(<span class="text-(--site-code-string)">'firstlight::native.freshness'</span>, [
+    <span class="text-(--site-code-string)">'notice'</span> => $this->freshnessNotice(<span class="text-(--site-code-string)">'servers'</span>),
+])</code></pre>
                 </div>
             </div>
 
@@ -610,7 +639,7 @@
                             Read the installation guide →
                         </a>
                         <p class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta4 adds custom icons and a large size for Segmented and Pill Group; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
+                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta6 adds custom icons, a large size for Segmented and Pill Group, drafts kept across navigation, and notices that say how old a screen’s data is; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
                             <a href="{{ route('docs.show', ['path' => 'reference/compatibility']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">compatibility notes</a>.
                         </p>
                     </div>
