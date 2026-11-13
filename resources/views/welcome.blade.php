@@ -134,7 +134,7 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <dt class="text-base text-(--site-muted) sm:text-sm">Status</dt>
-                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta6</span></dd>
+                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta7</span></dd>
                     </div>
                 </dl>
             </div>
@@ -343,11 +343,12 @@
                     <p class="{{ $cardEyebrow }}">New in 1.1</p>
                     <h3 class="text-2xl font-semibold tracking-tight text-(--site-heading)">Cached data that says how old it is</h3>
                     <p class="text-base text-pretty text-(--site-muted)">
-                        Your screen keeps fetching its own data and tells Firstlight what it shows. A Callout above the data says “Updated 12 minutes ago”, “Showing data from 2:05 PM” while the phone is offline, or “Couldn’t refresh.” with a Try again action. Edit screens keep unsaved changes when the user goes back, and offer them again on return.
+                        Your screen keeps fetching its own data and tells Firstlight what it shows. A Callout above the data says “Updated 12 minutes ago”, “Showing data from 2:05 PM” while the phone is offline, or “Couldn’t refresh.” with a Try again action, and refreshes when the phone comes back online. The nav bar subtitle reads “Offline · 3 waiting to sync” or “Syncing 3 changes…” from your app’s own queue. Edit screens keep unsaved changes when the user goes back, and offer them again on return.
                     </p>
                     <div class="flex flex-wrap gap-x-6 gap-y-2">
                         <a href="{{ route('docs.show', ['path' => 'how-to/show-data-freshness']) }}" class="{{ $textLink }}">Show data freshness →</a>
                         <a href="{{ route('docs.show', ['path' => 'how-to/keep-drafts']) }}" class="{{ $textLink }}">Keep drafts →</a>
+                        <a href="{{ route('docs.show', ['path' => 'how-to/show-connectivity']) }}" class="{{ $textLink }}">Show connectivity →</a>
                     </div>
                 </div>
                 <div class="min-w-0 rounded-(--radius-panel) bg-(--site-code) p-5 ring-1 ring-(--site-border) sm:p-6">
@@ -639,7 +640,7 @@ $this->freshness(<span class="text-(--site-code-string)">'servers'</span>)->fail
                             Read the installation guide →
                         </a>
                         <p class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta6 adds custom icons, a large size for Segmented and Pill Group, drafts kept across navigation, and notices that say how old a screen’s data is; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
+                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta7 adds custom icons, a large size for Segmented and Pill Group, drafts kept across navigation, notices that say how old a screen’s data is, and an offline and sync status line; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
                             <a href="{{ route('docs.show', ['path' => 'reference/compatibility']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">compatibility notes</a>.
                         </p>
                     </div>
