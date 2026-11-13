@@ -375,7 +375,10 @@ $this->freshness(<span class="text-(--site-code-string)">'servers'</span>)->fail
                     <p class="text-base text-pretty text-(--site-muted)">
                         Switches, segmented controls, steppers and sliders play the haptics their platform expects. Feedback sent from a tap plays its outcome, and a submit that fails validation plays error. Buttons stay silent unless you give one a haptic, such as a PIN keypad’s keypress, which the phone plays as the tap lands. iOS uses Apple’s feedback generators, Android uses its haptic feedback constants, and both follow the user’s system haptics setting.
                     </p>
-                    <a href="{{ route('docs.show', ['path' => 'how-to/play-haptics']) }}" class="{{ $textLink }} self-start">Play haptics →</a>
+                    <div class="flex flex-wrap gap-x-6 gap-y-2">
+                        <a href="{{ route('docs.show', ['path' => 'how-to/play-haptics']) }}" class="{{ $textLink }}">Play haptics →</a>
+                        <a href="{{ route('plugins.index') }}#app-guard" class="{{ $textLink }}">Lock the app with App Guard →</a>
+                    </div>
                 </div>
                 <div class="min-w-0 rounded-(--radius-panel) bg-(--site-code) p-5 ring-1 ring-(--site-border) sm:p-6">
                     <p class="border-b border-white/10 pb-4 font-mono text-base text-(--site-code-muted) sm:text-sm">LockScreen.php and its keypad</p>
@@ -597,6 +600,35 @@ Haptics::error();</code></pre>
                     @endforeach
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="plugins" class="border-t border-(--site-border) bg-(--site-surface) py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="grid items-end gap-8 lg:grid-cols-[13fr_11fr] lg:gap-12">
+                <div class="flex flex-col gap-5">
+                    <p class="{{ $eyebrow }}">Plugins</p>
+                    <h2 class="{{ $sectionHeading }}">
+                        More native features from Firstlight.
+                    </h2>
+                </div>
+                <p class="{{ $lead }}">
+                    NativePHP Mobile plugins for what the phone can do and NativePHP doesn’t expose yet. Each one is free and MIT licensed, and works with or without Firstlight’s controls.
+                </p>
+            </div>
+
+            <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                @foreach (config('plugins.plugins', []) as $plugin)
+                    <a href="{{ route('plugins.index') }}#{{ $plugin['slug'] }}" class="{{ str_replace('bg-(--site-surface)', 'bg-(--site-canvas)', $card) }}" data-home-plugin="{{ $plugin['slug'] }}">
+                        <p class="{{ $cardEyebrow }}">{{ $plugin['status'] === 'available' ? 'Available' : 'Coming soon' }}</p>
+                        <p class="text-xl font-semibold text-(--site-heading)">{{ $plugin['name'] }}</p>
+                        <p class="text-base text-pretty text-(--site-muted) sm:text-sm">{{ $plugin['summary'] }}</p>
+                        <span class="{{ $cardLink }} mt-auto">{{ $plugin['status'] === 'available' ? 'See what it does' : 'See what’s coming' }} →</span>
+                    </a>
+                @endforeach
+            </div>
+
+            <a href="{{ route('plugins.index') }}" class="{{ $textLink }} mt-8 inline-block">All plugins →</a>
         </div>
     </section>
 

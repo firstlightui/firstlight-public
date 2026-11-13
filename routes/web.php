@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
 Route::view('/components', 'components.index')->name('components.index');
+Route::view('/plugins', 'plugins.index')->name('plugins.index');
 Route::view('/firstlight-vs-nativephp-mobile-ui', 'comparison')->name('comparison');
 Route::view('/privacy/showcase', 'privacy.showcase')->name('privacy.showcase');
 Route::get('/llms.txt', LlmsTextController::class)->name('llms');

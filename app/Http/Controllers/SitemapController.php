@@ -13,6 +13,7 @@ class SitemapController extends Controller
         $urls = [
             ['location' => route('home'), 'priority' => '1.0'],
             ['location' => route('components.index'), 'priority' => '0.9'],
+            ['location' => route('plugins.index'), 'priority' => '0.9'],
             ['location' => route('comparison'), 'priority' => '0.9'],
             ['location' => route('docs.show'), 'priority' => '0.9'],
         ];

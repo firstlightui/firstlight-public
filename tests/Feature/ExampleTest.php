@@ -34,7 +34,7 @@ test('the homepage introduces Firstlight as the app-shell layer for NativePHP', 
         ->assertDontSee('testflight.apple.com')
         ->assertSee('href="https://play.google.com/store/apps/details?id=dev.firstlightui.showcase"', false)
         ->assertSee('alt="Get the showcase on Google Play"', false)
-        ->assertDontSeeText('coming soon')
+        ->assertDontSeeText('Android showcase: coming soon')
         ->assertSee('Your agent already knows the recipes.')
         ->assertSee('php artisan boost:install')
         ->assertSee('firstlight-init')
@@ -148,4 +148,45 @@ test('the component catalogue presents every configured component once', functio
     $response
         ->assertSee('data-object-position="bottom"', escape: false)
         ->assertSee('data-object-position="center"', escape: false);
+});
+
+test('the plugins page offers install steps only for available plugins', function () {
+    $response = $this->get(route('plugins.index'))
+        ->assertSuccessful()
+        ->assertSeeText('Native features for NativePHP apps.')
+        ->assertSee('Illustration, not a screenshot.');
+
+    foreach (config('plugins.plugins') as $plugin) {
+        $response
+            ->assertSee('id="'.$plugin['slug'].'"', escape: false)
+            ->assertSee('data-plugin-card="'.$plugin['slug'].'"', escape: false)
+            ->assertSee('href="'.$plugin['github'].'"', escape: false)
+            ->assertSeeText($plugin['name']);
+
+        if ($plugin['status'] === 'available') {
+            $response->assertSeeText('composer require '.$plugin['package'], false);
+        } else {
+            $response->assertDontSeeText('composer require '.$plugin['package'], false);
+        }
+    }
+
+    $response
+        ->assertSee(route('docs.show', ['path' => 'how-to/build-an-app-lock-screen']), escape: false)
+        ->assertSee('href="https://packagist.org/packages/firstlightui/app-guard"', escape: false)
+        ->assertDontSee('packagist.org/packages/firstlightui/local-ocr', escape: false)
+        ->assertDontSee('packagist.org/packages/firstlightui/local-ai', escape: false)
+        ->assertSeeText('Coming soon');
+});
+
+test('the homepage and navigation lead to the plugins', function () {
+    $response = $this->get(route('home'))
+        ->assertSuccessful()
+        ->assertSee('id="plugins"', escape: false)
+        ->assertSee('More native features from Firstlight.')
+        ->assertSee('href="'.route('plugins.index').'"', escape: false)
+        ->assertSee('href="'.route('plugins.index').'#app-guard"', escape: false);
+
+    foreach (config('plugins.plugins') as $plugin) {
+        $response->assertSee('data-home-plugin="'.$plugin['slug'].'"', escape: false);
+    }
 });

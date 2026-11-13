@@ -60,6 +60,7 @@ it('lists every marketing and documentation page in the sitemap', function () {
         ->toContain('<?xml version="1.0" encoding="UTF-8"?>')
         ->toContain('<loc>'.route('home').'</loc>')
         ->toContain('<loc>'.route('components.index').'</loc>')
+        ->toContain('<loc>'.route('plugins.index').'</loc>')
         ->toContain('<loc>'.route('docs.show').'</loc>')
         ->toContain('<loc>'.route('docs.show', ['path' => 'getting-started/installation']).'</loc>')
         ->toContain('<loc>'.route('docs.show', ['path' => 'components/segmented']).'</loc>');
@@ -121,7 +122,7 @@ it('describes the package as free software on the home page', function () {
 it('never advertises ratings or reviews it does not have', function () {
     fakeDocumentation();
 
-    foreach (['/', '/components', '/docs'] as $uri) {
+    foreach (['/', '/components', '/plugins', '/docs'] as $uri) {
         $body = $this->get($uri)->assertSuccessful()->getContent();
 
         expect($body)
@@ -161,7 +162,7 @@ it('marks documentation pages as technical articles with breadcrumbs', function 
 it('gives every page a canonical url and social sharing metadata', function () {
     fakeDocumentation();
 
-    foreach (['/', '/components', '/docs'] as $uri) {
+    foreach (['/', '/components', '/plugins', '/docs'] as $uri) {
         $body = $this->get($uri)->assertSuccessful()->getContent();
 
         expect($body)
@@ -252,6 +253,7 @@ it('points assistants at pricing and the comparison from llms.txt', function () 
         ->toContain('## Key pages')
         ->toContain(route('pricing', absolute: true))
         ->toContain(route('comparison', absolute: true))
+        ->toContain(route('plugins.index', absolute: true))
         ->toContain('free and open source');
 });
 

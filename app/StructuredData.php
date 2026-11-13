@@ -86,6 +86,37 @@ class StructuredData
     }
 
     /**
+     * @param  array<int, array<string, mixed>>  $plugins
+     * @return array<string, mixed>
+     */
+    public function plugins(array $plugins): array
+    {
+        $items = [];
+
+        foreach (array_values($plugins) as $position => $plugin) {
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => $position + 1,
+                'name' => Arr::get($plugin, 'name'),
+                'description' => Arr::get($plugin, 'summary'),
+                'url' => route('plugins.index').'#'.Arr::get($plugin, 'slug'),
+            ];
+        }
+
+        return $this->graph([
+            $this->organization(),
+            [
+                '@type' => 'ItemList',
+                '@id' => route('plugins.index').'#plugins',
+                'name' => 'Firstlight plugins for NativePHP',
+                'description' => 'NativePHP Mobile plugins Firstlight publishes for features the phone has and NativePHP does not expose yet.',
+                'numberOfItems' => count($items),
+                'itemListElement' => $items,
+            ],
+        ]);
+    }
+
+    /**
      * @return array<string, mixed>
      */
     public function documentation(string $title, string $description, string $slug): array
