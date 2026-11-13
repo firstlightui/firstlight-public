@@ -134,7 +134,7 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <dt class="text-base text-(--site-muted) sm:text-sm">Status</dt>
-                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta7</span></dd>
+                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta8</span></dd>
                     </div>
                 </dl>
             </div>
@@ -365,6 +365,28 @@ $this->freshness(<span class="text-(--site-code-string)">'servers'</span>)->fail
 <span class="text-(--site-code-keyword)">@@include</span>(<span class="text-(--site-code-string)">'firstlight::native.freshness'</span>, [
     <span class="text-(--site-code-string)">'notice'</span> => $this->freshnessNotice(<span class="text-(--site-code-string)">'servers'</span>),
 ])</code></pre>
+                </div>
+            </div>
+
+            <div class="mt-16 grid min-w-0 items-start gap-8 lg:grid-cols-[10fr_12fr] lg:gap-12">
+                <div class="flex flex-col gap-4">
+                    <p class="{{ $cardEyebrow }}">New in 1.1</p>
+                    <h3 class="text-2xl font-semibold tracking-tight text-(--site-heading)">Haptics in each platform’s own patterns</h3>
+                    <p class="text-base text-pretty text-(--site-muted)">
+                        Switches, segmented controls, steppers and sliders play the haptics their platform expects. Feedback sent from a tap plays its outcome, and a submit that fails validation plays error. Buttons stay silent unless you give one a haptic, such as a PIN keypad’s keypress, which the phone plays as the tap lands. iOS uses Apple’s feedback generators, Android uses its haptic feedback constants, and both follow the user’s system haptics setting.
+                    </p>
+                    <a href="{{ route('docs.show', ['path' => 'how-to/play-haptics']) }}" class="{{ $textLink }} self-start">Play haptics →</a>
+                </div>
+                <div class="min-w-0 rounded-(--radius-panel) bg-(--site-code) p-5 ring-1 ring-(--site-border) sm:p-6">
+                    <p class="border-b border-white/10 pb-4 font-mono text-base text-(--site-code-muted) sm:text-sm">LockScreen.php and its keypad</p>
+                    <pre class="overflow-x-auto pt-5 font-mono text-base text-(--site-code-text) sm:text-sm"><code><span class="text-(--site-code-keyword)">&lt;firstlight:button</span>
+    haptic=<span class="text-(--site-code-string)">"keypress"</span>
+    a11y-label=<span class="text-(--site-code-string)">"Digit 1"</span>
+    @press=<span class="text-(--site-code-string)">"pressDigit('1')"</span>
+<span class="text-(--site-code-keyword)">&gt;</span>1<span class="text-(--site-code-keyword)">&lt;/firstlight:button&gt;</span>
+
+<span class="text-(--site-code-muted)">// When the PIN is wrong</span>
+Haptics::error();</code></pre>
                 </div>
             </div>
 
@@ -640,7 +662,7 @@ $this->freshness(<span class="text-(--site-code-string)">'servers'</span>)->fail
                             Read the installation guide →
                         </a>
                         <p class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta7 adds custom icons, a large size for Segmented and Pill Group, drafts kept across navigation, notices that say how old a screen’s data is, and an offline and sync status line; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
+                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta8 adds custom icons, a large size for Segmented and Pill Group, drafts kept across navigation, notices that say how old a screen’s data is, an offline and sync status line, and haptics; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
                             <a href="{{ route('docs.show', ['path' => 'reference/compatibility']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">compatibility notes</a>.
                         </p>
                     </div>
