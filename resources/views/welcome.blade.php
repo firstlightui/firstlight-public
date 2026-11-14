@@ -134,7 +134,7 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <dt class="text-base text-(--site-muted) sm:text-sm">Status</dt>
-                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta8</span></dd>
+                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta9</span></dd>
                     </div>
                 </dl>
             </div>
@@ -390,6 +390,27 @@ $this->freshness(<span class="text-(--site-code-string)">'servers'</span>)->fail
 
 <span class="text-(--site-code-muted)">// When the PIN is wrong</span>
 Haptics::error();</code></pre>
+                </div>
+            </div>
+
+            <div class="mt-16 grid min-w-0 items-start gap-8 lg:grid-cols-[10fr_12fr] lg:gap-12">
+                <div class="flex flex-col gap-4">
+                    <p class="{{ $cardEyebrow }}">New in 1.1</p>
+                    <h3 class="text-2xl font-semibold tracking-tight text-(--site-heading)">Liquid Glass on iOS 26 and later</h3>
+                    <p class="text-base text-pretty text-(--site-muted)">
+                        Floating surfaces use Apple’s Liquid Glass, as the system’s own do. Bottom Sheet is the system glass sheet, Feedback is a glass notice, and Segmented and Tabs show the system’s selected segment, which becomes a glass lens while it is dragged. Give a Button or Icon Button <code class="{{ $code }}">glass</code> when it floats over a photo or map. Reduce Transparency and Increase Contrast apply on their own. Earlier iOS and Android keep their usual look.
+                    </p>
+                    <a href="{{ route('docs.show', ['path' => 'components/button']) }}" class="{{ $textLink }} self-start">Button →</a>
+                </div>
+                <div class="min-w-0 rounded-(--radius-panel) bg-(--site-code) p-5 ring-1 ring-(--site-border) sm:p-6">
+                    <p class="border-b border-white/10 pb-4 font-mono text-base text-(--site-code-muted) sm:text-sm">An action over a photo</p>
+                    <pre class="overflow-x-auto pt-5 font-mono text-base text-(--site-code-text) sm:text-sm"><code><span class="text-(--site-code-keyword)">&lt;firstlight:icon-button</span>
+    icon=<span class="text-(--site-code-string)">"share"</span>
+    icon-ios=<span class="text-(--site-code-string)">"square.and.arrow.up"</span>
+    glass=<span class="text-(--site-code-string)">"regular"</span>
+    a11y-label=<span class="text-(--site-code-string)">"Share photo"</span>
+    @press=<span class="text-(--site-code-string)">"share"</span>
+<span class="text-(--site-code-keyword)">/&gt;</span></code></pre>
                 </div>
             </div>
 
@@ -694,7 +715,7 @@ Haptics::error();</code></pre>
                             Read the installation guide →
                         </a>
                         <p class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta8 adds custom icons, a large size for Segmented and Pill Group, drafts kept across navigation, notices that say how old a screen’s data is, an offline and sync status line, and haptics; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
+                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta9 adds custom icons, a large size for Segmented and Pill Group, drafts kept across navigation, notices that say how old a screen’s data is, an offline and sync status line, haptics, and Liquid Glass on iOS 26 and later; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
                             <a href="{{ route('docs.show', ['path' => 'reference/compatibility']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">compatibility notes</a>.
                         </p>
                     </div>
