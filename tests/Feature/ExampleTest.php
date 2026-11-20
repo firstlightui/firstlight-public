@@ -173,9 +173,9 @@ test('the plugins page offers install steps only for available plugins', functio
     $response
         ->assertSee(route('docs.show', ['path' => 'how-to/build-an-app-lock-screen']), escape: false)
         ->assertSee('href="https://packagist.org/packages/firstlightui/app-guard"', escape: false)
-        ->assertDontSee('packagist.org/packages/firstlightui/local-ocr', escape: false)
+        ->assertSee('href="https://packagist.org/packages/firstlightui/local-ocr"', escape: false)
         ->assertSee('href="https://packagist.org/packages/firstlightui/local-ai"', escape: false)
-        ->assertSeeText('Coming soon');
+        ->assertDontSeeText('Coming soon');
 });
 
 test('the homepage and navigation lead to the plugins', function () {

@@ -61,7 +61,7 @@ PHP,
             'slug' => 'local-ocr',
             'name' => 'Local OCR',
             'package' => 'firstlightui/local-ocr',
-            'status' => 'coming_soon',
+            'status' => 'available',
             'summary' => 'Scan multi-page documents with the system scanner and read their text on the phone: VisionKit and Apple Vision on iOS, ML Kit on Android.',
             'description' => 'Local OCR opens the platform’s own document scanner, then recognises the text without sending an image or a word off the device. It returns structured text for each page, ready for your app to interpret, or for an on-device model to work with.',
             'features' => [
@@ -76,12 +76,28 @@ PHP,
                 ['Text recognition', 'Apple Vision, with a choice of languages and a fast mode', 'ML Kit Text Recognition, Latin script, bundled model'],
                 ['Requires', 'iOS 18 or later; capture needs a real device', 'Android 8 (API 26) or later with Google Play services'],
             ],
-            'requirements' => null,
-            'install' => [],
-            'usage' => null,
+            'requirements' => 'Requires PHP 8.4 or later, NativePHP Mobile ^4.6.1, iOS 18 or later, Android 8 (API 26) or later with Google Play services. Capture needs a real device; recognition also runs in the iOS Simulator.',
+            'install' => [
+                'composer require firstlightui/local-ocr',
+                'php artisan native:plugin:register firstlightui/local-ocr',
+            ],
+            'usage' => [
+                'file' => 'ScanScreen.php',
+                'code' => <<<'PHP'
+LocalOcr::capture()
+    ->pagesCaptured(function (PagesCaptured $event) {
+        LocalOcr::recognize($event->pages)
+            ->textRecognized(function (TextRecognized $result) use ($event) {
+                $this->text = $result->result['text'];
+                LocalOcr::discard($event->pages);
+            });
+    })
+    ->captureCancelled(fn () => $this->status = 'Cancelled');
+PHP,
+            ],
             'docs' => null,
             'github' => 'https://github.com/firstlightui/local-ocr',
-            'packagist' => null,
+            'packagist' => 'https://packagist.org/packages/firstlightui/local-ocr',
         ],
         [
             'slug' => 'local-ai',

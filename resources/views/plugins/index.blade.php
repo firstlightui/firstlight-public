@@ -26,7 +26,7 @@
 
 <x-layouts.app
     title="Firstlight plugins — App Guard, Local OCR and Local AI for NativePHP"
-    description="NativePHP Mobile plugins from Firstlight: App Guard locks and covers your app, Local AI generates text with the model on the phone, and on-device OCR is coming soon. Free and MIT licensed."
+    description="NativePHP Mobile plugins from Firstlight: App Guard locks and covers your app, Local OCR scans documents and reads their text on the device, and Local AI generates text with the model on the phone. Free and MIT licensed."
     main-class="isolate overflow-hidden"
     :schema="$structuredData->plugins($plugins)"
 >
@@ -108,7 +108,11 @@
                             </div>
                         </div>
                         <figcaption class="text-sm text-(--site-muted)">
-                            {{ $plugin['status'] === 'available' ? 'Illustration, not a screenshot. Your app draws its own lock screen.' : 'Illustration of the plugin in development, not a screenshot.' }}
+                            {{ match (true) {
+                                $plugin['slug'] === 'app-guard' => 'Illustration, not a screenshot. Your app draws its own lock screen.',
+                                $plugin['status'] === 'available' => 'Illustration, not a screenshot.',
+                                default => 'Illustration of the plugin in development, not a screenshot.',
+                            } }}
                         </figcaption>
                     </figure>
 
