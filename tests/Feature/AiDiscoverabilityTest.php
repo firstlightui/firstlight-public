@@ -223,7 +223,7 @@ it('states the stable release and its device-testing limits on public adoption p
     $body = $this->get(route($route))->assertSuccessful()->getContent();
 
     expect(strtolower($body))
-        ->toContain('1.1.0 is the current stable release', 'physical ios and android devices', 'long-running performance tests', 'some device checks remain manual')
+        ->toContain('1.1.1 is the current stable release', '1.1 device pass', 'physical ios and android devices', 'long-running performance tests', 'some device checks remain manual')
         ->not->toContain('release candidate', '1.1.0-beta', '^1.1@beta', 'mobile ^4.7', 'mobile ui ^0.9')
         ->not->toContain('unpatched', 'binary patch', 'streaming', 'response revisions');
 })->with(['home', 'comparison', 'pricing']);
@@ -239,7 +239,7 @@ it('publishes machine-readable pricing that says the package is free', function 
         ->toContain('# Pricing — Firstlight UI')
         ->toContain('Price: $0')
         ->toContain('Licence: MIT')
-        ->toContain('composer require "firstlightui/nativephp:^1.1.0"')
+        ->toContain('composer require "firstlightui/nativephp:^1.1.1"')
         ->toContain(route('comparison'))
         ->not->toContain('contact sales');
 });

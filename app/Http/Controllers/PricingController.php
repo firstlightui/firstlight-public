@@ -37,7 +37,7 @@ class PricingController extends Controller
         ## Install
 
         ```
-        composer require "firstlightui/nativephp:^1.1.0"
+        composer require "firstlightui/nativephp:^1.1.1"
         ```
 
         Requires NativePHP Mobile ^4.8 and Mobile UI ^0.10.
@@ -46,7 +46,7 @@ class PricingController extends Controller
 
         ## Status
 
-        Firstlight UI 1.1.0 is the current stable release, tested on physical iOS and Android devices.
+        Firstlight UI 1.1.1 is the current stable release, with the 1.1 device pass covering physical iOS and Android devices.
         Some device checks remain manual; spoken screen-reader output and
         long-running performance tests are not fully recorded.
 
