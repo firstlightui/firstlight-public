@@ -1,6 +1,6 @@
 <?php
 
-$sourceRevision = 'b063e2eb0b1da1857a9d42e4301e04bb22a5b44a';
+$sourceRevision = 'ef8c64a68a3ef1a6205277c3db06f4d3e8c8bfef';
 
 $nativeEvidence = static function (string $slug, string $title) use ($sourceRevision): array {
     $baseUrl = "https://raw.githubusercontent.com/firstlightui/nativephp/{$sourceRevision}/docs/screenshots/{$slug}";
@@ -327,6 +327,24 @@ return [
             'summary' => 'Edit JSON, YAML, env, and plain text with line numbers, native indentation, a key row, and follow mode for live logs.',
             'index_variant' => 'wide',
             'screenshots' => $nativeEvidence('code-editor', 'Code Editor'),
+        ],
+        [
+            'slug' => 'toolbar',
+            'title' => 'Toolbar',
+            'tag' => 'firstlight:toolbar',
+            'availability' => 'Available',
+            'summary' => 'Give a screen a bottom row of icon actions with one separate primary action, drawn by each platform’s own toolbar.',
+            'index_variant' => 'wide',
+            'screenshots' => $nativeEvidence('toolbar', 'Toolbar'),
+        ],
+        [
+            'slug' => 'toolbar-item',
+            'title' => 'Toolbar Item',
+            'tag' => 'firstlight:toolbar-item',
+            'availability' => 'Available',
+            'summary' => 'Configure one toolbar action, menu or primary action with badges, disabled state and accessibility.',
+            'index_variant' => 'medium',
+            'screenshots' => $nativeEvidence('toolbar-item', 'Toolbar Item'),
         ],
     ],
 ];

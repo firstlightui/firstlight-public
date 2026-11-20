@@ -192,8 +192,8 @@ it('answers the comparison question directly and marks it up as an FAQ', functio
         ->toContain('stable public value')
         ->toContain('ValidatesFields')
         ->and($questions->firstWhere('name', 'What do I need to install Firstlight UI?')['acceptedAnswer']['text'])
-        ->toContain('NativePHP Mobile ^4.7')
-        ->toContain('Mobile UI ^0.9')
+        ->toContain('NativePHP Mobile ^4.8')
+        ->toContain('Mobile UI ^0.10')
         ->toContain('FirstlightUI\\NativeComponent')
         ->and($questions->pluck('name'))->toContain('Does Firstlight UI replace NativePHP Mobile UI?')
         ->and($questions->pluck('name'))->toContain('Is Firstlight UI free?')
@@ -219,12 +219,12 @@ it('renders every FAQ answer in the page body, not only in the markup', function
     }
 })->note('Structured data must reflect visible content, not hidden claims.');
 
-it('states what 1.0.0 was and was not tested on on public adoption pages', function (string $route) {
+it('states the stable release and its device-testing limits on public adoption pages', function (string $route) {
     $body = $this->get(route($route))->assertSuccessful()->getContent();
 
     expect(strtolower($body))
-        ->toContain('first stable release', 'physical ios and android devices', 'long-running performance tests')
-        ->not->toContain('release candidate')
+        ->toContain('1.1.0 is the current stable release', 'physical ios and android devices', 'long-running performance tests', 'some device checks remain manual')
+        ->not->toContain('release candidate', '1.1.0-beta', '^1.1@beta', 'mobile ^4.7', 'mobile ui ^0.9')
         ->not->toContain('unpatched', 'binary patch', 'streaming', 'response revisions');
 })->with(['home', 'comparison', 'pricing']);
 
@@ -239,7 +239,7 @@ it('publishes machine-readable pricing that says the package is free', function 
         ->toContain('# Pricing — Firstlight UI')
         ->toContain('Price: $0')
         ->toContain('Licence: MIT')
-        ->toContain('composer require firstlightui/nativephp')
+        ->toContain('composer require "firstlightui/nativephp:^1.1.0"')
         ->toContain(route('comparison'))
         ->not->toContain('contact sales');
 });

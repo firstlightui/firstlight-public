@@ -18,7 +18,7 @@
         ],
         [
             'question' => 'What do I need to install Firstlight UI?',
-            'answer' => 'Use NativePHP Mobile ^4.7 and Mobile UI ^0.9. Install firstlightui/nativephp with Composer, then extend FirstlightUI\\NativeComponent for your screens. The installation guide has the complete setup.',
+            'answer' => 'Use NativePHP Mobile ^4.8 and Mobile UI ^0.10. Install firstlightui/nativephp ^1.1.0 with Composer, then extend FirstlightUI\\NativeComponent for your screens. The installation guide has the complete setup.',
         ],
         [
             'question' => 'Is Firstlight UI free?',
@@ -34,7 +34,7 @@
         ],
         [
             'question' => 'Is Firstlight UI production ready?',
-            'answer' => 'Yes. Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet.',
+            'answer' => 'Firstlight 1.1.0 is the current stable release, tested on physical iOS and Android devices. Some device checks remain manual; spoken screen-reader output and long-running performance tests are not fully recorded. Review the compatibility notes and test your own app before shipping.',
         ],
     ];
 @endphp
@@ -98,7 +98,7 @@
                             ['Guarded submit', 'A press is an ordinary PHP method; re-entry is yours to handle', 'SubmitsForms — validates, runs the action once, optionally sends success Feedback'],
                             ['Gate-backed authorize()', 'No Gate helpers on screens; an uncaught authorization exception opens the overlay', 'AuthorizesActions — allows(), denies(), authorize() hide, disable, or send danger Feedback'],
                             ['Licence and price', 'See the NativePHP project', 'MIT, free, no paid tier'],
-                            ['Maturity', 'The established foundation', 'Stable 1.0.0 — tested on physical iOS and Android devices'],
+                            ['Maturity', 'The established foundation', 'Stable 1.1.0 — tested on physical iOS and Android devices'],
                         ] as $index => [$concern, $mobileUi, $firstlight])
                             <tr class="{{ $index % 2 === 1 ? 'bg-(--site-surface)' : '' }}">
                                 <th scope="row" class="border-b border-(--site-border) px-5 py-4 align-top font-medium text-(--site-heading) sm:px-6">{{ $concern }}</th>

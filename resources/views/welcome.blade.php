@@ -134,7 +134,7 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <dt class="text-base text-(--site-muted) sm:text-sm">Status</dt>
-                        <dd class="font-medium text-(--site-heading)">1.0.0 <span class="font-normal text-(--site-muted)">· 1.1.0-beta9</span></dd>
+                        <dd class="font-medium text-(--site-heading)">1.1.0 <span class="font-normal text-(--site-muted)">· stable</span></dd>
                     </div>
                 </dl>
             </div>
@@ -692,7 +692,7 @@ Haptics::error();</code></pre>
                             Add Firstlight to a NativePHP app.
                         </h2>
                         <p class="max-w-[56ch] text-lg text-pretty text-(--site-muted)">
-                            Requires NativePHP Mobile <code class="{{ $code }}">^4.7</code> and Mobile UI <code class="{{ $code }}">^0.9</code>.
+                            Requires NativePHP Mobile <code class="{{ $code }}">^4.8</code> and Mobile UI <code class="{{ $code }}">^0.10</code>.
                         </p>
                         <p class="max-w-[56ch] text-base text-pretty text-(--site-muted)">
                             Build your screens with <code class="{{ $code }}">FirstlightUI\NativeComponent</code>, starting from the <a href="{{ route('docs.show', ['path' => 'how-to/build-a-list-detail-flow']) }}" class="{{ $inlineLink }}">list and detail recipe</a>. Add Laravel Boost so your coding agent does the same.
@@ -701,7 +701,7 @@ Haptics::error();</code></pre>
 
                     <div class="flex min-w-0 flex-col gap-4">
                         <div class="flex min-w-0 items-start gap-3 rounded-xl bg-(--site-code) p-3 ring-1 ring-(--site-border)">
-                            <code class="min-w-0 flex-1 px-1 py-2 font-mono text-sm/6 text-(--site-code-text) [overflow-wrap:anywhere]" data-copy-source="install-command">composer require firstlightui/<wbr>nativephp</code>
+                            <code class="min-w-0 flex-1 px-1 py-2 font-mono text-sm/6 text-(--site-code-text) [overflow-wrap:anywhere]" data-copy-source="install-command">composer require "firstlightui/<wbr>nativephp:^1.1.0"</code>
                             <button
                                 type="button"
                                 class="relative shrink-0 rounded-lg bg-white/8 px-3 py-2 text-base font-medium text-(--site-code-text) ring-1 ring-white/12 hover:bg-white/12 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--site-focus) sm:text-sm"
@@ -715,7 +715,7 @@ Haptics::error();</code></pre>
                             Read the installation guide →
                         </a>
                         <p class="text-base text-pretty text-(--site-muted) sm:text-sm">
-                            Firstlight 1.0.0 is the first stable release. It has been tested on physical iOS and Android devices, including VoiceOver on iOS. Spoken TalkBack output and long-running performance tests have not been recorded yet. 1.1.0-beta9 adds custom icons, a large size for Segmented and Pill Group, drafts kept across navigation, notices that say how old a screen’s data is, an offline and sync status line, haptics, and Liquid Glass on iOS 26 and later; try it with <code class="{{ $code }}">composer require "firstlightui/nativephp:^1.1@beta"</code>. Read the
+                            Firstlight 1.1.0 is the current stable release, tested on physical iOS and Android devices. It includes custom icons, larger Segmented and Pill Group controls, kept drafts, data freshness and connectivity notices, haptics, the bottom Toolbar, and Liquid Glass on iOS 26 and later. Some device checks remain manual; spoken screen-reader output and long-running performance tests are not fully recorded. Read the
                             <a href="{{ route('docs.show', ['path' => 'reference/compatibility']) }}" class="rounded-sm underline decoration-(--site-border-strong) underline-offset-4 hover:decoration-(--site-primary) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--site-focus)">compatibility notes</a>.
                         </p>
                     </div>

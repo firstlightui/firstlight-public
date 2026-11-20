@@ -37,19 +37,18 @@ class PricingController extends Controller
         ## Install
 
         ```
-        composer require firstlightui/nativephp
+        composer require "firstlightui/nativephp:^1.1.0"
         ```
 
-        Requires NativePHP Mobile ^4.7 and Mobile UI ^0.9.
+        Requires NativePHP Mobile ^4.8 and Mobile UI ^0.10.
         Build your screens with `FirstlightUI\NativeComponent` and use Firstlight
         controls in Blade.
 
         ## Status
 
-        Firstlight UI 1.0.0 is the first stable release. It has been tested on
-        physical iOS and Android devices, including VoiceOver on iOS. Spoken
-        TalkBack output and long-running performance tests have not been
-        recorded yet.
+        Firstlight UI 1.1.0 is the current stable release, tested on physical iOS and Android devices.
+        Some device checks remain manual; spoken screen-reader output and
+        long-running performance tests are not fully recorded.
 
         ## Links
 
