@@ -26,7 +26,7 @@
 
 <x-layouts.app
     title="Firstlight plugins — App Guard, Local OCR and Local AI for NativePHP"
-    description="NativePHP Mobile plugins from Firstlight: App Guard locks and covers your app, and on-device OCR and on-device AI are coming soon. Free and MIT licensed."
+    description="NativePHP Mobile plugins from Firstlight: App Guard locks and covers your app, Local AI generates text with the model on the phone, and on-device OCR is coming soon. Free and MIT licensed."
     main-class="isolate overflow-hidden"
     :schema="$structuredData->plugins($plugins)"
 >

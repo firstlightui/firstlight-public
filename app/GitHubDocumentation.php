@@ -91,7 +91,7 @@ class GitHubDocumentation
         return "## Key pages\n\n"
             ."- [Firstlight UI]({$home}): the app-shell layer for NativePHP, with genuine SwiftUI and Jetpack Compose controls, Laravel validation, recipes, and a Laravel Boost guideline for coding agents.\n"
             ."- [Components]({$components}): the component catalogue, with iOS and Android screenshots.\n"
-            ."- [Plugins]({$plugins}): NativePHP Mobile plugins from Firstlight. App Guard (firstlightui/app-guard) is available; Local OCR and Local AI are coming soon.\n"
+            ."- [Plugins]({$plugins}): NativePHP Mobile plugins from Firstlight. App Guard (firstlightui/app-guard) and Local AI (firstlightui/local-ai) are available; Local OCR is coming soon.\n"
             ."- [Firstlight vs NativePHP Mobile UI]({$comparison}): what each is responsible for, and why they are installed together.\n"
             ."- [Pricing]({$pricing}): Firstlight is free and open source under the MIT licence. There is no paid tier.\n\n";
     }

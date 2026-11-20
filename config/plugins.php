@@ -87,7 +87,7 @@ PHP,
             'slug' => 'local-ai',
             'name' => 'Local AI',
             'package' => 'firstlightui/local-ai',
-            'status' => 'coming_soon',
+            'status' => 'available',
             'summary' => 'Generate text with the model already on the phone: Apple Foundation Models on iOS and Gemini Nano on Android. Prompts and output never leave the device.',
             'description' => 'Local AI uses the operating system’s built-in language model. It doesn’t download a model or run its own inference engine, and it never sends a prompt or its output anywhere. On a device without a supported model it says why, so your app can offer something else.',
             'features' => [
@@ -102,12 +102,31 @@ PHP,
                 ['Generates on', 'iOS 26 or later on a device with Apple Intelligence turned on', 'Devices that support AICore, with a locked bootloader'],
                 ['Installs on', 'iOS 18 or later', 'Android 10 (API 29) or later'],
             ],
-            'requirements' => null,
-            'install' => [],
-            'usage' => null,
+            'requirements' => 'Requires PHP 8.3 or later and NativePHP Mobile ^4.6.1. Installs on iOS 18 or later and Android 10 (API 29) or later; generates on iOS 26 with Apple Intelligence, or on an Android device with Gemini Nano.',
+            'install' => [
+                'composer require firstlightui/local-ai',
+                'php artisan native:plugin:register firstlightui/local-ai',
+            ],
+            'usage' => [
+                'file' => 'AskScreen.php',
+                'code' => <<<'PHP'
+public function ask(): void
+{
+    if (LocalAI::availability()->isAvailable()) {
+        $this->id = LocalAI::generate('Name a cat.')->id;
+    }
+}
+
+#[On(TextDeltaGenerated::class)]
+public function delta(string $id, int $sequence, string $delta): void
+{
+    $this->answer .= $delta;
+}
+PHP,
+            ],
             'docs' => null,
             'github' => 'https://github.com/firstlightui/local-ai',
-            'packagist' => null,
+            'packagist' => 'https://packagist.org/packages/firstlightui/local-ai',
         ],
     ],
 ];
