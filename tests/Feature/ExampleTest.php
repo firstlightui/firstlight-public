@@ -175,7 +175,9 @@ test('the plugins page offers install steps only for available plugins', functio
         ->assertSee('href="https://packagist.org/packages/firstlightui/app-guard"', escape: false)
         ->assertSee('href="https://packagist.org/packages/firstlightui/local-ocr"', escape: false)
         ->assertSee('href="https://packagist.org/packages/firstlightui/local-ai"', escape: false)
-        ->assertDontSeeText('Coming soon');
+        ->assertSeeText('Coming soon')
+        ->assertSee('images/plugins/custom-tabs/ios-editor-light.png', escape: false)
+        ->assertSee('Screenshots from the Firstlight Showcase on iOS');
 });
 
 test('the homepage and navigation lead to the plugins', function () {

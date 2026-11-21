@@ -38,7 +38,7 @@
                     <h1 class="max-w-[18ch] text-5xl font-semibold tracking-tight text-balance text-(--site-heading) sm:text-6xl">Native features for NativePHP apps.</h1>
                 </div>
                 <p class="max-w-[54ch] text-lg text-pretty text-(--site-muted)">
-                    Firstlight also builds NativePHP Mobile plugins for what the phone can do and NativePHP doesn’t expose yet. Each one is free and MIT licensed, and works with or without Firstlight’s controls.
+                    Firstlight also builds NativePHP Mobile plugins for what the phone can do and NativePHP doesn’t expose yet. Each one is free and MIT licensed.
                 </p>
             </div>
 
@@ -101,14 +101,23 @@
 
                 <div class="flex min-w-0 flex-col gap-5">
                     <figure class="flex flex-col gap-3">
-                        <div class="relative overflow-hidden rounded-[min(4vw,var(--radius-panel))] p-4 ring-1 ring-(--site-border) dawn-field sm:p-6 sm:pb-12" role="img" aria-label="Illustration of {{ $plugin['name'] }} on iOS and Android">
+                        <div class="relative overflow-hidden rounded-[min(4vw,var(--radius-panel))] p-4 ring-1 ring-(--site-border) dawn-field sm:p-6 sm:pb-12" @if (empty($plugin['screenshots'])) role="img" aria-label="Illustration of {{ $plugin['name'] }} on iOS and Android" @endif>
                             <div class="absolute inset-0 technical-grid opacity-45" aria-hidden="true"></div>
-                            <div class="relative" aria-hidden="true">
-                                @include('plugins.mockups.'.$plugin['slug'])
-                            </div>
+                            @if (! empty($plugin['screenshots']))
+                                <div class="relative grid grid-cols-3 gap-3 sm:gap-4">
+                                    @foreach ($plugin['screenshots'] as $screenshot)
+                                        <img src="{{ asset($screenshot['src']) }}" alt="{{ $screenshot['alt'] }}" width="460" height="1000" loading="lazy" class="h-auto w-full rounded-[min(3vw,1.25rem)] shadow-xl ring-1 ring-black/10 dark:shadow-none">
+                                    @endforeach
+                                </div>
+                            @else
+                                <div class="relative" aria-hidden="true">
+                                    @include('plugins.mockups.'.$plugin['slug'])
+                                </div>
+                            @endif
                         </div>
                         <figcaption class="text-sm text-(--site-muted)">
                             {{ match (true) {
+                                ! empty($plugin['screenshots']) => 'Screenshots from the Firstlight Showcase on iOS, taken while '.$plugin['name'].' is in development.',
                                 $plugin['slug'] === 'app-guard' => 'Illustration, not a screenshot. Your app draws its own lock screen.',
                                 $plugin['status'] === 'available' => 'Illustration, not a screenshot.',
                                 default => 'Illustration of the plugin in development, not a screenshot.',

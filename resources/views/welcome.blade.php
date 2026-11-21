@@ -634,7 +634,7 @@ Haptics::error();</code></pre>
                     </h2>
                 </div>
                 <p class="{{ $lead }}">
-                    NativePHP Mobile plugins for what the phone can do and NativePHP doesn’t expose yet. Each one is free and MIT licensed, and works with or without Firstlight’s controls.
+                    NativePHP Mobile plugins for what the phone can do and NativePHP doesn’t expose yet. Each one is free and MIT licensed.
                 </p>
             </div>
 
